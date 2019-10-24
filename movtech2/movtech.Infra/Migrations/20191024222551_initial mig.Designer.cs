@@ -8,8 +8,8 @@ using movtech.Infra.Context;
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    [Migration("20191024211048_Migration Inicial")]
-    partial class MigrationInicial
+    [Migration("20191024222551_initial mig")]
+    partial class initialmig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,7 @@ namespace movtech.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Veiculos");
+                    b.ToTable("Vehicles");
                 });
 #pragma warning restore 612, 618
         }

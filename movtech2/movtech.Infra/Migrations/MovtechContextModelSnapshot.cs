@@ -25,7 +25,7 @@ namespace movtech.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Veiculos");
+                    b.ToTable("Vehicles");
                 });
 #pragma warning restore 612, 618
         }

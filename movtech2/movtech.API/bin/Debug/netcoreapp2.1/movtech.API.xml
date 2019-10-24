@@ -4,5 +4,18 @@
         <name>movtech.API</name>
     </assembly>
     <members>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicle(System.Int32)">
+            <summary>
+            Retorna um Veículo baseado no ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetAllVehicles">
+            <summary>
+            Retorna todos os Veiculos
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

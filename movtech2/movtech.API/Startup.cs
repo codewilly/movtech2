@@ -13,7 +13,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using movtech.Domain.Interfaces.Repository;
+using movtech.Domain.Interfaces.Services;
+using movtech.Domain.Services;
 using movtech.Infra.Context;
+using movtech.Infra.Repository;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace movtech.API
@@ -32,6 +36,18 @@ namespace movtech.API
         {
 
             services.AddDbContext<MovtechContext>(opt => opt.UseMySql(Configuration.GetConnectionString("MovTech_Mysql"))); // MYSQL
+
+            #region DI            
+
+            // Service  
+            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+            services.AddScoped<IVehicleService, VehicleService>();
+
+            //Repository
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+
+            #endregion
 
             //Swagger
             services.AddSwaggerGen(options =>

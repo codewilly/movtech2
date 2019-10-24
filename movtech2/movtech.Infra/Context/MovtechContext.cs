@@ -21,7 +21,7 @@ namespace movtech.Infra.Context
 
         }
 
-        DbSet<Vehicle> Veiculos { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
 
     }
 }
