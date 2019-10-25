@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace movtech.Domain.Interfaces.Repository
+namespace movtech.Domain.Interfaces.Services
 {
-    public interface IVehicleRepository : IBaseRepository<Vehicle>
+    public interface IVehicleModelService : IBaseService<VehicleModel>
     {
-
     }
 }

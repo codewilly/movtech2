@@ -17,11 +17,14 @@ namespace movtech.Infra.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Set Specific models Configurations
-            modelBuilder.ApplyConfiguration(new VeiculoConfig());
+            modelBuilder.ApplyConfiguration(new VehicleConfig());
+            modelBuilder.ApplyConfiguration(new VehicleModelConfig());
 
         }
 
         public DbSet<Vehicle> Vehicles { get; set; }
+
+        public DbSet<VehicleModel> VehicleModels { get; set; }
 
     }
 }

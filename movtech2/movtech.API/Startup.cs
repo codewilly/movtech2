@@ -42,10 +42,12 @@ namespace movtech.API
             // Service  
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IVehicleService, VehicleService>();
+            services.AddScoped<IVehicleModelService, VehicleModelService>();
 
             //Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IVehicleModelRepository, VehicleModelRepository>();
 
             #endregion
 

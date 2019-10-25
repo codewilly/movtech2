@@ -17,5 +17,46 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.CreateVehicle(movtech.Domain.Entities.Vehicle)">
+            <summary>
+            Cria uma novo veículo
+            </summary>
+            <param name="vehicleModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.UpdateVehicle(System.Int32,movtech.Domain.Entities.Vehicle)">
+            <summary>
+            Atualiza um veículo
+            </summary>
+            <param name="vehicle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleModel(System.Int32)">
+            <summary>
+            Retorna uma marca baseado no ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetAllVehiclesModels">
+            <summary>
+            Retorna todos os modelos de veículos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.CreateModel(movtech.Domain.Entities.VehicleModel)">
+            <summary>
+            Cria uma novo modelo de uma marca
+            </summary>
+            <param name="vehicleModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.UpdateModel(System.Int32,movtech.Domain.Entities.VehicleModel)">
+            <summary>
+            Atualiza uma marca
+            </summary>
+            <param name="vehicleModel"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

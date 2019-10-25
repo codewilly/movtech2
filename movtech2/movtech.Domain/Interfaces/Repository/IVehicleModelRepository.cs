@@ -5,8 +5,7 @@ using System.Text;
 
 namespace movtech.Domain.Interfaces.Repository
 {
-    public interface IVehicleRepository : IBaseRepository<Vehicle>
-    {
-
+    public interface IVehicleModelRepository : IBaseRepository<VehicleModel>
+    { 
     }
 }
