@@ -21,6 +21,10 @@ namespace movtech.Infra.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
                     b.Property<int>("FuelType");
 
                     b.Property<bool>("InGarage")
@@ -30,47 +34,21 @@ namespace movtech.Infra.Migrations
 
                     b.Property<string>("LicensePlate");
 
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasMaxLength(256);
+
                     b.Property<float>("Quilometers");
 
                     b.Property<string>("Renavam")
                         .IsRequired()
                         .HasMaxLength(11);
 
-                    b.Property<int>("VehicleModelId");
-
                     b.Property<int>("Year");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("VehicleModelId");
-
                     b.ToTable("Vehicles");
-                });
-
-            modelBuilder.Entity("movtech.Domain.Entities.VehicleModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<int>("VehicleBrand");
-
-                    b.Property<int>("VehicleType");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VehicleModels");
-                });
-
-            modelBuilder.Entity("movtech.Domain.Entities.Vehicle", b =>
-                {
-                    b.HasOne("movtech.Domain.Entities.VehicleModel", "VehicleModel")
-                        .WithMany()
-                        .HasForeignKey("VehicleModelId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

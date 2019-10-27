@@ -42,12 +42,11 @@ namespace movtech.API
             // Service  
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IVehicleService, VehicleService>();
-            services.AddScoped<IVehicleModelService, VehicleModelService>();
+            services.AddScoped<IFipeAPIService, FipeAPIService>();
 
             //Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
-            services.AddScoped<IVehicleModelRepository, VehicleModelRepository>();
 
             #endregion
 
@@ -71,6 +70,14 @@ namespace movtech.API
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 options.IncludeXmlComments(xmlPath);
             });
+
+            services.AddHttpClient("FipeApi", c =>
+            {
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("FipeApi:UrlBase"));
+                c.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

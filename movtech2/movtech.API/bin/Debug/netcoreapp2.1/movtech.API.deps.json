@@ -502,6 +502,10 @@
         }
       },
       "movtech.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Http": "2.1.1",
+          "Newtonsoft.Json": "12.0.2"
+        },
         "runtime": {
           "movtech.Domain.dll": {}
         },

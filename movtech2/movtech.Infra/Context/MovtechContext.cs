@@ -18,13 +18,11 @@ namespace movtech.Infra.Context
         {
             // Set Specific models Configurations
             modelBuilder.ApplyConfiguration(new VehicleConfig());
-            modelBuilder.ApplyConfiguration(new VehicleModelConfig());
 
         }
 
         public DbSet<Vehicle> Vehicles { get; set; }
 
-        public DbSet<VehicleModel> VehicleModels { get; set; }
 
     }
 }

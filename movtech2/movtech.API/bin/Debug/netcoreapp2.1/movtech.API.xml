@@ -4,17 +4,17 @@
         <name>movtech.API</name>
     </assembly>
     <members>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetAllVehicles">
+            <summary>
+            Retorna todos os Veiculos
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:movtech.API.Controllers.VehiclesController.GetVehicle(System.Int32)">
             <summary>
             Retorna um Veículo baseado no ID
             </summary>
             <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.GetAllVehicles">
-            <summary>
-            Retorna todos os Veiculos
-            </summary>
             <returns></returns>
         </member>
         <member name="M:movtech.API.Controllers.VehiclesController.CreateVehicle(movtech.Domain.Entities.Vehicle)">
@@ -31,31 +31,28 @@
             <param name="vehicle"></param>
             <returns></returns>
         </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleModel(System.Int32)">
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleBrands(movtech.Domain.Enums.VehicleType)">
             <summary>
-            Retorna uma marca baseado no ID
+            Retorna todas as marcas de um tipo de veículo
             </summary>
-            <param name="id"></param>
+            <param name="tipo">Carro, Moto ou Caminhão</param>
             <returns></returns>
         </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.GetAllVehiclesModels">
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleModels(movtech.Domain.Enums.VehicleType,System.Int32)">
             <summary>
-            Retorna todos os modelos de veículos
+            Retorna todos os modelos de uma determinada marca
             </summary>
+            <param name="tipo">Carro, Moto ou Caminhão</param>
+            <param name="marcaId">ID do Modelo</param>
             <returns></returns>
         </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.CreateModel(movtech.Domain.Entities.VehicleModel)">
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleYears(System.Int32,movtech.Domain.Enums.VehicleType,System.Int32)">
             <summary>
-            Cria uma novo modelo de uma marca
+            Retorna os anos de fabricação de um determinado modelo
             </summary>
-            <param name="vehicleModel"></param>
-            <returns></returns>
-        </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.UpdateModel(System.Int32,movtech.Domain.Entities.VehicleModel)">
-            <summary>
-            Atualiza uma marca
-            </summary>
-            <param name="vehicleModel"></param>
+            <param name="marcaId"></param>
+            <param name="tipo"></param>
+            <param name="modeloId"></param>
             <returns></returns>
         </member>
     </members>

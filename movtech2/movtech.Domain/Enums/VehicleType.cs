@@ -4,15 +4,13 @@ using System.Text;
 
 namespace movtech.Domain.Enums
 {
-    public enum VehicleType
+    public enum VehicleType : int
     {
 
-        Carro,
+        Carro = 1,
 
-        Van,
+        Moto = 2,
 
-        Moto,
-
-        Outro = 99
+        Caminhao = 3
     }
 }

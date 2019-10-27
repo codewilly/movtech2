@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Entities;
+using movtech.Domain.Enums;
 using movtech.Domain.Interfaces.Services;
 
 namespace movtech.API.Controllers
@@ -16,40 +18,17 @@ namespace movtech.API.Controllers
 
         #region Config
         private readonly IVehicleService _vehicleService;
-        private readonly IVehicleModelService _vehicleModelService;
+        private readonly IFipeAPIService _fipeAPIService;
 
-        public VehiclesController(IVehicleService vehicleService, IVehicleModelService vehicleModelService)
+        public VehiclesController(IVehicleService vehicleService, IFipeAPIService fipeAPIService)
         {
             _vehicleService = vehicleService;
-            _vehicleModelService = vehicleModelService;
+            _fipeAPIService = fipeAPIService;
         }
 
         #endregion
 
         #region Vehicle
-
-        /// <summary>
-        /// Retorna um Veículo baseado no ID
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet("{id}")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
-        public IActionResult GetVehicle(int id)
-        {
-            Vehicle _vehicle = _vehicleService.Get(id);
-
-            if (_vehicle != null)
-            {
-                return Ok(_vehicle);
-            }
-            else
-            {
-                return NotFound();
-            }
-
-        }
 
         /// <summary>
         /// Retorna todos os Veiculos
@@ -75,6 +54,30 @@ namespace movtech.API.Controllers
         }
 
         /// <summary>
+        /// Retorna um Veículo baseado no ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult GetVehicle(int id)
+        {
+
+            Vehicle _vehicle = _vehicleService.Get(id);
+
+            if (_vehicle != null)
+            {
+                return Ok(_vehicle);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+        
+        /// <summary>
         /// Cria uma novo veículo
         /// </summary>
         /// <param name="vehicleModel"></param>
@@ -97,8 +100,7 @@ namespace movtech.API.Controllers
             }
 
         }
-
-
+        
         /// <summary>
         /// Atualiza um veículo
         /// </summary>
@@ -126,7 +128,6 @@ namespace movtech.API.Controllers
                 _vehicle.Quilometers = vehicle.Quilometers;
                 _vehicle.FuelType = vehicle.FuelType;
                 _vehicle.InGarage = vehicle.InGarage;
-                _vehicle.VehicleModelId = vehicle.VehicleModelId;
 
                 return Ok(_vehicleService.Update(_vehicle));
             }
@@ -136,51 +137,32 @@ namespace movtech.API.Controllers
             }
 
         }
-
-
+        
         #endregion
 
-        #region Model        
+        #region Marcas e Modelos
 
         /// <summary>
-        /// Retorna uma marca baseado no ID
+        /// Retorna todas as marcas de um tipo de veículo
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="tipo">Carro, Moto ou Caminhão</param>
         /// <returns></returns>
-        [HttpGet("models/{id}")]
+        [HttpGet("marcas")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public IActionResult GetVehicleModel(int id)
-        {
-            VehicleModel _vehicle = _vehicleModelService.Get(id);
-
-            if (_vehicle != null)
-            {
-                return Ok(_vehicle);
-            }
-            else
-            {
-                return NotFound();
-            }
-
-        }
-
-
-        /// <summary>
-        /// Retorna todos os modelos de veículos
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("models")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(404)]
-        public IActionResult GetAllVehiclesModels()
+        public async Task<IActionResult> GetVehicleBrands([FromQuery]VehicleType tipo)
         {
 
-            IEnumerable<VehicleModel> _models = _vehicleModelService.GetAll();
-
-            if (_models.Count() > 0)
+            var retorno = await _fipeAPIService.ConsultarMarcas(new ConsultarMarcasRequest()
             {
-                return Ok(_models);
+                CodigoTabelaReferencia = 231,
+                CodigoTipoVeiculo = tipo
+
+            }); ;
+
+            if (retorno != null)
+            {
+                return Ok(retorno);
             }
             else
             {
@@ -190,62 +172,67 @@ namespace movtech.API.Controllers
         }
 
         /// <summary>
-        /// Cria uma novo modelo de uma marca
+        /// Retorna todos os modelos de uma determinada marca
         /// </summary>
-        /// <param name="vehicleModel"></param>
+        /// <param name="tipo">Carro, Moto ou Caminhão</param>
+        /// <param name="marcaId">ID do Modelo</param>
         /// <returns></returns>
-        [HttpPost("models")]
+        [HttpGet("marcas/{marcaId}/modelos/")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        public IActionResult CreateModel([FromBody]VehicleModel vehicleModel)
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetVehicleModels([FromQuery]VehicleType tipo, int marcaId)
         {
 
-            if (ModelState.IsValid)
+            var retorno = await _fipeAPIService.ConsultarModelos(new ConsultarModelosRequest()
             {
-                
-                return Created("", _vehicleModelService.Insert(vehicleModel));
+                CodigoTabelaReferencia = 231,
+                CodigoTipoVeiculo = tipo,
+                CodigoMarca = marcaId
+            });
+
+            if (retorno != null)
+            {
+                return Ok(retorno);
             }
             else
             {
-                return BadRequest();
+                return NotFound();
             }
 
-        }
+        }        
 
         /// <summary>
-        /// Atualiza uma marca
+        /// Retorna os anos de fabricação de um determinado modelo
         /// </summary>
-        /// <param name="vehicleModel"></param>
+        /// <param name="marcaId"></param>
+        /// <param name="tipo"></param>
+        /// <param name="modeloId"></param>
         /// <returns></returns>
-        [HttpPut("{id}/models")]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(400)]
-        public IActionResult UpdateModel(int id, [FromBody]VehicleModel vehicleModel)
+        [HttpGet("marcas/{marcaId}/modelo/anos")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetVehicleYears(int marcaId,[FromQuery] VehicleType tipo, [FromQuery] int modeloId)
         {
 
-            VehicleModel _vehicleModel = _vehicleModelService.Get(id);
-
-            if (_vehicleModel is null)
+            var retorno = await _fipeAPIService.ConsultarAnoModelo(new ConsultarAnoModeloRequest()
             {
-                return CreateModel(vehicleModel);
-            }
+                CodigoTabelaReferencia = 231,
+                CodigoTipoVeiculo = tipo,
+                CodigoMarca = marcaId, 
+                CodigoModelo = modeloId
 
-            if (ModelState.IsValid)
+            });
+
+            if (retorno != null)
             {
-                // Atualizar
-                _vehicleModel.Name = vehicleModel.Name;
-                _vehicleModel.VehicleBrand = vehicleModel.VehicleBrand;
-                _vehicleModel.VehicleType = vehicleModel.VehicleType;
-
-                return Ok(_vehicleModelService.Update(_vehicleModel));
+                return Ok(retorno);
             }
             else
             {
-                return BadRequest();
-            }
+                return NotFound();
+            }            
 
         }
-
 
         #endregion
 

@@ -9,6 +9,10 @@ namespace movtech.Domain.Entities
     {
         public int Id { get; set; }
 
+        public string Brand { get; set; }
+
+        public string Model { get; set; }
+        
         public string LicensePlate { get; set; }
 
         public string Renavam { get; set; }
@@ -26,10 +30,6 @@ namespace movtech.Domain.Entities
         public FuelType FuelType { get; set; }
 
         public bool InGarage { get; set; } = true;
-
-        public int VehicleModelId { get; set; }
-
-        public VehicleModel VehicleModel { get; set; }
 
         public int SetYear(int year)
         {
