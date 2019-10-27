@@ -1,0 +1,11 @@
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.csprojAssemblyReference.cache
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.Properties.Resources.resources
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.GenerateResource.cache
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\bin\Debug\movtech.Desktop.exe.config
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\bin\Debug\movtech.Desktop.exe
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\bin\Debug\movtech.Desktop.pdb
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.exe
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.pdb
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.MainForm.resources
+C:\Users\Marco\Desktop\DESKTOP\movtech.Desktop\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.HomeForm.resources

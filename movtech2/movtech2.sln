@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movtech.Domain", "movtech.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movtech.API", "movtech.API\movtech.API.csproj", "{0EE1C919-A3B1-4808-BB01-FAAAFBF5E529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movtech.MVC", "movtech.MVC\movtech.MVC.csproj", "{F75371F0-0B9B-4DA4-9E2F-2F7265A0F5AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movtech.MVC", "movtech.MVC\movtech.MVC.csproj", "{F75371F0-0B9B-4DA4-9E2F-2F7265A0F5AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movtech.Desktop", "movtech.Desktop\movtech.Desktop.csproj", "{64D7B43C-69E7-49B4-B703-A0AFAC59BCB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F75371F0-0B9B-4DA4-9E2F-2F7265A0F5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F75371F0-0B9B-4DA4-9E2F-2F7265A0F5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F75371F0-0B9B-4DA4-9E2F-2F7265A0F5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64D7B43C-69E7-49B4-B703-A0AFAC59BCB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64D7B43C-69E7-49B4-B703-A0AFAC59BCB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64D7B43C-69E7-49B4-B703-A0AFAC59BCB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64D7B43C-69E7-49B4-B703-A0AFAC59BCB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{68100459-3738-48C7-8837-3AFE1BC4F606} = {08F82FF8-F879-4901-AB6B-14F91E51831A}
 		{0EE1C919-A3B1-4808-BB01-FAAAFBF5E529} = {6C2F1774-E485-4A66-AB11-8D5C4F21D702}
 		{F75371F0-0B9B-4DA4-9E2F-2F7265A0F5AB} = {6C2F1774-E485-4A66-AB11-8D5C4F21D702}
+		{64D7B43C-69E7-49B4-B703-A0AFAC59BCB1} = {6C2F1774-E485-4A66-AB11-8D5C4F21D702}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA3299C1-D9C1-4439-81FB-1BF7B3D20051}
