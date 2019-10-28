@@ -1,6 +1,6 @@
 using System;
 
-namespace movtech.MVC.Models
+namespace MOVTech.Models
 {
     public class ErrorViewModel
     {
