@@ -42,8 +42,6 @@ namespace movtech.Domain.Entities
 
         public VehicleStatus Status { get; set; } = VehicleStatus.Disponivel;
 
-
-
         #region Contructor
 
         protected Vehicle() {} // EF Ctor
@@ -72,6 +70,25 @@ namespace movtech.Domain.Entities
 
             return kms;
         }
+
+        public char NeedsCNHType()
+        {
+            switch (VehicleType)
+            {
+                case VehicleType.Moto:
+                    return 'A';
+
+                case VehicleType.Carro:
+                    return 'B';
+
+                case VehicleType.Caminhao:
+                    return 'D';
+
+                default:
+                    throw new Exception("Tipo não reconhecido");
+            }
+        }
+
 
         #endregion
 

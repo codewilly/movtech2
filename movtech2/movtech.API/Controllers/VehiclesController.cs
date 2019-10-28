@@ -160,6 +160,12 @@ namespace movtech.API.Controllers
 
         }
 
+        /// <summary>
+        /// Atualiza o status de um veículo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         [HttpPut("{id}/status")]
         [ProducesResponseType(200)]
         public IActionResult ChangeVehicleStatus(int id, [FromQuery]VehicleStatus status)

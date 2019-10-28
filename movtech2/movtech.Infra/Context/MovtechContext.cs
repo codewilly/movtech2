@@ -18,10 +18,16 @@ namespace movtech.Infra.Context
         {
             // Set Specific models Configurations
             modelBuilder.ApplyConfiguration(new VehicleConfig());
+            modelBuilder.ApplyConfiguration(new DriverConfig());
+            modelBuilder.ApplyConfiguration(new EntranceAndExitConfig());
 
         }
 
         public DbSet<Vehicle> Vehicles { get; set; }
+
+        public DbSet<Driver> Drivers { get; set; }
+
+        public DbSet<EntranceAndExit> EntranceAndExits { get; set; }
 
 
     }
