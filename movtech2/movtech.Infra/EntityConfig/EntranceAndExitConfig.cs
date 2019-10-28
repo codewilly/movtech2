@@ -13,6 +13,7 @@ namespace movtech.Infra.EntityConfig
         {
             builder.HasKey(x => x.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Property(p => p.Description).HasMaxLength(255);
             builder.Property(p => p.CreationDate).HasDefaultValue(DateTime.Now).IsRequired();
             builder.Property(p => p.IsEntrance).HasColumnType("bit");
             builder.HasOne(p => p.Vehicle);

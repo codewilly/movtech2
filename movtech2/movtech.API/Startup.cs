@@ -46,11 +46,13 @@ namespace movtech.API
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IFipeAPIService, FipeAPIService>();
             services.AddScoped<IDriverService, DriverService>();
+            services.AddScoped<IEntranceAndExitService, EntranceAndExitService>();
 
             //Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IDriverRepository, DriverRepository>();
+            services.AddScoped<IEntranceAndExitRepository, EntranceAndExitRepository>();
 
             #endregion
 

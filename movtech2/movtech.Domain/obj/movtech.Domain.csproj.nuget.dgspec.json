@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marco\\Desktop\\Movtech 1\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {}
+    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marco\\Desktop\\Movtech 1\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
+    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\Movtech 1\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
         "projectName": "movtech.Domain",
-        "projectPath": "C:\\Users\\Marco\\Desktop\\Movtech 1\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
-        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marco\\Desktop\\Movtech 1\\movtech2\\movtech2\\movtech.Domain\\obj\\",
+        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
+        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -57,10 +58,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -76,7 +76,10 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 28, 14, 1, 23, 356, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 10, 28, 16, 28, 23, 510, DateTimeKind.Local));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255);
 
                     b.Property<int>("DriverId");
 

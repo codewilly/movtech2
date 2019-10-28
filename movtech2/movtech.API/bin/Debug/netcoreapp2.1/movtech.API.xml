@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>movtech.API</name>
+    </assembly>
+    <members>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetAllVehicles">
+            <summary>
+            Retorna todos os Veiculos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicle(System.Int32)">
+            <summary>
+            Retorna um Veículo baseado no ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleByLicensePlate(System.String)">
+            <summary>
+            Retorna um veículo pela placa
+            </summary>
+            <param name="placa"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.CreateVehicle(movtech.API.ViewModels.Vehicle.CreateVehicleViewModel)">
+            <summary>
+            Cria uma novo veículo
+            </summary>
+            <param name="vehicleModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.UpdateVehicle(System.Int32,movtech.API.ViewModels.Vehicle.UpdateVehicleViewModel)">
+            <summary>
+            Atualiza um veículo
+            </summary>
+            <param name="id"></param>
+            <param name="vehicleModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.ChangeVehicleStatus(System.Int32,movtech.Domain.Enums.VehicleStatus)">
+            <summary>
+            Atualiza o status de um veículo
+            </summary>
+            <param name="id"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleBrands(movtech.Domain.Enums.VehicleType)">
+            <summary>
+            Retorna todas as marcas de um tipo de veículo
+            </summary>
+            <param name="tipo">Carro, Moto ou Caminhão</param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleModels(movtech.Domain.Enums.VehicleType,System.Int32)">
+            <summary>
+            Retorna todos os modelos de uma determinada marca
+            </summary>
+            <param name="tipo">Carro, Moto ou Caminhão</param>
+            <param name="marcaId">ID do Modelo</param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleYears(System.Int32,movtech.Domain.Enums.VehicleType,System.Int32)">
+            <summary>
+            Retorna os anos de fabricação de um determinado modelo
+            </summary>
+            <param name="marcaId"></param>
+            <param name="tipo"></param>
+            <param name="modeloId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

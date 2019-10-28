@@ -94,6 +94,28 @@ namespace movtech.Domain.Entities
             }
         }
 
+        public void EntranceInGarage()
+        {
+            if (InGarage){
+                throw new InvalidOperationException("Este veículo já está na garagem!");
+            }
+            else
+            {
+                InGarage = true;
+            }
+        }
+
+        public void ExitGarage()
+        {
+            if (!InGarage)
+            {
+                throw new InvalidOperationException("Este veículo já está fora da garagem!");
+            }
+            else
+            {
+                InGarage = false;
+            }
+        }
 
         #endregion
 

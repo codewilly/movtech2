@@ -12,7 +12,7 @@ namespace movtech.Domain.Entities
 
         public int VehicleId { get; set; }
 
-        public Vehicle Vehicle { get; set; }        
+        public Vehicle Vehicle { get; set; }
 
         public int DriverId { get; set; }
 
@@ -21,6 +21,18 @@ namespace movtech.Domain.Entities
         public float VehicleKms { get; set; }
 
         public bool IsEntrance { get; set; }
+
+        public string Description { get; set; }
+
+
+        public override string ToString()
+        {
+
+            var _entrouSaiu = IsEntrance ? "entrou na" : "saiu da";
+
+            return $"{Driver.Name} {_entrouSaiu} garagem com o veículo de placa {Vehicle.LicensePlate} em {CreationDate}";
+
+        }
 
     }
 }
