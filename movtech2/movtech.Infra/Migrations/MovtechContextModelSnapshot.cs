@@ -32,7 +32,9 @@ namespace movtech.Infra.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<string>("LicensePlate");
+                    b.Property<string>("LicensePlate")
+                        .IsRequired()
+                        .HasMaxLength(8);
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -44,9 +46,18 @@ namespace movtech.Infra.Migrations
                         .IsRequired()
                         .HasMaxLength(11);
 
+                    b.Property<int>("Status");
+
+                    b.Property<int>("VehicleType");
+
                     b.Property<int>("Year");
 
                     b.HasKey("Id");
+
+                    b.HasAlternateKey("LicensePlate");
+
+
+                    b.HasAlternateKey("Renavam");
 
                     b.ToTable("Vehicles");
                 });

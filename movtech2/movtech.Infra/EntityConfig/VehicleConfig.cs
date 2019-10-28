@@ -13,6 +13,9 @@ namespace movtech.Infra.EntityConfig
         {
             builder.HasKey(x => x.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Property(p => p.LicensePlate).IsRequired().HasMaxLength(8);
+            builder.HasAlternateKey(p => p.LicensePlate);
+            builder.HasAlternateKey(p => p.Renavam);
             builder.Property(p => p.Renavam).HasMaxLength(11).IsRequired();
             builder.Property(p => p.Brand).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Model).HasMaxLength(256).IsRequired();

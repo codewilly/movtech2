@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using movtech.API.ViewModels;
 using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
@@ -76,7 +77,7 @@ namespace movtech.API.Controllers
             }
 
         }
-        
+
         /// <summary>
         /// Cria uma novo veículo
         /// </summary>
@@ -85,49 +86,70 @@ namespace movtech.API.Controllers
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public IActionResult CreateVehicle([FromBody]Vehicle vehicleModel)
+        public IActionResult CreateVehicle([FromBody]CreateVehicleViewModel vehicleModel)
         {
 
-            // TODO Arrumar bug do ano
-            if (ModelState.IsValid)
+            try
             {
+                // TODO Arrumar bug do ano
+                if (ModelState.IsValid)
+                {
 
-                return Created("", _vehicleService.Insert(vehicleModel));
+                    Vehicle vehicle = new Vehicle(vehicleModel.Year)
+                    {
+                        Brand = vehicleModel.Brand,
+                        Model = vehicleModel.Model,
+                        LicensePlate = vehicleModel.LicensePlate,
+                        Renavam = vehicleModel.Renavam,
+                        Quilometers = vehicleModel.Quilometers,
+                        FuelType = vehicleModel.FuelType,
+                        VehicleType = vehicleModel.VehicleType
+
+                    };
+
+                    return Created("", _vehicleService.Insert(vehicle));
+                }
+                else
+                {
+                    return BadRequest();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.InnerException);
             }
 
         }
-        
+
         /// <summary>
         /// Atualiza um veículo
         /// </summary>
-        /// <param name="vehicle"></param>
+        /// <param name="id"></param>
+        /// <param name="vehicleModel"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public IActionResult UpdateVehicle(int id, [FromBody]Vehicle vehicle)
+        [ProducesResponseType(404)]
+        public IActionResult UpdateVehicle(int id, [FromBody]UpdateVehicleViewModel vehicleModel)
         {
 
             Vehicle _vehicle = _vehicleService.Get(id);
 
             if (_vehicle is null)
             {
-                return CreateVehicle(vehicle);
+                return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                // Atualizar       
-                _vehicle.LicensePlate = vehicle.LicensePlate;
-                _vehicle.Renavam = vehicle.Renavam;
-                _vehicle.SetYear(vehicle.Year);
-                _vehicle.Quilometers = vehicle.Quilometers;
-                _vehicle.FuelType = vehicle.FuelType;
-                _vehicle.InGarage = vehicle.InGarage;
+                // Atualizar   
+                _vehicle.Brand = vehicleModel.Brand;
+                _vehicle.Model = vehicleModel.Model;
+                _vehicle.Year = vehicleModel.Year;
+                _vehicle.Quilometers = vehicleModel.Quilometers;
+                _vehicle.FuelType = vehicleModel.FuelType;
+                _vehicle.VehicleType = vehicleModel.VehicleType;
 
                 return Ok(_vehicleService.Update(_vehicle));
             }
@@ -137,7 +159,24 @@ namespace movtech.API.Controllers
             }
 
         }
-        
+
+        [HttpPut("{id}/status")]
+        [ProducesResponseType(200)]
+        public IActionResult ChangeVehicleStatus(int id, [FromQuery]VehicleStatus status)
+        {
+            Vehicle _vehicle = _vehicleService.Get(id);
+
+            if (_vehicle is null)
+            {
+                return NotFound();
+            }
+
+            _vehicle.Status = status;
+
+            return Ok(_vehicleService.Update(_vehicle));
+
+        }
+
         #endregion
 
         #region Marcas e Modelos
@@ -199,7 +238,7 @@ namespace movtech.API.Controllers
                 return NotFound();
             }
 
-        }        
+        }
 
         /// <summary>
         /// Retorna os anos de fabricação de um determinado modelo
@@ -211,14 +250,14 @@ namespace movtech.API.Controllers
         [HttpGet("marcas/{marcaId}/modelo/anos")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetVehicleYears(int marcaId,[FromQuery] VehicleType tipo, [FromQuery] int modeloId)
+        public async Task<IActionResult> GetVehicleYears(int marcaId, [FromQuery] VehicleType tipo, [FromQuery] int modeloId)
         {
 
             var retorno = await _fipeAPIService.ConsultarAnoModelo(new ConsultarAnoModeloRequest()
             {
                 CodigoTabelaReferencia = 231,
                 CodigoTipoVeiculo = tipo,
-                CodigoMarca = marcaId, 
+                CodigoMarca = marcaId,
                 CodigoModelo = modeloId
 
             });
@@ -230,7 +269,7 @@ namespace movtech.API.Controllers
             else
             {
                 return NotFound();
-            }            
+            }
 
         }
 

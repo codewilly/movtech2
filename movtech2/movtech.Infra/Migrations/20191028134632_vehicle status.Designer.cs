@@ -8,8 +8,8 @@ using movtech.Infra.Context;
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    [Migration("20191027172548_initial migration")]
-    partial class initialmigration
+    [Migration("20191028134632_vehicle status")]
+    partial class vehiclestatus
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,9 @@ namespace movtech.Infra.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<string>("LicensePlate");
+                    b.Property<string>("LicensePlate")
+                        .IsRequired()
+                        .HasMaxLength(8);
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -46,9 +48,18 @@ namespace movtech.Infra.Migrations
                         .IsRequired()
                         .HasMaxLength(11);
 
+                    b.Property<int>("Status");
+
+                    b.Property<int>("VehicleType");
+
                     b.Property<int>("Year");
 
                     b.HasKey("Id");
+
+                    b.HasAlternateKey("LicensePlate");
+
+
+                    b.HasAlternateKey("Renavam");
 
                     b.ToTable("Vehicles");
                 });

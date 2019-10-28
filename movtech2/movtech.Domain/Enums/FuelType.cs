@@ -6,15 +6,15 @@ namespace movtech.Domain.Enums
 {
     public enum FuelType
     {
-        Gasolina,
+        Gasolina = 1,
 
-        Alcool,
+        Alcool = 2,
 
-        Flex,
+        Flex = 3,
 
-        GNV,
+        GNV = 4,
 
-        Diesel,
+        Diesel = 5,
 
         Outro = 99
     }

@@ -17,18 +17,19 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.CreateVehicle(movtech.Domain.Entities.Vehicle)">
+        <member name="M:movtech.API.Controllers.VehiclesController.CreateVehicle(movtech.API.ViewModels.CreateVehicleViewModel)">
             <summary>
             Cria uma novo veículo
             </summary>
             <param name="vehicleModel"></param>
             <returns></returns>
         </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.UpdateVehicle(System.Int32,movtech.Domain.Entities.Vehicle)">
+        <member name="M:movtech.API.Controllers.VehiclesController.UpdateVehicle(System.Int32,movtech.API.ViewModels.UpdateVehicleViewModel)">
             <summary>
             Atualiza um veículo
             </summary>
-            <param name="vehicle"></param>
+            <param name="id"></param>
+            <param name="vehicleModel"></param>
             <returns></returns>
         </member>
         <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleBrands(movtech.Domain.Enums.VehicleType)">

@@ -31,3 +31,4 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\m
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.pdb
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.csproj.CopyComplete
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.csprojAssemblyReference.cache
