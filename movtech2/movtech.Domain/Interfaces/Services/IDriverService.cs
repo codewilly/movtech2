@@ -5,8 +5,8 @@ using System.Text;
 
 namespace movtech.Domain.Interfaces.Services
 {
-    public interface IVehicleService : IBaseService<Vehicle>
+    public interface IDriverService : IBaseService<Driver>
     {
-        Vehicle GetByLicensePlate(string lp);
+        Driver GetByCPF(string cpf);
     }
 }

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace movtech.Domain.Interfaces.Repository
 {
-    public interface IVehicleRepository : IBaseRepository<Vehicle>
+    public interface IDriverRepository : IBaseRepository<Driver>
     {
-        Vehicle GetByLicensePlate(string lp);
+        Driver GetByCPF(string cpf);
     }
 }

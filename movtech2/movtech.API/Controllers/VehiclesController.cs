@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using movtech.API.ViewModels;
+using movtech.API.ViewModels.Vehicle;
 using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
@@ -77,6 +77,31 @@ namespace movtech.API.Controllers
             }
 
         }
+
+        /// <summary>
+        /// Retorna um veículo pela placa
+        /// </summary>
+        /// <param name="placa"></param>
+        /// <returns></returns>
+        [HttpGet("LicensePlate/{placa}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult GetVehicleByLicensePlate(string placa)
+        {
+
+            Vehicle _vehicle = _vehicleService.GetByLicensePlate(placa);
+
+            if (_vehicle != null)
+            {
+                return Ok(_vehicle);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
 
         /// <summary>
         /// Cria uma novo veículo

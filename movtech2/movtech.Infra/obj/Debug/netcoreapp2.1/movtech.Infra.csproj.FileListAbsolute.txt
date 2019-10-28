@@ -1,11 +1,11 @@
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.AssemblyInfoInputs.cache
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.AssemblyInfo.cs
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.csprojAssemblyReference.cache
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\bin\Debug\netcoreapp2.1\movtech.Infra.deps.json
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\bin\Debug\netcoreapp2.1\movtech.Infra.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\bin\Debug\netcoreapp2.1\movtech.Infra.pdb
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\bin\Debug\netcoreapp2.1\movtech.Domain.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\bin\Debug\netcoreapp2.1\movtech.Domain.pdb
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.csprojAssemblyReference.cache
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.AssemblyInfoInputs.cache
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.AssemblyInfo.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.csproj.CopyComplete
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Infra\obj\Debug\netcoreapp2.1\movtech.Infra.pdb

@@ -18,6 +18,8 @@ using movtech.Domain.Interfaces.Services;
 using movtech.Domain.Services;
 using movtech.Infra.Context;
 using movtech.Infra.Repository;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace movtech.API
@@ -43,10 +45,12 @@ namespace movtech.API
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<IFipeAPIService, FipeAPIService>();
+            services.AddScoped<IDriverService, DriverService>();
 
             //Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IDriverRepository, DriverRepository>();
 
             #endregion
 
@@ -79,7 +83,11 @@ namespace movtech.API
 
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

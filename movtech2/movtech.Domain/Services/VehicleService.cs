@@ -17,5 +17,9 @@ namespace movtech.Domain.Services
             _vehicleRepository = vehicleRepository;
         }
 
+        public Vehicle GetByLicensePlate(string lp)
+        {
+            return _vehicleRepository.GetByLicensePlate(lp);
+        }
     }
 }

@@ -42,6 +42,11 @@ namespace movtech.Domain.Entities
 
         public VehicleStatus Status { get; set; } = VehicleStatus.Disponivel;
 
+        public Driver Driver { get; set; }
+
+        public int? DriverId { get; set; }
+
+
         #region Contructor
 
         protected Vehicle() {} // EF Ctor

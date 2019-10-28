@@ -17,14 +17,21 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.CreateVehicle(movtech.API.ViewModels.CreateVehicleViewModel)">
+        <member name="M:movtech.API.Controllers.VehiclesController.GetVehicleByLicensePlate(System.String)">
+            <summary>
+            Retorna um veículo pela placa
+            </summary>
+            <param name="placa"></param>
+            <returns></returns>
+        </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.CreateVehicle(movtech.API.ViewModels.Vehicle.CreateVehicleViewModel)">
             <summary>
             Cria uma novo veículo
             </summary>
             <param name="vehicleModel"></param>
             <returns></returns>
         </member>
-        <member name="M:movtech.API.Controllers.VehiclesController.UpdateVehicle(System.Int32,movtech.API.ViewModels.UpdateVehicleViewModel)">
+        <member name="M:movtech.API.Controllers.VehiclesController.UpdateVehicle(System.Int32,movtech.API.ViewModels.Vehicle.UpdateVehicleViewModel)">
             <summary>
             Atualiza um veículo
             </summary>

@@ -8,6 +8,7 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\bin\Debug\netcoreapp2.1\m
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\bin\Debug\netcoreapp2.1\movtech.MVC.pdb
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\bin\Debug\netcoreapp2.1\movtech.MVC.Views.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\bin\Debug\netcoreapp2.1\movtech.MVC.Views.pdb
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.csprojAssemblyReference.cache
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.RazorAssemblyInfo.cache
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.RazorAssemblyInfo.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.AssemblyInfoInputs.cache
@@ -31,4 +32,3 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\m
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.pdb
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.csproj.CopyComplete
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.csprojAssemblyReference.cache

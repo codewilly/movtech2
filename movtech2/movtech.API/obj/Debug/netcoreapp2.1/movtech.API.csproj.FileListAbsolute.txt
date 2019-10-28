@@ -1,8 +1,3 @@
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.RazorAssemblyInfo.cache
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.RazorAssemblyInfo.cs
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.AssemblyInfoInputs.cache
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.AssemblyInfo.cs
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.csprojAssemblyReference.cache
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\bin\Debug\netcoreapp2.1\appsettings.Development.json
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\bin\Debug\netcoreapp2.1\appsettings.json
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
@@ -16,6 +11,11 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\bin\Debug\netcoreapp2.1\m
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\bin\Debug\netcoreapp2.1\movtech.Infra.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\bin\Debug\netcoreapp2.1\movtech.Domain.pdb
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\bin\Debug\netcoreapp2.1\movtech.Infra.pdb
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.csprojAssemblyReference.cache
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.RazorAssemblyInfo.cache
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.RazorAssemblyInfo.cs
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.AssemblyInfoInputs.cache
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.AssemblyInfo.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.RazorTargetAssemblyInfo.cache
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.csproj.CopyComplete
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.API\obj\Debug\netcoreapp2.1\movtech.API.dll

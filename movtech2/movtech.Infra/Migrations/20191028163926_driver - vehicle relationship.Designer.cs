@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using movtech.Infra.Context;
 
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    partial class MovtechContextModelSnapshot : ModelSnapshot
+    [Migration("20191028163926_driver - vehicle relationship")]
+    partial class drivervehiclerelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,14 +54,9 @@ namespace movtech.Infra.Migrations
                         .IsRequired()
                         .HasMaxLength(15);
 
-                    b.Property<int>("Status");
-
                     b.Property<int?>("VehicleId");
 
                     b.HasKey("Id");
-
-                    b.HasAlternateKey("CNH");
-
 
                     b.HasAlternateKey("CPF");
 
@@ -76,7 +73,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 28, 14, 1, 23, 356, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 10, 28, 13, 39, 25, 937, DateTimeKind.Local));
 
                     b.Property<int>("DriverId");
 

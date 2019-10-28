@@ -21,7 +21,10 @@ namespace movtech.Infra.EntityConfig
             builder.Property(p => p.Email).IsRequired().HasMaxLength(255);
             builder.Property(p => p.Address).IsRequired().HasMaxLength(255);
             builder.Property(p => p.CNH).IsRequired().HasMaxLength(11);
+            builder.HasAlternateKey(p => p.CNH);
             builder.Property(p => p.CNHCategory).IsRequired().HasMaxLength(4);
+
+            builder.HasOne(p => p.Vehicle).WithOne(p => p.Driver).HasForeignKey<Driver>(p => p.VehicleId).IsRequired(false);
         }
     }
 }
