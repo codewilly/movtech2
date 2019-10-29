@@ -1,4 +1,5 @@
-﻿using System;
+﻿using movtech.API.ViewModels.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace movtech.API.ViewModels.Driver
 {
-    public class UpdateDriverViewModel
+    public class UpdateDriverViewModel : AddressViewModel
     {
         [Required(ErrorMessage = "Preencha este campo!")]
         public string Name { get; set; }

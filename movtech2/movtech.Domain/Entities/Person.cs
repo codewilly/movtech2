@@ -1,10 +1,11 @@
-﻿using System;
+﻿using movtech.Domain.Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace movtech.Domain.Entities
 {
-    public class Person
+    public class Person : Address
     {
         public int Id { get; set; }
 
@@ -18,6 +19,6 @@ namespace movtech.Domain.Entities
 
         public string Email { get; set; }
 
-        public string Address { get; set; }
+        
     }
 }

@@ -47,12 +47,16 @@ namespace movtech.API
             services.AddScoped<IFipeAPIService, FipeAPIService>();
             services.AddScoped<IDriverService, DriverService>();
             services.AddScoped<IEntranceAndExitService, EntranceAndExitService>();
+            services.AddScoped<IRefuelService, RefuelService>();
+            services.AddScoped<IGasStationService, GasStationService>();
 
             //Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IDriverRepository, DriverRepository>();
             services.AddScoped<IEntranceAndExitRepository, EntranceAndExitRepository>();
+            services.AddScoped<IRefuelRepository, RefuelRepository>();
+            services.AddScoped<IGasStationRepository, GasStationRepository>();
 
             #endregion
 
@@ -82,9 +86,7 @@ namespace movtech.API
                 c.BaseAddress = new Uri(Configuration.GetValue<string>("FipeApi:UrlBase"));
                 c.DefaultRequestHeaders.Add("Accept", "application/json");
             });
-
-
-
+                       
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

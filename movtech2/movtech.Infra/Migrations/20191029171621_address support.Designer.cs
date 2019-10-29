@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using movtech.Infra.Context;
 
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    partial class MovtechContextModelSnapshot : ModelSnapshot
+    [Migration("20191029171621_address support")]
+    partial class addresssupport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

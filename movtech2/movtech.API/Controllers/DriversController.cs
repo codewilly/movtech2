@@ -103,9 +103,14 @@ namespace movtech.API.Controllers
                         BirthDate = viewModel.BirthDate,
                         Phone = viewModel.Phone,
                         Email = viewModel.Email,
-                        Address = viewModel.Address,
                         CNH = viewModel.CNH,
-                        CNHCategory = viewModel.CNHCategory
+                        CNHCategory = viewModel.CNHCategory,
+                        CEP = viewModel.CEP,
+                        Street = viewModel.Street,
+                        Number = viewModel.Number,
+                        Neighborhood = viewModel.Neighborhood,
+                        City = viewModel.City,
+                        UF = viewModel.UF
 
                     };
 
@@ -145,9 +150,13 @@ namespace movtech.API.Controllers
                 _driver.BirthDate = viewModel.BirthDate;
                 _driver.Phone = viewModel.Phone;
                 _driver.Email = viewModel.Email;
-                _driver.Address = viewModel.Address;
-                _driver.CNHCategory = viewModel.CNHCategory;   
-
+                _driver.CNHCategory = viewModel.CNHCategory;
+                _driver.CEP = viewModel.CEP;
+                _driver.Street = viewModel.Street;
+                _driver.Number = viewModel.Number;
+                _driver.Neighborhood = viewModel.Neighborhood;
+                _driver.City = viewModel.City;
+                _driver.UF = viewModel.UF;
 
                 return Ok(_driverService.Update(_driver));
             }
