@@ -21,6 +21,37 @@ namespace movtech.Domain.Entities
 
         public Vehicle Vehicle { get; set; }
 
+        public Driver Driver { get; set; }
+        
         public GasStation GasStation { get; set; }
+
+
+        public string IsValidate()
+        {
+            var _total =  Math.Round(LiterValue * Liters,2);
+            if (_total != TotalValue)
+            {
+                return "O valor total não é bate com a quantidade de litros * preço do litro.";
+            }
+
+            if (Vehicle == null)
+            {
+                return "Veículo não encontrado";
+            }
+            
+            if (Driver == null)
+            {
+                return "Veículo não encontrado";
+            }
+
+            if (GasStation == null)
+            {
+                return "Posto de gasolina não encontrado";
+            }
+
+
+            return "ok";
+        }
+
     }
 }

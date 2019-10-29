@@ -16,5 +16,10 @@ namespace movtech.Domain.Services
         {
             _gasStationRepository = gasStationRepository;
         }
+
+        public GasStation GetByCnpj(string cnpj)
+        {
+            return _gasStationRepository.GetByCnpj(cnpj);
+        }
     }
 }

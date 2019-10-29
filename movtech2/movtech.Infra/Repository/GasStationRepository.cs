@@ -3,6 +3,7 @@ using movtech.Domain.Interfaces.Repository;
 using movtech.Infra.Context;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace movtech.Infra.Repository
@@ -14,6 +15,11 @@ namespace movtech.Infra.Repository
         public GasStationRepository(MovtechContext context) : base(context)
         {
             _context = context;
+        }
+
+        public GasStation GetByCnpj(string cnpj)
+        {
+            return _context.GasStations.Where(d => d.CNPJ == cnpj).FirstOrDefault();
         }
     }
 }

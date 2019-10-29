@@ -7,5 +7,7 @@ namespace movtech.Domain.Interfaces.Repository
 {
     public interface IGasStationRepository : IBaseRepository<GasStation>
     {
+
+        GasStation GetByCnpj(string cnpj);
     }
 }

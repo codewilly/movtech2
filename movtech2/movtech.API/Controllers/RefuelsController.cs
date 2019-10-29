@@ -19,11 +19,16 @@ namespace movtech.API.Controllers
 
         private readonly IRefuelService _refuelService;
         private readonly IGasStationService _gasStationService;
+        private readonly IDriverService _driverService;
+        private readonly IVehicleService _vehicleService;
 
-        public RefuelsController(IRefuelService refuelService, IGasStationService gasStationService)
+        public RefuelsController(IRefuelService refuelService, IGasStationService gasStationService,
+                                 IDriverService driverService, IVehicleService vehicleService)
         {
             _refuelService = refuelService;
             _gasStationService = gasStationService;
+            _driverService = driverService;
+            _vehicleService = vehicleService;
 
         }
 
@@ -31,6 +36,94 @@ namespace movtech.API.Controllers
 
         #region Refuel
 
+        [HttpGet("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult GetRefuel(int id)
+        {
+
+            Refuel _refuel = _refuelService.Get(id);
+
+            if (_refuel != null)
+            {
+                return Ok(_refuel);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+               
+        [HttpPost("")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        public IActionResult RegisterRefuel([FromBody]RegisterRefuelViewModel viewModel)
+        {
+
+            try
+            {
+                // TODO Arrumar bug do ano
+                if (ModelState.IsValid)
+                {
+
+                    Vehicle _vehicle = _vehicleService.GetByLicensePlate(viewModel.VehicleLicensePlate);
+                    Driver _driver = _driverService.GetByCPF(viewModel.DriverCPF);
+                    GasStation _gasStation = _gasStationService.GetByCnpj(viewModel.GasStationCNPJ);
+
+                    Refuel refuel = new Refuel()
+                    {
+                        TotalValue = viewModel.TotalValue,
+                        LiterValue = viewModel.LiterValue,
+                        Liters = viewModel.Liters,
+                        FuelType = viewModel.FuelType,
+                        RefuelDate = viewModel.RefuelDate,
+                        Driver = _driver,
+                        Vehicle = _vehicle,
+                        GasStation = _gasStation
+                    };
+
+                    string _refuelFeedback = refuel.IsValidate();
+
+                    if (_refuelFeedback == "ok")
+                    {
+                        return Created("", _refuelService.Insert(refuel));
+                    }
+                    else
+                    {
+                        return BadRequest(_refuelFeedback);
+                    }
+
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException);
+            }
+
+        }
+
+
+        [HttpGet("log")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> RefuelLog([FromQuery] string placa = "", [FromQuery] string cpf = "", [FromQuery] string cnpj = "", bool asc = true)
+        {
+
+            try
+            {
+                return Ok(await _refuelService.GetRefuelLog(placa, cpf, cnpj, asc));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException);
+            }
+
+        }
         #endregion
 
         #region GasStation

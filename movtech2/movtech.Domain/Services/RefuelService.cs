@@ -4,6 +4,7 @@ using movtech.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace movtech.Domain.Services
 {
@@ -15,6 +16,11 @@ namespace movtech.Domain.Services
         public RefuelService(IRefuelRepository refuelRepository) : base(refuelRepository)
         {
             _refuelRepository = refuelRepository;
+        }
+
+        public Task<List<Refuel>> GetRefuelLog(string placa, string cpf, string cnpj, bool asc)
+        {
+            return _refuelRepository.GetRefuelLog(placa, cpf, cnpj, asc);
         }
     }
 }

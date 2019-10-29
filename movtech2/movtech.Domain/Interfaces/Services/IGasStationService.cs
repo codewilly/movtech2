@@ -7,5 +7,6 @@ namespace movtech.Domain.Interfaces.Services
 {
     public interface IGasStationService : IBaseService<GasStation>
     {
+        GasStation GetByCnpj(string cnpj);
     }
 }
