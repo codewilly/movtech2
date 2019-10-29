@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using movtech.Infra.Context;
 
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    partial class MovtechContextModelSnapshot : ModelSnapshot
+    [Migration("20191029152434_refuel and gasstation")]
+    partial class refuelandgasstation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,7 +78,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 29, 12, 26, 58, 732, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 10, 29, 12, 24, 34, 733, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -132,6 +134,8 @@ namespace movtech.Infra.Migrations
 
                     b.Property<int?>("GasStationId");
 
+                    b.Property<int?>("GasStationId1");
+
                     b.Property<double>("LiterValue");
 
                     b.Property<float>("Liters");
@@ -145,6 +149,8 @@ namespace movtech.Infra.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("GasStationId");
+
+                    b.HasIndex("GasStationId1");
 
                     b.HasIndex("VehicleId");
 
@@ -222,8 +228,12 @@ namespace movtech.Infra.Migrations
             modelBuilder.Entity("movtech.Domain.Entities.Refuel", b =>
                 {
                     b.HasOne("movtech.Domain.Entities.GasStation", "GasStation")
-                        .WithMany("Refuels")
+                        .WithMany()
                         .HasForeignKey("GasStationId");
+
+                    b.HasOne("movtech.Domain.Entities.GasStation")
+                        .WithMany("Refuels")
+                        .HasForeignKey("GasStationId1");
 
                     b.HasOne("movtech.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()

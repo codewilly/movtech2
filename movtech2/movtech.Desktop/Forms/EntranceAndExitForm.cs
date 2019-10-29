@@ -17,6 +17,8 @@ namespace movtech.Desktop.Forms
         {
             InitializeComponent();
             this.dataGridVehicle.DataSource = Vehicle.GetAll();
+            
+            
         }
     }
 }

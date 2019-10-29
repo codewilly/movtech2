@@ -94,26 +94,28 @@ namespace movtech.Domain.Entities
             }
         }
 
-        public void EntranceInGarage()
+        public string EntranceInGarage()
         {
             if (InGarage){
-                throw new InvalidOperationException("Este veículo já está na garagem!");
+               return ($"{LicensePlate} já está na garagem.");
             }
             else
             {
                 InGarage = true;
+                return "ok";
             }
         }
 
-        public void ExitGarage()
+        public string ExitGarage()
         {
             if (!InGarage)
             {
-                throw new InvalidOperationException("Este veículo já está fora da garagem!");
+                return ($"{LicensePlate} já está fora da garagem!");
             }
             else
             {
                 InGarage = false;
+                return "ok";
             }
         }
 

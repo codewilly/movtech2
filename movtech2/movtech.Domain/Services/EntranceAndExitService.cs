@@ -5,11 +5,14 @@ using movtech.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace movtech.Domain.Services
 {
     public class EntranceAndExitService : BaseService<EntranceAndExit>, IEntranceAndExitService
     {
+        private List<AuxModelState> ModelStateErrors;
+
         private readonly IEntranceAndExitRepository _entranceAndExitRepository;
 
         public EntranceAndExitService(IEntranceAndExitRepository entranceAndExitRepository) : base(entranceAndExitRepository)
@@ -17,99 +20,70 @@ namespace movtech.Domain.Services
             _entranceAndExitRepository = entranceAndExitRepository;
         }
 
+        private void AddModelStateError(string field, string message)
+        {
+            ModelStateErrors.Add(new AuxModelState()
+            {
+                Field = field,
+                Message = message
+            });
+        }
+
         public List<AuxModelState> EntranceExitValidation(Vehicle vehicle, Driver driver, float Quilometers, bool IsEntrance)
         {
-
-            var _modelState = new List<AuxModelState>();
+            ModelStateErrors = new List<AuxModelState>();
 
             if (vehicle is null)
             {
-                _modelState.Add(new AuxModelState()
-                {
-                    Field = "VehicleId",
-                    Message = "Veículo não encontrado"
-                });
+                AddModelStateError("VehicleId", "Veículo não encontrado");
             }
 
             if (driver is null)
             {
-                _modelState.Add(new AuxModelState()
-                {
-                    Field = "DriverId",
-                    Message = "Motorista não encontrado"
-                });
+                AddModelStateError("DriverId", "Motorista não encontrado");
             }
 
-            if (driver != null)
+            if (driver != null && vehicle != null)
             {
-                if (driver.Vehicle != null)
+
+                if (Quilometers < vehicle.Quilometers)
                 {
-                    if (vehicle.Driver != null)
-                    {
-                        if (vehicle.Id != driver.Vehicle.Id)
-                        {
-                            _modelState.Add(new AuxModelState()
-                            {
-                                Field = "model",
-                                Message = "O veículo não está associado ao motorista do CPF informado"
-                            });
-                        }
-                    }
-                    else
-                    {
-                        _modelState.Add(new AuxModelState()
-                        {
-                            Field = "model",
-                            Message = "O veículo não está associado a nenhum motorista"
-                        });
-                    }
-
-                    if (Quilometers < vehicle.Quilometers)
-                    {
-                        _modelState.Add(new AuxModelState()
-                        {
-                            Field = "Quilometers",
-                            Message = $"A quilometragem informada ({Quilometers} kms) não pode ser menor que a quilometragem atual ({vehicle.Quilometers} kms) do veículo."
-                        });
-                    }
-
-                    try
-                    {
-                        if (IsEntrance)
-                        {
-                            vehicle.EntranceInGarage();
-                        }
-                        else
-                        {
-                            vehicle.ExitGarage();
-                        }
-                    }
-                    catch (InvalidOperationException ex)
-                    {
-                        _modelState.Add(new AuxModelState()
-                        {
-                            Field = "model",
-                            Message = ex.Message
-                        });
-                    }
+                    AddModelStateError("Quilometers", $"A quilometragem informada ({Quilometers} kms) não pode ser menor que a quilometragem atual ({vehicle.Quilometers} kms) do veículo.");
                 }
-                else
+
+                string _inOrOutFeedback = IsEntrance ? driver.GetOutVehicle(vehicle.LicensePlate) : driver.GetInVehicle(vehicle);
+
+                if (_inOrOutFeedback != "ok")
                 {
-                    _modelState.Add(new AuxModelState()
-                    {
-                        Field = "model",
-                        Message = "O motorista do CPF informado não está associado a nenhum veículo"
-                    });
+                    AddModelStateError("model", _inOrOutFeedback);
                 }
 
             }
 
-            return _modelState;
+            return ModelStateErrors;
         }
 
-        public List<EntranceAndExit> GetEntranceAndExitLog(string placa, string cpf, bool asc)
+        public Task<List<EntranceAndExit>> GetEntranceAndExitLog(string placa, string cpf, bool asc)
         {
             return _entranceAndExitRepository.GetEntranceAndExitLog(placa, cpf, asc);
+        }
+
+        public EntranceAndExit Register(Vehicle vehicle, Driver driver, float kms, bool isEntrance)
+        {
+
+            var _exit = new EntranceAndExit()
+            {
+                CreationDate = DateTime.Now,
+                Driver = driver,
+                Vehicle = vehicle,
+                VehicleKms = kms,
+                IsEntrance = isEntrance,
+            };
+
+            _exit.Description = _exit.ToString();
+
+            return Insert(_exit);
+
         }
     }
 }

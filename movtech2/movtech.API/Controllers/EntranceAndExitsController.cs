@@ -32,7 +32,6 @@ namespace movtech.API.Controllers
 
         #endregion
 
-
         [HttpPost("entrance")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -41,36 +40,24 @@ namespace movtech.API.Controllers
             try
             {
 
-
                 Vehicle _vehicle = _vehicleService.GetByLicensePlate(viewModel.LicensePlate);
                 Driver _driver = _driverService.GetByCPF(viewModel.DriverCPF);
 
-                List<AuxModelState> _modelState = _entranceAndExitService.EntranceExitValidation(_vehicle, _driver, viewModel.Quilometers, true);
+                List<AuxModelState> _modelStateErros = _entranceAndExitService.EntranceExitValidation(_vehicle, _driver, viewModel.Quilometers, true);
 
-                if (_modelState != null)
+                if (_modelStateErros != null)
                 {
-                    _modelState.ForEach(x => ModelState.AddModelError(x.Field, x.Message));
+                    _modelStateErros.ForEach(x => ModelState.AddModelError(x.Field, x.Message));
                 }
 
                 if (ModelState.IsValid)
                 {
-
-                    var _entrance = new EntranceAndExit()
-                    {
-                        CreationDate = DateTime.Now,
-                        Driver = _driver,
-                        Vehicle = _vehicle,
-                        VehicleKms = viewModel.Quilometers,
-                        IsEntrance = true,                        
-                    };
-                    _entrance.Description = _entrance.ToString();
-
-                    return Ok(_entranceAndExitService.Insert(_entrance));;
+                    return Ok(_entranceAndExitService.Register(_vehicle, _driver, viewModel.Quilometers, true));
                 }
                 else
                 {
                     return BadRequest(ModelState);
-                }
+                }                
 
             }
             catch (Exception ex)
@@ -100,18 +87,8 @@ namespace movtech.API.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    var _exit = new EntranceAndExit()
-                    {
-                        CreationDate = DateTime.Now,
-                        Driver = _driver,
-                        Vehicle = _vehicle,
-                        VehicleKms = viewModel.Quilometers,
-                        IsEntrance = false,
-                    };
-
-                    _exit.Description = _exit.ToString();
-
-                    return Ok(_entranceAndExitService.Insert(_exit));
+                    
+                    return Ok(_entranceAndExitService.Register(_vehicle, _driver, viewModel.Quilometers, false));
                 }
                 else
                 {
@@ -127,14 +104,14 @@ namespace movtech.API.Controllers
         }
 
         [HttpGet("log")]
-        [ProducesResponseType(201)]
+        [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public IActionResult ViewEntranceAndExitLog([FromQuery] string placa = "", [FromQuery] string cpf = "", [FromQuery] bool asc = true)
+        public async Task<IActionResult> ViewEntranceAndExitLog([FromQuery] string placa = "", [FromQuery] string cpf = "", [FromQuery] bool asc = true)
         {
 
             try
             {
-                return Ok(_entranceAndExitService.GetEntranceAndExitLog(placa, cpf, asc));
+                return Ok(await _entranceAndExitService.GetEntranceAndExitLog(placa, cpf, asc));
             }
             catch (Exception ex)
             {

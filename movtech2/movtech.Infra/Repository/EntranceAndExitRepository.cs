@@ -1,10 +1,12 @@
-﻿using movtech.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using movtech.Domain.Entities;
 using movtech.Domain.Interfaces.Repository;
 using movtech.Infra.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace movtech.Infra.Repository
 {
@@ -17,18 +19,25 @@ namespace movtech.Infra.Repository
             _context = context;
         }
 
-        public List<EntranceAndExit> GetEntranceAndExitLog(string placa, string cpf, bool asc)
+        public async Task<List<EntranceAndExit>> GetEntranceAndExitLog(string placa, string cpf, bool asc)
         {
 
-            List<EntranceAndExit> _logs = _context.EntranceAndExits.ToList();
+            var _log = from l in _context.EntranceAndExits select l;
 
-
-            if (placa != "")
+            if (!string.IsNullOrEmpty(placa))
             {
-                _logs = _logs.Where(x => x.Vehicle.LicensePlate == placa).ToList();
+                _log = _log.Where(x => x.Vehicle.LicensePlate == placa);
             }
 
-            return _logs;
+            if (!string.IsNullOrEmpty(cpf))
+            {
+                _log = _log.Where(x => x.Driver.CPF == cpf);
+            }
+
+            _log = asc ? _log.OrderBy(x => x.Id) : _log.OrderByDescending(x => x.Id);
+
+            return await _log.ToListAsync();
+
         }
     }
 }

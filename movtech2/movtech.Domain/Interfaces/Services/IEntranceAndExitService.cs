@@ -3,6 +3,7 @@ using movtech.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace movtech.Domain.Interfaces.Services
 {
@@ -11,6 +12,12 @@ namespace movtech.Domain.Interfaces.Services
 
         List<AuxModelState> EntranceExitValidation(Vehicle vehicle, Driver driver, float Quilometers, bool IsEntrance);
 
-        List<EntranceAndExit> GetEntranceAndExitLog(string placa, string cpf, bool asc);
+        Task<List<EntranceAndExit>> GetEntranceAndExitLog(string placa, string cpf, bool asc);
+
+
+        EntranceAndExit Register(Vehicle vehicle, Driver driver, float kms, bool isEntrance);
+
+
+
     }
 }

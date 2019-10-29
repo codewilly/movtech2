@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace movtech.Desktop.Models
     class Vehicle
     {
         public int Id { get; set; }
+        
         public string ModelName { get; set; }
         public int MinYear { get; set; }
         public int MaxYear { get; set; }
