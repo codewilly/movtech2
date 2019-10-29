@@ -83,7 +83,7 @@ namespace movtech.API.Controllers
                         GasStation = _gasStation
                     };
 
-                    string _refuelFeedback = refuel.IsValidate();
+                    string _refuelFeedback = refuel.Validate();
 
                     if (_refuelFeedback == "ok")
                     {

@@ -26,7 +26,7 @@ namespace movtech.Domain.Entities
         public GasStation GasStation { get; set; }
 
 
-        public string IsValidate()
+        public string Validate()
         {
             var _total =  Math.Round(LiterValue * Liters,2);
             if (_total != TotalValue)

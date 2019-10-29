@@ -22,7 +22,8 @@ namespace movtech.Infra.Context
             modelBuilder.ApplyConfiguration(new EntranceAndExitConfig());
             modelBuilder.ApplyConfiguration(new RefuelConfig());
             modelBuilder.ApplyConfiguration(new GasStationConfig());
-
+            modelBuilder.ApplyConfiguration(new TrafficTicketConfig());
+            
         }
 
         public DbSet<Vehicle> Vehicles { get; set; }
@@ -34,6 +35,8 @@ namespace movtech.Infra.Context
         public DbSet<GasStation> GasStations { get; set; }
 
         public DbSet<Refuel> Refuels { get; set; }
+
+        public DbSet<TrafficTicket> TrafficTickets { get; set; }
         
 
     }
