@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +52,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Abstract\Address.cs" />
+    <Compile Include="Entities\Driver.cs" />
+    <Compile Include="Entities\EntranceAndExit.cs" />
+    <Compile Include="Entities\GasStation.cs" />
+    <Compile Include="Entities\Maintenance.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Refuel.cs" />
+    <Compile Include="Entities\TrafficTicket.cs" />
+    <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Enums\DriverStatus.cs" />
+    <Compile Include="Enums\FuelType.cs" />
+    <Compile Include="Enums\MaintenanceType.cs" />
+    <Compile Include="Enums\TrafficTickeLevel.cs" />
+    <Compile Include="Enums\UF.cs" />
+    <Compile Include="Enums\VehicleStatus.cs" />
+    <Compile Include="Enums\VehicleType.cs" />
     <Compile Include="Forms\AuthenticationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,9 +92,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\EntranceAndExitForm.resx">
+      <DependentUpon>EntranceAndExitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +113,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

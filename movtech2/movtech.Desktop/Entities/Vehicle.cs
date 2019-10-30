@@ -1,9 +1,9 @@
-﻿using movtech.Domain.Enums;
+﻿using movtech.Desktop.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace movtech.Domain.Entities
+namespace movtech.Desktop.Entities
 {
     public class Vehicle
     {
@@ -67,20 +67,23 @@ namespace movtech.Domain.Entities
 
         #region Contructor
 
-        protected Vehicle() { } // EF Ctor
-
-        public Vehicle(int year)
+        // Vehicle() { } // EF Ctor
+        
+        public Vehicle()
         {
-            _year = SetYear(year);
+
         }
 
-        public Vehicle(string brand, string model, string licensePlate, string renavam, int year, float quilometers, FuelType fuelType, VehicleType vehicleType, bool inGarage, VehicleStatus status, Driver driver, int? driverId, DateTime lastMaintenanceDate, float lastMaintenanceKms, float lastTireChangeKms, float lastOilChangeKms)
+        public Vehicle(int id, string brand, string model, string licensePlate, string renavam, int year,  float quilometers,  FuelType fuelType, VehicleType vehicleType, bool inGarage, VehicleStatus status, Driver driver, int? driverId, DateTime lastMaintenanceDate, float lastMaintenanceKms, float lastTireChangeKms, float lastOilChangeKms, bool needsMaintenance, bool needsChangeTires, bool needsChangeOil)
         {
+            Id = id;
             Brand = brand;
             Model = model;
             LicensePlate = licensePlate;
             Renavam = renavam;
             Year = year;
+            Year = year;
+            Quilometers = quilometers;
             Quilometers = quilometers;
             FuelType = fuelType;
             VehicleType = vehicleType;
@@ -92,8 +95,15 @@ namespace movtech.Domain.Entities
             LastMaintenanceKms = lastMaintenanceKms;
             LastTireChangeKms = lastTireChangeKms;
             LastOilChangeKms = lastOilChangeKms;
-            
+            NeedsMaintenance = needsMaintenance;
+            NeedsChangeTires = needsChangeTires;
+            NeedsChangeOil = needsChangeOil;
         }
+
+
+
+
+
 
         #endregion
 

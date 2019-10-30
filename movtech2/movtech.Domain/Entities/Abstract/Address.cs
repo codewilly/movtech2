@@ -18,6 +18,20 @@ namespace movtech.Domain.Entities.Abstract
         public string City { get; set; }
 
         public UF UF { get; set; }
+
+        protected Address(string cEP, string street, int number, string neighborhood, string city, UF uF)
+        {
+            CEP = cEP;
+            Street = street;
+            Number = number;
+            Neighborhood = neighborhood;
+            City = city;
+            UF = uF;
+        }
+        public Address()
+        {
+                
+        }
     }
 
 }

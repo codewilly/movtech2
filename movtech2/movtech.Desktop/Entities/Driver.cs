@@ -1,9 +1,9 @@
-﻿using movtech.Domain.Enums;
+﻿using movtech.Desktop.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace movtech.Domain.Entities
+namespace movtech.Desktop.Entities
 {
     public class Driver : Person
     {
@@ -16,22 +16,7 @@ namespace movtech.Domain.Entities
         public Vehicle Vehicle { get; set; }
 
         public DriverStatus Status { get; set; } = DriverStatus.Ativo;
-
-        public Driver(string cNH, string cNHCategory, int? vehicleId, Vehicle vehicle, DriverStatus status, int id, string name, string cPF, DateTime birthDate, string phone, string email, string cEP, string street, int number, string neighborhood, string city, UF uF) :base(id,name,cPF,birthDate,phone,email,cEP,street,number,neighborhood,city,uF)
-        {
-            CNH = cNH;
-            CNHCategory = cNHCategory;
-            VehicleId = vehicleId;
-            Vehicle = vehicle;
-            Status = status;
-        }
-        public Driver()
-        {
-
-        }
-
-
-
+                     
         #region Methods
 
         public string GetInVehicle(Vehicle vehicle)
