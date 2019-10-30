@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace movtech.Infra.Repository
 {
@@ -31,6 +32,16 @@ namespace movtech.Infra.Repository
         public Vehicle GetByLicensePlate(string lp)
         {
             return _context.Vehicles.Where(d => d.LicensePlate == lp).Include(v => v.Driver).FirstOrDefault();
+        }
+
+        public async Task<List<Vehicle>> GetVehiclesWhoNeedsMaintenance()
+        {
+            var _log = from l in _context.Vehicles
+                       .Where(x => x.NeedsChangeOil ||
+                       x.NeedsChangeTires ||
+                       x.NeedsMaintenance) select l;
+
+            return await _log.ToListAsync();
         }
     }
 }

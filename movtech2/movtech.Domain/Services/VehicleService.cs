@@ -4,6 +4,7 @@ using movtech.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace movtech.Domain.Services
 {
@@ -20,6 +21,11 @@ namespace movtech.Domain.Services
         public Vehicle GetByLicensePlate(string lp)
         {
             return _vehicleRepository.GetByLicensePlate(lp);
+        }
+
+        public Task<List<Vehicle>> GetVehiclesWhoNeedsMaintenance()
+        {
+            return _vehicleRepository.GetVehiclesWhoNeedsMaintenance();
         }
     }
 }
