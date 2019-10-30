@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace movtech.Domain.Entities
+namespace movtech.Desktop.Entities
 {
     public class EntranceAndExit
     {

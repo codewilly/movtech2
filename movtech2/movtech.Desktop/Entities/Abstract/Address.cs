@@ -1,9 +1,9 @@
-﻿using movtech.Domain.Enums;
+﻿using movtech.Desktop.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace movtech.Domain.Entities.Abstract
+namespace movtech.Desktop.Entities.Abstract
 {
     public abstract class Address
     {

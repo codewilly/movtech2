@@ -1,10 +1,10 @@
-﻿using movtech.Domain.Entities.Abstract;
-using movtech.Domain.Enums;
+﻿using movtech.Desktop.Entities.Abstract;
+using movtech.Desktop.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace movtech.Domain.Entities
+namespace movtech.Desktop.Entities
 {
     public class TrafficTicket : Address
     {

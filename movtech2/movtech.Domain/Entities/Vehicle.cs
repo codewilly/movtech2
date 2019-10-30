@@ -74,6 +74,27 @@ namespace movtech.Domain.Entities
             _year = SetYear(year);
         }
 
+        public Vehicle(string brand, string model, string licensePlate, string renavam, int year, float quilometers, FuelType fuelType, VehicleType vehicleType, bool inGarage, VehicleStatus status, Driver driver, int? driverId, DateTime lastMaintenanceDate, float lastMaintenanceKms, float lastTireChangeKms, float lastOilChangeKms)
+        {
+            Brand = brand;
+            Model = model;
+            LicensePlate = licensePlate;
+            Renavam = renavam;
+            Year = year;
+            Quilometers = quilometers;
+            FuelType = fuelType;
+            VehicleType = vehicleType;
+            InGarage = inGarage;
+            Status = status;
+            Driver = driver;
+            DriverId = driverId;
+            LastMaintenanceDate = lastMaintenanceDate;
+            LastMaintenanceKms = lastMaintenanceKms;
+            LastTireChangeKms = lastTireChangeKms;
+            LastOilChangeKms = lastOilChangeKms;
+            
+        }
+
         #endregion
 
         #region Methods

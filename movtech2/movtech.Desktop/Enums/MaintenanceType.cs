@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace movtech.Domain.Enums
+namespace movtech.Desktop.Enums
 {
     public enum MaintenanceType
     {

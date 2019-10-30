@@ -1,5 +1,5 @@
 ﻿
-using movtech.Domain.Entities;
+using movtech.Desktop.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
