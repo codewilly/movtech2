@@ -4,6 +4,7 @@ using movtech.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace movtech.Domain.Services
 {
@@ -16,5 +17,9 @@ namespace movtech.Domain.Services
             _trafficTicketRepository = trafficTicketRepository;
         }
 
+        public Task<List<TrafficTicket>> GetTrafficTickets(string cpf, string placa)
+        {
+            return _trafficTicketRepository.GetTrafficTickets(cpf, placa);
+        }
     }
 }

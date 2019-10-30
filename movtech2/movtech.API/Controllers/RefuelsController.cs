@@ -63,7 +63,6 @@ namespace movtech.API.Controllers
 
             try
             {
-                // TODO Arrumar bug do ano
                 if (ModelState.IsValid)
                 {
 
@@ -175,7 +174,6 @@ namespace movtech.API.Controllers
 
             try
             {
-                // TODO Arrumar bug do ano
                 if (ModelState.IsValid)
                 {
 

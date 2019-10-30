@@ -25,8 +25,6 @@ namespace movtech.API.Controllers
             _vehicleService = vehicleService;
         }
 
-        // TODO -> adicionar as validações e verificações de todos dessa controller!
-
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -34,7 +32,6 @@ namespace movtech.API.Controllers
         {
             try
             {
-                // TODO Arrumar bug do ano
                 if (ModelState.IsValid)
                 {
 
@@ -49,7 +46,6 @@ namespace movtech.API.Controllers
                         TrafficTicketDate = viewModel.TrafficTicketDate,
                         BilletExpiration = viewModel.BilletExpiration,
                         Cost = viewModel.Cost,
-                        //Points = viewModel.Points,
                         Level = viewModel.Level,
                         Description = viewModel.Description,
 
@@ -127,10 +123,10 @@ namespace movtech.API.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public IActionResult GetAllTrafficTickets()
+        public async Task<IActionResult> GetTrafficTickets([FromQuery] string cpf = "", [FromQuery] string placa = "")
         {
 
-            IEnumerable<TrafficTicket> _tickets = _trafficTicketService.GetAll();
+            IEnumerable<TrafficTicket> _tickets = await _trafficTicketService.GetTrafficTickets(cpf, placa);
 
             if (_tickets.Count() > 0)
             {
@@ -142,6 +138,8 @@ namespace movtech.API.Controllers
             }
 
         }
+
+
 
 
     }

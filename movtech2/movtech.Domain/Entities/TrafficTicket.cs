@@ -24,10 +24,12 @@ namespace movtech.Domain.Entities
 
         public int Points { get; private set; }
 
+        private TrafficTickeLevel _level { get; set; }
+
         public TrafficTickeLevel Level
         {
-            get => Level;
-            set => SetTrafficTickeLevel(value);
+            get => _level;
+            set => _level = SetTrafficTickeLevel(value);
         }
 
         public string Description { get; set; }
@@ -37,6 +39,21 @@ namespace movtech.Domain.Entities
 
         public string Validate()
         {
+            if (Driver == null)
+            {
+                return "Motorista não encontrado";
+            }
+          
+            if (Vehicle == null)
+            {
+                return "Veículo não encontrado";
+            }
+
+            if (TrafficTicketDate > DateTime.Now)
+            {
+                return "Data da infração inválida";
+            }
+
             return "ok";
         }
 
