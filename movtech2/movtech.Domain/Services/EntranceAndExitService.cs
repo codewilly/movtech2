@@ -70,6 +70,8 @@ namespace movtech.Domain.Services
 
         public EntranceAndExit Register(Vehicle vehicle, Driver driver, float kms, bool isEntrance)
         {
+            vehicle.Quilometers = kms;
+            vehicle.CheckMaintenance();
 
             var _exit = new EntranceAndExit()
             {
@@ -79,6 +81,7 @@ namespace movtech.Domain.Services
                 VehicleKms = kms,
                 IsEntrance = isEntrance,
             };
+
 
             _exit.Description = _exit.ToString();
 

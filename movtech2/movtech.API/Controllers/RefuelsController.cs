@@ -36,6 +36,9 @@ namespace movtech.API.Controllers
 
         #region Refuel
 
+        // TODO -> ADICIONAR SWAGGER SUMMARY
+
+
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]

@@ -84,7 +84,7 @@ namespace movtech.Domain.Entities
             return (year > 1990 && year < _maxYear) ? year : throw new ArgumentOutOfRangeException($"O ano deve estar entre 1990 e {_maxYear}");
         }
 
-        public float SetQuilometers(float kms)
+        private float SetQuilometers(float kms)
         {
             if (kms < Quilometers)
             {
@@ -173,6 +173,29 @@ namespace movtech.Domain.Entities
             {
                 NeedsChangeTires = true;
             }
+
+        }
+
+        public List<string> GetMaintenanceList()
+        {
+            var MaintenanceList = new List<string>();                
+
+            if (NeedsMaintenance)
+            {
+                MaintenanceList.Add("Manutenção preventiva necessária!");
+            }
+
+            if (NeedsChangeOil)
+            {
+                MaintenanceList.Add("Troca de óleo necessária!");
+            }
+
+            if (NeedsChangeTires)
+            {
+                MaintenanceList.Add("Troca de pneus necessária!");
+            }
+
+            return MaintenanceList;
 
         }
 

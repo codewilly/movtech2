@@ -26,6 +26,8 @@ namespace movtech.API.Controllers
 
         #endregion
 
+        // TODO -> ADICIONAR SWAGGER SUMMARY
+
         [HttpGet("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]

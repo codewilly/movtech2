@@ -32,6 +32,9 @@ namespace movtech.API.Controllers
 
         #endregion
 
+        // TODO -> ADICIONAR SWAGGER SUMMARY
+
+
         [HttpPost("entrance")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -52,12 +55,19 @@ namespace movtech.API.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    return Ok(_entranceAndExitService.Register(_vehicle, _driver, viewModel.Quilometers, true));
+
+                    var _response = new EntranceExitResponseViewModel()
+                    {
+                        Response = _entranceAndExitService.Register(_vehicle, _driver, viewModel.Quilometers, true),
+                        Messages = _vehicle.GetMaintenanceList()
+                    };
+
+                    return Ok(_response);
                 }
                 else
                 {
                     return BadRequest(ModelState);
-                }                
+                }
 
             }
             catch (Exception ex)
@@ -87,7 +97,7 @@ namespace movtech.API.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    
+
                     return Ok(_entranceAndExitService.Register(_vehicle, _driver, viewModel.Quilometers, false));
                 }
                 else
@@ -117,7 +127,7 @@ namespace movtech.API.Controllers
             {
                 return BadRequest(ex.InnerException);
             }
-            
+
         }
     }
 }
