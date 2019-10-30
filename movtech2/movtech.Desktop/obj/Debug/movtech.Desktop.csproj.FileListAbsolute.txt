@@ -19,3 +19,12 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Des
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.GenerateResource.cache
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.exe
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.pdb
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.HomeForm.resources
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.MainForm.resources
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Properties.Resources.resources
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.GenerateResource.cache
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.exe
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.pdb
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\bin\Debug\movtech.Desktop.exe.config
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\bin\Debug\movtech.Desktop.exe
+C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\bin\Debug\movtech.Desktop.pdb

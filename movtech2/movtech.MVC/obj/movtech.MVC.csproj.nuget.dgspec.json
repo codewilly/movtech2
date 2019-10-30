@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {}
+    "C:\\Users\\Marco\\Desktop\\MOV\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {
+    "C:\\Users\\Marco\\Desktop\\MOV\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\MOV\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
         "projectName": "movtech.MVC",
-        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
-        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\obj\\",
+        "projectPath": "C:\\Users\\Marco\\Desktop\\MOV\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
+        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marco\\Desktop\\MOV\\movtech2\\movtech2\\movtech.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
