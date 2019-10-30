@@ -49,7 +49,7 @@ namespace movtech.API.Controllers
                         TrafficTicketDate = viewModel.TrafficTicketDate,
                         BilletExpiration = viewModel.BilletExpiration,
                         Cost = viewModel.Cost,
-                        Points = viewModel.Points,
+                        //Points = viewModel.Points,
                         Level = viewModel.Level,
                         Description = viewModel.Description,
 

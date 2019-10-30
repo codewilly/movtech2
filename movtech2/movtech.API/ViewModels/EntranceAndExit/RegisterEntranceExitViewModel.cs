@@ -14,6 +14,7 @@ namespace movtech.API.ViewModels.EntranceAndExit
         public string LicensePlate { get; set; }
 
         [Required(ErrorMessage = "Informe o CPF do motorista")]
+        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}\-\d{2}$", ErrorMessage = "Informe um CPF no formato  000.000.000-00")]
         public string DriverCPF { get; set; }
 
         [Required(ErrorMessage = "Informe a quilometragem atual do veículo")]

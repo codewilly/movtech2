@@ -13,6 +13,7 @@ namespace movtech.API.ViewModels.Driver
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Preencha este campo!")]
+        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}\-\d{2}$", ErrorMessage = "Informe um CPF no formato  000.000.000-00")]
         public string CPF { get; set; }
 
         [Required(ErrorMessage = "Preencha este campo!")]

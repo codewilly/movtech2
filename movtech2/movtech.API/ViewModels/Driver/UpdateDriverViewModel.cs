@@ -25,6 +25,7 @@ namespace movtech.API.ViewModels.Driver
         public string Address { get; set; }     
 
         [Required(ErrorMessage = "Preencha este campo!")]
+        [MaxLength(5, ErrorMessage = "Deve conter atés {1} caracteres")]
         public string CNHCategory { get; set; }
     }
 }
