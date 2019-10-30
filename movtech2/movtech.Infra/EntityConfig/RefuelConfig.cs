@@ -13,8 +13,8 @@ namespace movtech.Infra.EntityConfig
         {
             builder.HasKey(x => x.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
-            builder.Property(p => p.TotalValue).IsRequired();
-            builder.Property(p => p.LiterValue).IsRequired();
+            builder.Property(p => p.TotalValue).IsRequired().HasColumnType("decimal(10, 2)");
+            builder.Property(p => p.LiterValue).IsRequired().HasColumnType("decimal(10, 2)");
             builder.Property(p => p.Liters).IsRequired();
             builder.Property(p => p.FuelType).IsRequired();
             builder.Property(p => p.RefuelDate).IsRequired();

@@ -19,10 +19,7 @@ namespace movtech.API.ViewModels.Driver
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Preencha este campo!")]
-        public string Email { get; set; }
-
-        [Required(ErrorMessage = "Preencha este campo!")]
-        public string Address { get; set; }     
+        public string Email { get; set; }   
 
         [Required(ErrorMessage = "Preencha este campo!")]
         [MaxLength(5, ErrorMessage = "Deve conter atés {1} caracteres")]

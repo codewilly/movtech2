@@ -12,11 +12,11 @@ namespace movtech.API.ViewModels.Refuel
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [Range(10, 10000, ErrorMessage = "O valor total deve estar entre R${1} e R${2}")]
-        public double TotalValue { get; set; }
+        public decimal TotalValue { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
-        [Range(10, 100, ErrorMessage = "O valor total deve estar entre R${1} e R${2}")]
-        public double LiterValue { get; set; }
+        [Range(0, 100, ErrorMessage = "O valor total deve estar entre R${1} e R${2}")]
+        public decimal LiterValue { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
         [Range(10, 500, ErrorMessage = "O valor total deve estar entre R${1} e R${2}")]

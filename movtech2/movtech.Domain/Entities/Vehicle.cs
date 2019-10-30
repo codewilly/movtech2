@@ -46,11 +46,29 @@ namespace movtech.Domain.Entities
 
         public int? DriverId { get; set; }
 
+        // Maintenance
+
+        public List<Maintenance> Maintenances { get; set; }
+
+        public DateTime LastMaintenanceDate { get; set; }
+
+        public float LastMaintenanceKms { get; set; }
+
+        public float LastTireChangeKms { get; set; }
+
+        public float LastOilChangeKms { get; set; }
+
+        public bool NeedsMaintenance { get; set; }
+
+        public bool NeedsChangeTires { get; set; }
+
+        public bool NeedsChangeOil { get; set; }
+
 
         #region Contructor
 
-        protected Vehicle() {} // EF Ctor
-        
+        protected Vehicle() { } // EF Ctor
+
         public Vehicle(int year)
         {
             _year = SetYear(year);
@@ -96,8 +114,9 @@ namespace movtech.Domain.Entities
 
         public string EntranceInGarage()
         {
-            if (InGarage){
-               return ($"{LicensePlate} já está na garagem.");
+            if (InGarage)
+            {
+                return ($"{LicensePlate} já está na garagem.");
             }
             else
             {
@@ -119,6 +138,65 @@ namespace movtech.Domain.Entities
             }
         }
 
+        // Maintenance
+
+        public void CheckMaintenance()
+        {
+
+            // 0 Carro, 1 Moto, 2 Caminhao
+            int[] _maintenanceDays = { 180, 120, 360 };
+            float[] _maintenanceKms = { 10000, 2000, 15000 };
+
+            float[] _oilKms = { 5000, 1000, 10000 };
+
+            float[] _tireKms = { 70000, 70000, 70000 };
+
+            var _maintenanceDateDiff = DateTime.Now - LastMaintenanceDate;
+
+            int _vehicleType = (int)VehicleType - 1;
+
+            // Manutenção preventiva
+            if (LastMaintenanceKms + _maintenanceKms[_vehicleType] <= Quilometers ||
+                _maintenanceDateDiff.Days >= _maintenanceDays[_vehicleType])
+            {
+                NeedsMaintenance = true;
+            }
+
+            // Troca de óleo
+            if (LastOilChangeKms + _oilKms[_vehicleType] <= Quilometers)
+            {
+                NeedsChangeOil = true;
+            }
+
+            // Troca de pneu
+            if (LastTireChangeKms + _tireKms[_vehicleType] <= Quilometers)
+            {
+                NeedsChangeTires = true;
+            }
+
+        }
+
+        public void Maintenance()
+        {
+            LastMaintenanceDate = DateTime.Now;
+            LastMaintenanceKms = Quilometers;
+            NeedsMaintenance = false;
+        }
+
+        public void OilChange()
+        {
+            LastOilChangeKms = Quilometers;
+            NeedsChangeOil = false;
+        } 
+        
+        public void TiresChange()
+        {
+            LastTireChangeKms = Quilometers;
+            NeedsChangeTires = false;
+        }
+
+
+        
         #endregion
 
 

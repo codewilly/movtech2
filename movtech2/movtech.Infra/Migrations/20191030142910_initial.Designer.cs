@@ -9,8 +9,8 @@ using movtech.Infra.Context;
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    [Migration("20191029184505_multas")]
-    partial class multas
+    [Migration("20191030142910_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,7 +94,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 29, 15, 45, 5, 100, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 10, 30, 11, 29, 10, 740, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -157,6 +157,38 @@ namespace movtech.Infra.Migrations
                     b.ToTable("GasStations");
                 });
 
+            modelBuilder.Entity("movtech.Domain.Entities.Maintenance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Cost")
+                        .HasColumnType("decimal(10, 2)");
+
+                    b.Property<DateTime>("MaintenanceDate")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(new DateTime(2019, 10, 30, 11, 29, 10, 752, DateTimeKind.Local));
+
+                    b.Property<int>("MaintenanceType");
+
+                    b.Property<bool>("OilChanged");
+
+                    b.Property<string>("OperationDescription")
+                        .HasMaxLength(1000);
+
+                    b.Property<bool>("PreventivaOrCorretiva");
+
+                    b.Property<bool>("TiresChanged");
+
+                    b.Property<int>("VehicleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("Maintenances");
+                });
+
             modelBuilder.Entity("movtech.Domain.Entities.Refuel", b =>
                 {
                     b.Property<int>("Id")
@@ -168,13 +200,15 @@ namespace movtech.Infra.Migrations
 
                     b.Property<int?>("GasStationId");
 
-                    b.Property<double>("LiterValue");
+                    b.Property<decimal>("LiterValue")
+                        .HasColumnType("decimal(10, 2)");
 
                     b.Property<float>("Liters");
 
                     b.Property<DateTime>("RefuelDate");
 
-                    b.Property<double>("TotalValue");
+                    b.Property<decimal>("TotalValue")
+                        .HasColumnType("decimal(10, 2)");
 
                     b.Property<int?>("VehicleId");
 
@@ -200,7 +234,8 @@ namespace movtech.Infra.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<decimal>("Cost");
+                    b.Property<decimal>("Cost")
+                        .HasColumnType("decimal(10, 2)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -257,6 +292,14 @@ namespace movtech.Infra.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
+                    b.Property<DateTime>("LastMaintenanceDate");
+
+                    b.Property<float>("LastMaintenanceKms");
+
+                    b.Property<float>("LastOilChangeKms");
+
+                    b.Property<float>("LastTireChangeKms");
+
                     b.Property<string>("LicensePlate")
                         .IsRequired()
                         .HasMaxLength(8);
@@ -264,6 +307,12 @@ namespace movtech.Infra.Migrations
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(256);
+
+                    b.Property<bool>("NeedsChangeOil");
+
+                    b.Property<bool>("NeedsChangeTires");
+
+                    b.Property<bool>("NeedsMaintenance");
 
                     b.Property<float>("Quilometers");
 
@@ -303,6 +352,14 @@ namespace movtech.Infra.Migrations
 
                     b.HasOne("movtech.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("movtech.Domain.Entities.Maintenance", b =>
+                {
+                    b.HasOne("movtech.Domain.Entities.Vehicle", "Vehicle")
+                        .WithMany("Maintenances")
                         .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

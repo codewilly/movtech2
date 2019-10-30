@@ -9,9 +9,9 @@ namespace movtech.Domain.Entities
     {
         public int Id { get; set; }
 
-        public double TotalValue { get; set; }
+        public decimal TotalValue { get; set; }
 
-        public double LiterValue { get; set; }
+        public decimal LiterValue { get; set; }
 
         public float Liters { get; set; }
 
@@ -28,7 +28,7 @@ namespace movtech.Domain.Entities
 
         public string Validate()
         {
-            var _total =  Math.Round(LiterValue * Liters,2);
+            decimal _total =  Math.Round(LiterValue * (decimal)Liters,2);
             if (_total != TotalValue)
             {
                 return "O valor total não é bate com a quantidade de litros * preço do litro.";

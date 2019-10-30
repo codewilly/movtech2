@@ -26,9 +26,6 @@ namespace movtech.API.ViewModels.Driver
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Preencha este campo!")]
-        public string Address { get; set; }
-
-        [Required(ErrorMessage = "Preencha este campo!")]
         public string CNH { get; set; }
 
         [Required(ErrorMessage = "Preencha este campo!")]

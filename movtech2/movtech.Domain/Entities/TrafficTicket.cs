@@ -49,7 +49,7 @@ namespace movtech.Domain.Entities
                 return "Veículo não encontrado";
             }
 
-            if (TrafficTicketDate > DateTime.Now)
+            if (DateTime.Now >TrafficTicketDate)
             {
                 return "Data da infração inválida";
             }

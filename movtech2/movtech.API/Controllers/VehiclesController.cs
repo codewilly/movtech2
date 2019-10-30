@@ -67,8 +67,10 @@ namespace movtech.API.Controllers
 
             Vehicle _vehicle = _vehicleService.Get(id);
 
+
             if (_vehicle != null)
             {
+                _vehicle.CheckMaintenance();
                 return Ok(_vehicle);
             }
             else
@@ -127,7 +129,13 @@ namespace movtech.API.Controllers
                         Renavam = vehicleModel.Renavam,
                         Quilometers = vehicleModel.Quilometers,
                         FuelType = vehicleModel.FuelType,
-                        VehicleType = vehicleModel.VehicleType
+                        VehicleType = vehicleModel.VehicleType,
+
+                        // Default Values
+                        LastMaintenanceDate = DateTime.Now,
+                        LastMaintenanceKms = vehicleModel.Quilometers,
+                        LastOilChangeKms = vehicleModel.Quilometers,
+                        LastTireChangeKms = vehicleModel.Quilometers,                        
 
                     };
 
