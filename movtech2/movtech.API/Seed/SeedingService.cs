@@ -14,53 +14,68 @@ namespace movtech.API.Seed
 {
     public class SeedingService
     {
-        private readonly MovtechContext _context;
+        
+        private readonly IDriverService _driverService;
+        private readonly IVehicleService _vehicleService;
+        
 
 
-        public SeedingService(MovtechContext context)
+        public SeedingService(IDriverService driverService,IVehicleService vehicleService)
         {
-            _context = context;
-            
+            _vehicleService = vehicleService;
+            _driverService = driverService;
+
 
         }
-    
+
 
         public void Seed()
         {
-            if (_context.Vehicles.Any())
-                /*_context.TrafficTickets.Any() ||
-                _context.GasStations.Any() ||
-                _context.Refuels.Any() ||
-                _context.Maintenances.Any() ||
-                _context.EntranceAndExits.Any() ||
-                _context.Drivers.Any())*/
+            if (_vehicleService.GetAll().Any())
+            /*_context.TrafficTickets.Any() ||
+            _context.GasStations.Any() ||
+            _context.Refuels.Any() ||
+            _context.Maintenances.Any() ||
+            _context.EntranceAndExits.Any() ||
+            _context.Drivers.Any())*/
             {
                 return; // Banco ja esta populado
             }
             else
             {
-               
-                for(int i = 1; i < 10; ++i)
+
+                foreach (var vehicle in SeedVehicle())
                 {
-                    
-                    Vehicle vehicle = new Vehicle("Chevetao", "Rebaixado", "KKK-454"+i, "45645"+i, 2000, 1000, FuelType.Alcool, VehicleType.Carro, true, VehicleStatus.Disponivel, null, null, DateTime.Parse("10/10/2010"), 900, 900, 900);
-                    Driver driver = new Driver("444555" + i, "AB", i, vehicle, DriverStatus.Ativo, i, "Marco", "4833438089" + i, DateTime.Parse("31/10/1999"), "39027173", "marco@gmail.com", "12213210", "estrada Juca de Carvalho", 3548, "caete", "sjc", UF.SP);
-                    _context.Drivers.Add(driver);
-                    _context.Vehicles.Add(vehicle);
-
+                    _vehicleService.Insert(vehicle);
                 }
+                foreach (var driver in SeedDriver())
+                {
+                    _driverService.Insert(driver);
+                }          
 
-                _context.SaveChanges();
-
-                
-
-
-
-                
             }
         }
 
-       
-       
+        private List<Vehicle> SeedVehicle()
+        {
+            var list = new List<Vehicle>();
+
+            list.Add(new Vehicle("Chevetao", "Rebaixado", "KKK-454", "45645", 2000, 1000, FuelType.Alcool, VehicleType.Carro, true, VehicleStatus.Disponivel, null, null, DateTime.Parse("10/10/2010"), 900, 900, 900));
+
+            return list;
+        }
+        private List<Driver> SeedDriver()
+        {
+            var list = new List<Driver>();
+
+            list.Add(new Driver("444555", "AB", 1,null, DriverStatus.Ativo,1, "Marco", "4833438089", DateTime.Parse("31/10/1999"), "39027173", "marco@gmail.com", "12213210", "estrada Juca de Carvalho", 3548, "caete", "sjc",UF.SP));
+
+            return list;
+        }
+
+
+
+
+
     }
 }
