@@ -15,5 +15,7 @@ namespace movtech.Domain.Interfaces.Repository
         T Update(T obj);
 
         void Delete(T obj);
+
+        void InsertMany(IEnumerable<T> objCollection);
     }
 }

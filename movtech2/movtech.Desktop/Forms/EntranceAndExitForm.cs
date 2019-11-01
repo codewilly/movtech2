@@ -26,6 +26,7 @@ namespace movtech.Desktop.Forms
         }
         public async void GetAllVehicles()
         {
+            //string APIURI = "https://localhost:44310/api/v1/EntranceAndExits";
             string APIURI = "https://localhost:44310/api/v1/Vehicles";
             using (var client = new HttpClient())
             {

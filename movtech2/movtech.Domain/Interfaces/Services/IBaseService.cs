@@ -17,5 +17,7 @@ namespace movtech.Domain.Interfaces.Services
 
         void Delete(TEntity obj);
 
+        void InsertMany(IEnumerable<TEntity> objCollection);
+
     }
 }

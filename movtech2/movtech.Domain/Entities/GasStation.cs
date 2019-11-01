@@ -14,5 +14,16 @@ namespace movtech.Domain.Entities
         public string Name { get; set; }
 
         public List<Refuel> Refuels { get; set; }
+        public GasStation()
+        {
+
+        }
+        public GasStation(string cNPJ, string name, List<Refuel> refuels)
+        {
+            
+            CNPJ = cNPJ;
+            Name = name;
+            Refuels = refuels;
+        }
     }
 }
