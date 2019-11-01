@@ -33,6 +33,21 @@ namespace movtech.Domain.Entities
             return $"{Driver.Name} {_entrouSaiu} garagem com o veículo de placa {Vehicle.LicensePlate} em {CreationDate}";
 
         }
+        public EntranceAndExit()
+        {
 
+        }
+        public EntranceAndExit(DateTime creationDate, int vehicleId, int driverId, float vehicleKms, bool isEntrance, string description)
+        {
+            
+            CreationDate = creationDate;
+            VehicleId = vehicleId;
+            
+            DriverId = driverId;
+           
+            VehicleKms = vehicleKms;
+            IsEntrance = isEntrance;
+            Description = description;
+        }
     }
 }

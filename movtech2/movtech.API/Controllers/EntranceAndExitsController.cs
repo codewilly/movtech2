@@ -129,5 +129,23 @@ namespace movtech.API.Controllers
             }
 
         }
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult GetAllEntranceAndExits()
+        {
+
+            IEnumerable<EntranceAndExit> _entranceAndExits = _entranceAndExitService.GetAll();
+
+            if (_entranceAndExits.Count() > 0)
+            {
+                return Ok(_entranceAndExits);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
     }
 }

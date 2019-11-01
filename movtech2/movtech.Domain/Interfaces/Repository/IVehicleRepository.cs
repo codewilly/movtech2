@@ -11,5 +11,7 @@ namespace movtech.Domain.Interfaces.Repository
         Vehicle GetByLicensePlate(string lp);
 
         Task<List<Vehicle>> GetVehiclesWhoNeedsMaintenance();
+
+
     }
 }

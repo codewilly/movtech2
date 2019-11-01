@@ -43,5 +43,15 @@ namespace movtech.Infra.Repository
 
             return await _log.ToListAsync();
         }
-    }
+
+       
+
+        }      
+
+
+
+
+
+
+    
 }

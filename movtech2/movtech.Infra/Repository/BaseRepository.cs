@@ -52,5 +52,10 @@ namespace movtech.Infra.Repository
             _context.SaveChanges();
         }
 
+        public void InsertMany(IEnumerable<T> objCollection)
+        {
+            _context.AddRange(objCollection);
+            _context.SaveChanges();
+        }
     }
 }

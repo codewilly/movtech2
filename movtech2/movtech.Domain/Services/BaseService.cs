@@ -45,6 +45,10 @@ namespace movtech.Domain.Services
         {
             _repository.Delete(obj);
         }
-               
+
+        public void InsertMany(IEnumerable<TEntity> objCollection)
+        {
+            _repository.InsertMany(objCollection);
+        }
     }
 }
