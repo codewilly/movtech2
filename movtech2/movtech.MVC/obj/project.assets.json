@@ -12432,7 +12432,8 @@
   },
   "packageFolders": {
     "C:\\Users\\Michael\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -12444,7 +12445,8 @@
       "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
