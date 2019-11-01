@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using movtech.API.ViewModels.EntranceAndExit;
 using movtech.Domain.Contracts;
+using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Entities;
 using movtech.Domain.Interfaces.Services;
 
@@ -38,7 +39,7 @@ namespace movtech.API.Controllers
         [HttpPost("entrance")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public IActionResult RegisterEntrance([FromBody] RegisterEntranceExitViewModel viewModel)
+        public IActionResult RegisterEntrance([FromBody] RegisterEntranceRequest viewModel)
         {
             try
             {
@@ -56,7 +57,7 @@ namespace movtech.API.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    var _response = new EntranceExitResponseViewModel()
+                    var _response = new RegisterEntranceResponse()
                     {
                         Response = _entranceAndExitService.Register(_vehicle, _driver, viewModel.Quilometers, true),
                         Messages = _vehicle.GetMaintenanceList()

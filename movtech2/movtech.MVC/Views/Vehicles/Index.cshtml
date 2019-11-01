@@ -9,20 +9,24 @@
 <div class="row">
     <div class="col-12 p-1">
         <div class="card ">
-            <div class="card-body">
-                <h2>Abastecimentos</h2>
+            <div class="card-header">
+                <h2>Veículos</h2>
+                <p class="card-subtitle">Gerencie os veículos de sua frota!</p>
+            </div> 
 
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn breadcrumb-bgcolor btn-sm float-right text-white"><span class="fas fa-plus"></span> Cadastrar novo veículo</button>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <partial name="_VehiclesTable" />
+                    </div>
+                </div>
             </div>
         </div>
 

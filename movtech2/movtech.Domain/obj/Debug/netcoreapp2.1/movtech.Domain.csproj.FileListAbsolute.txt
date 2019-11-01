@@ -6,3 +6,11 @@ C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp
 C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.dll
 C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.pdb
 C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.csprojAssemblyReference.cache
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\bin\Debug\netcoreapp2.1\movtech.Domain.deps.json
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\bin\Debug\netcoreapp2.1\movtech.Domain.dll
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\bin\Debug\netcoreapp2.1\movtech.Domain.pdb
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.AssemblyInfoInputs.cache
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.AssemblyInfo.cs
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.dll
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.pdb
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Domain\obj\Debug\netcoreapp2.1\movtech.Domain.csprojAssemblyReference.cache
