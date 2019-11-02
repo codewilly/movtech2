@@ -37,14 +37,16 @@ namespace movtech.Domain.Entities
         {
 
         }
-        public EntranceAndExit(DateTime creationDate, int vehicleId, int driverId, float vehicleKms, bool isEntrance, string description)
+       
+
+        public EntranceAndExit( DateTime creationDate, int vehicleId, Vehicle vehicle, int driverId, Driver driver, float vehicleKms, bool isEntrance, string description)
         {
             
             CreationDate = creationDate;
             VehicleId = vehicleId;
-            
+            Vehicle = vehicle;
             DriverId = driverId;
-           
+            Driver = driver;
             VehicleKms = vehicleKms;
             IsEntrance = isEntrance;
             Description = description;

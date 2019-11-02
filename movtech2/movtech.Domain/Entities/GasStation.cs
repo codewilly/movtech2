@@ -1,4 +1,5 @@
 ﻿using movtech.Domain.Entities.Abstract;
+using movtech.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,12 +19,12 @@ namespace movtech.Domain.Entities
         {
 
         }
-        public GasStation(string cNPJ, string name, List<Refuel> refuels)
+        public GasStation(string cNPJ, string name, string cEP, string street, int number, string neighborhood, string city, UF uF) :base(cEP,street,number,neighborhood,city,uF)
         {
             
             CNPJ = cNPJ;
             Name = name;
-            Refuels = refuels;
+          
         }
     }
 }

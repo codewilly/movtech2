@@ -23,6 +23,23 @@ namespace movtech.Domain.Entities
         public decimal Cost { get; set; }
 
         public int Points { get; private set; }
+        public TrafficTicket()
+        {
+
+        }
+        public TrafficTicket(Driver driver, Vehicle vehicle, DateTime trafficTicketDate, DateTime billetExpiration, DateTime? paymentDate, decimal cost, int points, TrafficTickeLevel level, string description, bool wasPaid, string cEP, string street, int number, string neighborhood, string city, UF uF) :base(cEP,street,number,neighborhood,city,uF)
+        {
+            Driver = driver;
+            Vehicle = vehicle;
+            TrafficTicketDate = trafficTicketDate;
+            BilletExpiration = billetExpiration;
+            PaymentDate = paymentDate;
+            Cost = cost;
+            Points = points;
+            Level = level;
+            Description = description;
+            WasPaid = wasPaid;
+        }
 
         private TrafficTickeLevel _level { get; set; }
 
