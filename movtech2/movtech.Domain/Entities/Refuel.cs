@@ -57,15 +57,16 @@ namespace movtech.Domain.Entities
 
         }
 
-        public Refuel( decimal totalValue, decimal literValue, float liters, FuelType fuelType, DateTime refuelDate)
+        public Refuel(decimal totalValue, decimal literValue, float liters, FuelType fuelType, DateTime refuelDate, Vehicle vehicle, Driver driver, GasStation gasStation)
         {
-            
             TotalValue = totalValue;
             LiterValue = literValue;
             Liters = liters;
             FuelType = fuelType;
             RefuelDate = refuelDate;
-            
+            Vehicle = vehicle;
+            Driver = driver;
+            GasStation = gasStation;
         }
     }
 }

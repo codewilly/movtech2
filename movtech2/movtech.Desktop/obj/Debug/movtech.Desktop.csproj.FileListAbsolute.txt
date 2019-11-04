@@ -24,4 +24,3 @@ C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.D
 C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.CopyComplete
 C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.exe
 C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.pdb
-C:\Users\Marco\Desktop\MOV\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csprojAssemblyReference.cache

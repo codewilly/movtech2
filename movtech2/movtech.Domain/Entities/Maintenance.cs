@@ -26,7 +26,22 @@ namespace movtech.Domain.Entities
         public bool OilChanged { get; set; }
 
         public string OperationDescription { get; set; }
+        public Maintenance()
+        {
 
+        }
+        public Maintenance(DateTime maintenanceDate, MaintenanceType maintenanceType, int vehicleId, Vehicle vehicle, decimal cost, bool preventivaOrCorretiva, bool tiresChanged, bool oilChanged, string operationDescription)
+        {
+            MaintenanceDate = maintenanceDate;
+            MaintenanceType = maintenanceType;
+            VehicleId = vehicleId;
+            Vehicle = vehicle;
+            Cost = cost;
+            PreventivaOrCorretiva = preventivaOrCorretiva;
+            TiresChanged = tiresChanged;
+            OilChanged = oilChanged;
+            OperationDescription = operationDescription;
+        }
 
         public void DoMaintenance()
         {
@@ -55,6 +70,7 @@ namespace movtech.Domain.Entities
                 throw new NullReferenceException("Nenhum veículo está associado a esta manutenção!");
             }
         }
+
 
     }
 }

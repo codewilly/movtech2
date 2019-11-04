@@ -25,6 +25,7 @@ namespace movtech.Domain.Entities
             Vehicle = vehicle;
             Status = status;
         }
+
         public Driver()
         {
 
