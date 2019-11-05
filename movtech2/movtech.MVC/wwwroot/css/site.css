@@ -2,13 +2,9 @@
     background-color: #f5f6fa;
 }
 
-
-
-
 .bg-custom {
     background-color: #2f3640;
 }
-
 
 .list-group-item.active {
     background-color: #577399;
@@ -19,11 +15,17 @@
     background-color: #577399;
 }
 
+.breadcrumb-item::before {
+    color: #fff !important;
+}
 
+.breadcrumb-item a {
+    color: #fff;
+}
 /*Cards E Botões HOME*/
 .btn-custom {
     background-color: #577399 !important;
-    color:white;
+    color: white;
 }
 .btn-custom:hover {
     background-color: #343a40!important;

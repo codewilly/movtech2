@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using movtech.MVC.Services;
+using movtech.MVC.Services.Interface;
 
 namespace MOVTech
 {
@@ -31,6 +33,17 @@ namespace MOVTech
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddHttpClient("MOVTechAPI", c =>
+            {
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("MOVTechAPI:UrlBase"));
+                c.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
+
+            #region DI
+
+            services.AddScoped<IMovtechAPIService, MovtechAPIService>();
+
+            #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
