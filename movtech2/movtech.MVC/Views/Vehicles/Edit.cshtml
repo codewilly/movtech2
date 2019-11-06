@@ -1,0 +1,189 @@
+﻿@model movtech.MVC.ViewModels.Vehicle.UpdateVehicleViewModel;
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+@section Scripts{
+
+    <script>
+        var AjaxGetMarcas = '@Url.Action("GetMarcas","Vehicles")';
+        var AjaxGetModelos = '@Url.Action("GetModels","Vehicles")';
+        var AjaxGetYears = '@Url.Action("GetModelYears","Vehicles")';
+    </script>
+
+    <script>
+
+        function GetMarcas() {
+            $.ajax({
+                type: "GET",
+                data: { type: $("#VehicleType").val() },
+                url: AjaxGetMarcas,
+                dataType: 'json',
+                success: function (json) {
+
+                    $("#Brand").empty();
+                    $("#Brand").append($("<option value='' selected disabled >Selecione...</option>"));
+                    $.each(json.marcas, function (value, key) {
+                        $("#Brand").append($("<option></option>")
+                            .attr("value", key.value).text(key.label));
+                    });
+
+                },
+                error: function () {
+                    alert("Ocorreu um erro ao buscar marcas.")
+                }
+            });
+        }
+
+        function GetModelos() {
+            $.ajax({
+                type: "GET",
+                data: { type: $("#VehicleType").val(), marcaId: $("#Brand").val() },
+                url: AjaxGetModelos,
+                dataType: 'json',
+                success: function (json) {
+
+                    $("#Model").empty();
+                    $("#Model").append($("<option value='' selected disabled >Selecione...</option>"));
+                    $.each(json.modelos, function (value, key) {
+                        $("#Model").append($("<option></option>")
+                            .attr("value", key.value).text(key.label));
+                    });
+
+                    $("#HiddenBrand").val($("#Brand option:selected").html());
+
+                },
+                error: function () {
+                    alert("Ocorreu um erro ao buscar marcas.")
+                }
+            });
+        }
+
+        function GetAnosDoModelo() {
+            $.ajax({
+                type: "GET",
+                data: { type: $("#VehicleType").val(), marcaId: $("#Brand").val(), modeloId: $("#Model").val() },
+                url: AjaxGetYears,
+                dataType: 'json',
+                success: function (json) {
+
+                    $("#Year").empty();
+                    $("#Year").append($("<option value='' selected disabled >Selecione...</option>"));
+                    $.each(json.anoModelos, function (value, key) {
+                        $("#Year").append($("<option></option>")
+                            .attr("value", key.value).text(key.label));
+                    });
+
+                    $("#HiddenModel").val($("#Model option:selected").html());
+
+
+                },
+                error: function () {
+                    alert("Ocorreu um erro ao buscar marcas.")
+                }
+            });
+        }
+
+
+    </script>
+
+}
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Vehicles")'><span class="fas fa-car-side"></span> Veículos</a></li>
+            <li class="breadcrumb-item  text-white">Cadastrar</li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Editar um novo veículo</h2>
+                <p class="card-subtitle">Atualize um veículo na sua frota!</p>
+            </div>
+
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    
+                    <input asp-for="HiddenBrand" type="text" />
+                    <input asp-for="HiddenModel" type="text" />
+                    
+
+
+                    <div class="form-row">
+                        <div class="col-md-2">
+                            <label for="Type">Tipo:</label>
+                            <select required asp-for="VehicleType" class="form-control" onchange="GetMarcas()">
+                                <option value="" selected>@Model.VehicleType</option>
+                                <option value="Carro">Carro</option>
+                                <option value="Moto">Moto</option>
+                            </select>
+                            <span asp-validation-for="VehicleType" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="Brand">Marca:</label>
+                                <select required asp-for="Brand" asp-items="Model.BrandList" class="form-control" onchange="GetModelos()">
+                                    <option value="" selected>@Model.Brand</option>
+                                </select>
+                                <span asp-validation-for="Brand" class="text-danger"></span>
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="Model">Modelo:</label>
+                                <select required asp-for="Model" asp-items="Model.ModelList" class="form-control" onchange="GetAnosDoModelo()">
+                                    <option value="" selected>@Model.Model</option>
+                                </select>
+                                <span asp-validation-for="Model" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+
+
+
+                        <div class="form-group col-md-3">
+                            <label for="Brand">Ano:</label>
+                            <select required asp-for="Year" class="form-control">
+                                <option value="" selected>@Model.Year</option>
+                            </select>
+                            <span asp-validation-for="Year" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="Brand">Quilometragem:</label>
+                            <input required asp-for="Quilometers" type="tel" class="form-control" placeholder="@Model.Quilometers">
+                            <span asp-validation-for="Quilometers" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row float-right">
+                        <div class="col ">
+
+                            <button class="btn btnlink-outline" type="reset">Limpar</button>
+                            <button class="btn breadcrumb-bgcolor   text-white" type="submit" value="Edit">Editar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <h1>@Model.Brand</h1>
+    <h1>@Model.Model</h1>
+    <h1>@Model.FuelType</h1>

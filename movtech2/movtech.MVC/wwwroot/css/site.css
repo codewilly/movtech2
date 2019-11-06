@@ -38,4 +38,14 @@ a.ancor-color {
 .font-color {
     color: #343a40 !important;
 }
-
+.btn-link {
+    margin: 0 4px;
+    color: #577399 !important;
+}
+.btnlink-outline {
+    
+    border: solid !important;
+    border-width: thin !important;
+    color: #577399 !important;
+    background-color: white !important;
+}
