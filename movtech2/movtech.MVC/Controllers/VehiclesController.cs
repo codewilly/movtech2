@@ -86,7 +86,7 @@ namespace movtech.MVC.Controllers
             
             var viewModel = new UpdateVehicleViewModel();
 
-            // Transfere os dados da classe VEHICLE para a view model CREATEVEHICLEVIEWMODEL
+            // Transfere os dados da classe VEHICLE para a view model UPDATEVEHICLEVIEWMODEL
             viewModel.Brand = vehicle.Brand;
             viewModel.Model = vehicle.Model;
             viewModel.Year = vehicle.Year;
@@ -125,7 +125,7 @@ namespace movtech.MVC.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Não foi possível cadastrar!");
-                    return NotFound();
+                    
                     return View(viewModel);
 
                 }
@@ -134,6 +134,21 @@ namespace movtech.MVC.Controllers
             {
                 return View(viewModel);
             }
+        }
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var vehicle = await _movtechAPIService.GetVehicle(id.Value);
+            if (vehicle == null)
+            {
+                return NotFound();
+            }
+
+            return View(vehicle);
         }
 
 

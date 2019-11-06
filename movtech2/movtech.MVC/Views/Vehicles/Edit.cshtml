@@ -95,7 +95,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
             <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Vehicles")'><span class="fas fa-car-side"></span> Veículos</a></li>
-            <li class="breadcrumb-item  text-white">Cadastrar</li>
+            <li class="breadcrumb-item  text-white">Editar</li>
         </ul>
     </nav>
 </div>
@@ -121,16 +121,27 @@
                         <div class="col-md-2">
                             <label for="Type">Tipo:</label>
                             <select required asp-for="VehicleType" class="form-control" onchange="GetMarcas()">
-                                <option value="" selected>@Model.VehicleType</option>
-                                <option value="Carro">Carro</option>
-                                <option value="Moto">Moto</option>
+                                @if (Model.VehicleType == 0)
+                                {
+                                    <option value="Carro" selected>Carro</option>
+                                    <option value="Moto">Moto</option>
+                                }
+                                else
+                                {
+                                    <option value="Moto" selected>Moto</option>
+                                    <option value="Carro">Carro</option>
+                                }
+
+                                
+
                             </select>
                             <span asp-validation-for="VehicleType" class="text-danger"></span>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="Brand">Marca:</label>
-                                <select required asp-for="Brand" asp-items="Model.BrandList" class="form-control" onchange="GetModelos()">
+                                   
+                                <select required asp-for="Brand" asp-items="Model.BrandList" class="form-control" onload="GetModelos()">
                                     <option value="" selected>@Model.Brand</option>
                                 </select>
                                 <span asp-validation-for="Brand" class="text-danger"></span>
@@ -184,6 +195,4 @@
     </div>
 </div>
 
-    <h1>@Model.Brand</h1>
-    <h1>@Model.Model</h1>
-    <h1>@Model.FuelType</h1>
+   

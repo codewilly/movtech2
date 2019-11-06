@@ -111,7 +111,7 @@ namespace movtech.MVC.Services
             try
             {
                 HttpResponseMessage _message = await _client.GetAsync($"api/v1/Vehicles");
-                return JsonConvert.DeserializeObject<IEnumerable<Vehicle>>(await _message.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<IEnumerable<Vehicle>> (await _message.Content.ReadAsStringAsync());
             }
             catch (Exception ex)
             {
