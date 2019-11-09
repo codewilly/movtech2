@@ -2,9 +2,7 @@
     background-color: #f5f6fa;
 }
 
-.bg-custom {
-    background-color: #2f3640;
-}
+
 
 .list-group-item.active {
     background-color: #577399;
@@ -35,7 +33,30 @@
 a.ancor-color {
     color: #f00f00 !important;
 }
-.font-color {
-    color: #343a40 !important;
+
+
+.btn-link {
+    margin: 0 4px;
+    color: #577399 !important;
+    
+}
+.btnlink-outline {
+    
+    border: solid !important;
+    border-width: thin !important;
+    color: #577399 !important;
+    background-color: white !important;
+}
+
+/*Detalhes*/
+.subtitle {
+    background-color: white!important;
+    color: #577399;
+    font-size: 30px;
+    border-radius: 10px;
+}
+.content{
+    font-size: 20px !important;
+    
 }
 

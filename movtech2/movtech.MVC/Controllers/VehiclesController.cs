@@ -69,6 +69,87 @@ namespace movtech.MVC.Controllers
             }
             
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var vehicle = await _movtechAPIService.GetVehicle(id.Value);
+            if (vehicle == null)
+            {
+                return NotFound();
+            }
+
+            
+            var viewModel = new UpdateVehicleViewModel();
+
+            // Transfere os dados da classe VEHICLE para a view model UPDATEVEHICLEVIEWMODEL
+            viewModel.Brand = vehicle.Brand;
+            viewModel.Model = vehicle.Model;
+            viewModel.Year = vehicle.Year;
+
+            viewModel.Quilometers = vehicle.Quilometers;
+            viewModel.FuelType = vehicle.FuelType;
+            viewModel.VehicleType = vehicle.VehicleType;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            return View(viewModel);
+
+
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int Id,UpdateVehicleViewModel viewModel )
+        {
+            
+            if (ModelState.IsValid)
+            {
+                
+                viewModel.Brand = viewModel.HiddenBrand;
+                viewModel.Model = viewModel.HiddenModel;
+                
+                if (await _movtechAPIService.AtualizarVeiculo(Id,viewModel))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Não foi possível cadastrar!");
+                    
+                    return View(viewModel);
+
+                }
+            }
+            else
+            {
+                return View(viewModel);
+            }
+        }
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var vehicle = await _movtechAPIService.GetVehicle(id.Value);
+            if (vehicle == null)
+            {
+                return NotFound();
+            }
+
+            return View(vehicle);
+        }
 
 
         #region Dropdowns Ajax
@@ -102,4 +183,6 @@ namespace movtech.MVC.Controllers
         }
         #endregion
     }
+
+   
 }

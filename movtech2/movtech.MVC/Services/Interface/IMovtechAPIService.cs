@@ -20,6 +20,10 @@ namespace movtech.MVC.Services.Interface
 
         Task<bool> CadastrarVeiculo(CreateVehicleRequest request);
 
+        Task<bool> AtualizarVeiculo(int id,UpdateVehicleRequest request);
+
+        Task<Vehicle> GetVehicle(int id);
+
         Task<IEnumerable<Vehicle>> GetAllVeiculos();
 
 

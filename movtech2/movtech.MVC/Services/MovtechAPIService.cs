@@ -89,17 +89,46 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
+        public async Task<bool>AtualizarVeiculo(int id,UpdateVehicleRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message =  await _client.PutAsync($"api/v1/Vehicles/{id}", new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+               
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         public async Task<IEnumerable<Vehicle>> GetAllVeiculos()
         {
             try
             {
                 HttpResponseMessage _message = await _client.GetAsync($"api/v1/Vehicles");
-                return JsonConvert.DeserializeObject<IEnumerable<Vehicle>>(await _message.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<IEnumerable<Vehicle>> (await _message.Content.ReadAsStringAsync());
             }
             catch (Exception ex)
             {
 
+                throw;
+            }
+        }
+
+        public async Task<Vehicle> GetVehicle(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Vehicles/{id}");
+                return JsonConvert.DeserializeObject<Vehicle>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
                 throw;
             }
         }

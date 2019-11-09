@@ -1,4 +1,9 @@
-﻿@model movtech.MVC.ViewModels.Vehicle.CreateVehicleViewModel;
+﻿@model movtech.MVC.ViewModels.Vehicle.UpdateVehicleViewModel;
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
 
 @section Scripts{
 
@@ -90,7 +95,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
             <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Vehicles")'><span class="fas fa-car-side"></span> Veículos</a></li>
-            <li class="breadcrumb-item  text-white">Cadastrar</li>
+            <li class="breadcrumb-item  text-white">Editar</li>
         </ul>
     </nav>
 </div>
@@ -100,31 +105,44 @@
     <div class="col-12 p-1">
         <div class="card ">
             <div class="card-header">
-                <h2>Cadastrar um novo veículo</h2>
-                <p class="card-subtitle">Adicione mais um veículo para sua frota!</p>
+                <h2>Editar um novo veículo</h2>
+                <p class="card-subtitle">Atualize um veículo na sua frota!</p>
             </div>
 
             <div class="card-body">
-                <form asp-action="Create" method="post">
-                    <input asp-for="HiddenBrand" type="hidden" />
-                    <input asp-for="HiddenModel" type="hidden" />
+                <form asp-action="Edit" method="post">
+                    
+                    <input asp-for="HiddenBrand" type="text" />
+                    <input asp-for="HiddenModel" type="text" />
+                    
 
 
                     <div class="form-row">
                         <div class="col-md-2">
                             <label for="Type">Tipo:</label>
                             <select required asp-for="VehicleType" class="form-control" onchange="GetMarcas()">
-                                <option value="" selected disabled>Selecione...</option>
-                                <option value="Carro">Carro</option>
-                                <option value="Moto">Moto</option>
+                                @if (Model.VehicleType == 0)
+                                {
+                                    <option value="Carro" selected>Carro</option>
+                                    <option value="Moto">Moto</option>
+                                }
+                                else
+                                {
+                                    <option value="Moto" selected>Moto</option>
+                                    <option value="Carro">Carro</option>
+                                }
+
+                                
+
                             </select>
                             <span asp-validation-for="VehicleType" class="text-danger"></span>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="Brand">Marca:</label>
-                                <select required asp-for="Brand" asp-items="Model.BrandList" class="form-control" onchange="GetModelos()">
-                                    <option value="" selected disabled>Selecione...</option>
+                                   
+                                <select required asp-for="Brand" asp-items="Model.BrandList" class="form-control" onload="GetModelos()">
+                                    <option value="" selected>@Model.Brand</option>
                                 </select>
                                 <span asp-validation-for="Brand" class="text-danger"></span>
 
@@ -136,7 +154,7 @@
                             <div class="form-group">
                                 <label for="Model">Modelo:</label>
                                 <select required asp-for="Model" asp-items="Model.ModelList" class="form-control" onchange="GetAnosDoModelo()">
-                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="" selected>@Model.Model</option>
                                 </select>
                                 <span asp-validation-for="Model" class="text-danger"></span>
                             </div>
@@ -144,29 +162,20 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-2">
-                            <label for="LicensePlate">Placa:</label>
-                            <input required asp-for="LicensePlate" type="text" class="form-control" placeholder="ABC-1234">
-                            <span asp-validation-for="LicensePlate" class="text-danger"></span>
-                        </div>
 
-                        <div class="form-group col-md-4">
-                            <label for="LicensePlate">Renavam:</label>
-                            <input required asp-for="Renavam" type="tel" class="form-control" placeholder="">
-                            <span asp-validation-for="Renavam" class="text-danger"></span>
-                        </div>
+
 
                         <div class="form-group col-md-3">
                             <label for="Brand">Ano:</label>
                             <select required asp-for="Year" class="form-control">
-                                <option value="" selected disabled>Selecione...</option>
+                                <option value="" selected>@Model.Year</option>
                             </select>
                             <span asp-validation-for="Year" class="text-danger"></span>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="Brand">Quilometragem:</label>
-                            <input required asp-for="Quilometers" type="tel" class="form-control" placeholder="">
+                            <input required asp-for="Quilometers" type="tel" class="form-control" placeholder="@Model.Quilometers">
                             <span asp-validation-for="Quilometers" class="text-danger"></span>
                         </div>
                     </div>
@@ -174,9 +183,9 @@
 
                     <div class="form-row float-right">
                         <div class="col ">
-                            
+
                             <button class="btn btnlink-outline" type="reset">Limpar</button>
-                            <button class="btn breadcrumb-bgcolor   text-white" type="submit">Cadastrar Veículo</button>
+                            <button class="btn breadcrumb-bgcolor   text-white" type="submit" value="Edit">Editar</button>
                         </div>
                     </div>
                 </form>
@@ -186,3 +195,4 @@
     </div>
 </div>
 
+   

@@ -1,0 +1,211 @@
+﻿@model movtech.Domain.Entities.Vehicle
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Vehicles")'><span class="fas fa-car-side"></span> Veículos</a></li>
+            <li class="breadcrumb-item  text-white">Detalhes</li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+
+    <div class="col-12 p-1">
+
+
+
+        <div class="card " style="width: 100%;">
+
+
+            <div class="card-header">
+                <h2>Detalhes</h2>
+                <p class="card-subtitle">Visualize detalhes sobre um veículo específico !</p>
+            </div>
+
+
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-12">
+                        
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn breadcrumb-bgcolor   text-white float-lg-right"><span class="fas fa-pencil-alt"></span>   Editar</a>
+                    </div>
+                    <div class="col-12 text-center mt-3 mb-3 ">
+                        <h1 class="subtitle ">Informações</h1>
+                    </div>
+
+                    <div class="col-lg-4 content">
+                        <h3 class="content"><b>Placa:</b>  @Model.LicensePlate</h3><hr />
+                    </div>
+                    <div class="col-lg-4 content">
+                        <h3 class="content"><b>Tipo do Veículo:</b>  @Model.VehicleType</h3><hr />
+                    </div>
+                    <div class="col-lg-4 content">
+                        <h3 class="content"><b>Status:</b>  @Model.Status</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content">
+                            <b>Está na Garagem: </b>
+
+                            @{
+                                if (Model.InGarage)
+                                {
+                                    <Garagem>Não</Garagem>
+
+                                }
+                                else
+                                {
+
+                                    <Garagem>Sim</Garagem>
+                                }
+                            }
+                        </h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Marca:</b>  @Model.Brand</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Modelo:</b>  @Model.Model</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Ano:</b>  @Model.Year</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Quilometragem:</b>  @Model.Quilometers</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Combustível:</b>  @Model.FuelType</h3><hr />
+                    </div>
+
+                    <div class="col-12 text-center mt-3 mb-3">
+                        <h1 class="subtitle">Manutenções</h1><hr />
+                    </div>
+
+                    <div class="col-lg-4 ">
+                        <h3 class="content"><b>Ultima Manutenção:</b>  @Model.LastMaintenanceDate.ToString("dd/MM/yyyy")</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Ultima Manutenção KM:</b>  @Model.LastMaintenanceKms Km</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Ultima Troca de Pneu KM:</b>  @Model.LastTireChangeKms Km</h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content"><b>Ultima Troca de Óleo KM:</b>  @Model.LastOilChangeKms Km</h3> <hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content">
+                            <b>Precisa de Manutenção: </b>
+
+                            @{
+                                if (Model.NeedsMaintenance == false)
+                                {
+                                    <Manutencao>Sim</Manutencao>
+
+
+                                }
+                                else
+                                {
+                                    <Manutencao>Não</Manutencao>
+                                }
+                            }
+                        </h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content">
+                            <b>Precisa de Troca de Pneus: </b>
+
+                            @{
+                                if (Model.NeedsChangeTires == false)
+                                {
+
+                                    <TrocaPneus>Não</TrocaPneus>
+
+                                }
+                                else
+                                {
+                                    <TrocaPneus>Sim</TrocaPneus>
+
+                                }
+                            }
+                        </h3><hr />
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="content">
+                            <b>Precisa de Troca de Óleo: </b>
+
+                            @{
+                                if (Model.NeedsChangeOil == false)
+                                {
+
+                                    <TrocaOleo>Não</TrocaOleo>
+
+                                }
+                                else
+                                {
+                                    <TrocaOleo>Sim</TrocaOleo>
+
+                                }
+                            }
+                        </h3><hr />
+                    </div>
+
+                    <div class="col-12 text-center mt-3 mb-3">
+                        <h1 class="subtitle">Motorista</h1><hr />
+                    </div>
+
+
+
+                    @if (Model.Driver != null)
+                    {
+                        <div class="col-lg-4">
+                            <h3 class="content"><b>Nome:</b>  @Model.Driver.Name </h3><hr />
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="content"><b>CNH:</b>  @Model.Driver.CNH </h3><hr />
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="content"><b>Categoria:</b>  @Model.Driver.CNHCategory </h3><hr />
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="content"><b>Email:</b>  @Model.Driver.Email </h3><hr />
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="content"><b>Telefone:</b>  @Model.Driver.Phone </h3><hr />
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="content"><b>UF:</b>  @Model.Driver.UF </h3><hr />
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="col-lg-12">
+                            <div class="alert  bg-info text-white" role="alert">
+                                O Veículo está disponível!!!
+                            </div>
+                        </div>
+
+                    }
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
