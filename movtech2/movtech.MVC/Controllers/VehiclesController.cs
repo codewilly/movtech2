@@ -61,71 +61,83 @@ namespace movtech.MVC.Controllers
                     return View(viewModel);
                 }
 
-                
+
             }
             else
             {
                 return View(viewModel);
             }
-            
+
         }
+
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
 
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var vehicle = await _movtechAPIService.GetVehicle(id.Value);
+            var vehicle = await _movtechAPIService.GetVehicle(id);
+
+            // Carregar os Dropdowns
+
             if (vehicle == null)
             {
                 return NotFound();
             }
 
-            
+            // Preparar os Dropdowns
+            var _brands = await _movtechAPIService.ConsultarMarcas(vehicle.VehicleType);
+            var _brandId = _brands.Marcas.Where(x => x.Label == vehicle.Brand).FirstOrDefault().Value;
+
+            var _models = await _movtechAPIService.ConsultarModelos(vehicle.VehicleType, int.Parse(_brandId));
+            var _modelId = _models.Modelos.Where(x => x.Label == vehicle.Model).FirstOrDefault().Value;
+
+            var _years = await _movtechAPIService.ConsultarAnosDoModelo(vehicle.VehicleType, int.Parse(_brandId), _modelId);
+            var _yearId = _years.AnoModelos.Where(x => x.Label.Substring(0,4) == vehicle.Year.ToString()).FirstOrDefault().Value;
+
+            // Prepara a viewmodel
             var viewModel = new UpdateVehicleViewModel();
-
-            // Transfere os dados da classe VEHICLE para a view model UPDATEVEHICLEVIEWMODEL
-            viewModel.Brand = vehicle.Brand;
-            viewModel.Model = vehicle.Model;
-            viewModel.Year = vehicle.Year;
-
+            
             viewModel.Quilometers = vehicle.Quilometers;
-            viewModel.FuelType = vehicle.FuelType;
+            viewModel.BrandList = _brands.Marcas.Select(x => new SelectListItem(){Text = x.Label,Value = x.Value}).ToList();
+            viewModel.ModelList = _models.Modelos.Select(x => new SelectListItem(){Text = x.Label,Value = x.Value.ToString()}).ToList();
+            viewModel.YearList = _years.AnoModelos.Select(x => new SelectListItem(){Text = x.Label.Substring(0, 4), Value = x.Value.Substring(0, 4) }).ToList();
+      
+            // Transfere os dados da classe VEHICLE para a view model UPDATEVEHICLEVIEWMODEL
             viewModel.VehicleType = vehicle.VehicleType;
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            viewModel.Brand = _brandId;
+            viewModel.Model = _modelId.ToString();
+            viewModel.Year = int.Parse(_yearId.Substring(0, 4));
+
+            ViewBag.Placa = vehicle.LicensePlate;
+            ViewBag.Renavam = vehicle.Renavam;
+
+
+            viewModel.HiddenBrand = vehicle.Brand;
+            viewModel.HiddenModel = vehicle.Model;
+
             return View(viewModel);
 
-
-
         }
+
+
+
         [HttpPost]
-        public async Task<IActionResult> Edit(int Id,UpdateVehicleViewModel viewModel )
+        public async Task<IActionResult> Edit(int Id, UpdateVehicleViewModel viewModel)
         {
-            
+
             if (ModelState.IsValid)
             {
-                
+
                 viewModel.Brand = viewModel.HiddenBrand;
                 viewModel.Model = viewModel.HiddenModel;
-                
-                if (await _movtechAPIService.AtualizarVeiculo(Id,viewModel))
+
+                if (await _movtechAPIService.AtualizarVeiculo(Id, viewModel))
                 {
                     return RedirectToAction("Index");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Não foi possível cadastrar!");
-                    
+
                     return View(viewModel);
 
                 }
@@ -164,8 +176,8 @@ namespace movtech.MVC.Controllers
         [HttpGet]
         public async Task<JsonResult> GetModels(VehicleType type, int marcaId)
         {
-            var _brandList = await _movtechAPIService.ConsultarModelos(type, marcaId);
-            return Json(_brandList);
+            var _modelList = await _movtechAPIService.ConsultarModelos(type, marcaId);
+            return Json(_modelList);
         }
 
         [HttpGet]
@@ -184,5 +196,5 @@ namespace movtech.MVC.Controllers
         #endregion
     }
 
-   
+
 }

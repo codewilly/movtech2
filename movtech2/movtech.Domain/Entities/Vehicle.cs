@@ -13,7 +13,12 @@ namespace movtech.Domain.Entities
 
         public string Model { get; set; }
 
-        public string LicensePlate { get; set; }
+        private string _licensePlate { get; set; }
+        public string LicensePlate
+        {
+            get => _licensePlate;
+            set => _licensePlate = value.ToUpper();
+        }
 
         public string Renavam { get; set; }
 
@@ -92,7 +97,7 @@ namespace movtech.Domain.Entities
             LastMaintenanceKms = lastMaintenanceKms;
             LastTireChangeKms = lastTireChangeKms;
             LastOilChangeKms = lastOilChangeKms;
-            
+
         }
 
         #endregion
@@ -199,7 +204,7 @@ namespace movtech.Domain.Entities
 
         public List<string> GetMaintenanceList()
         {
-            var MaintenanceList = new List<string>();                
+            var MaintenanceList = new List<string>();
 
             if (NeedsMaintenance)
             {
@@ -231,8 +236,8 @@ namespace movtech.Domain.Entities
         {
             LastOilChangeKms = Quilometers;
             NeedsChangeOil = false;
-        } 
-        
+        }
+
         public void TiresChange()
         {
             LastTireChangeKms = Quilometers;
@@ -240,7 +245,7 @@ namespace movtech.Domain.Entities
         }
 
 
-        
+
         #endregion
 
 

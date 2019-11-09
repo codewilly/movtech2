@@ -100,49 +100,38 @@
     </nav>
 </div>
 
-
 <div class="row">
     <div class="col-12 p-1">
         <div class="card ">
             <div class="card-header">
-                <h2>Editar um novo veículo</h2>
-                <p class="card-subtitle">Atualize um veículo na sua frota!</p>
+                <h2>Editar veículo @ViewBag.Placa</h2>
+                <p class="card-subtitle">Realize alterações cadastrais neste veículo</p>
             </div>
 
             <div class="card-body">
                 <form asp-action="Edit" method="post">
-                    
-                    <input asp-for="HiddenBrand" type="text" />
-                    <input asp-for="HiddenModel" type="text" />
-                    
+
+                    <input asp-for="HiddenBrand" type="hidden" />
+                    <input asp-for="HiddenModel" type="hidden" />
+
 
 
                     <div class="form-row">
                         <div class="col-md-2">
                             <label for="Type">Tipo:</label>
                             <select required asp-for="VehicleType" class="form-control" onchange="GetMarcas()">
-                                @if (Model.VehicleType == 0)
-                                {
-                                    <option value="Carro" selected>Carro</option>
-                                    <option value="Moto">Moto</option>
-                                }
-                                else
-                                {
-                                    <option value="Moto" selected>Moto</option>
-                                    <option value="Carro">Carro</option>
-                                }
-
-                                
-
+                                <option value="" disabled>Selecione...</option>
+                                <option value="Carro">Carro</option>
+                                <option value="Moto">Moto</option>
                             </select>
                             <span asp-validation-for="VehicleType" class="text-danger"></span>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="Brand">Marca:</label>
-                                   
-                                <select required asp-for="Brand" asp-items="Model.BrandList" class="form-control" onload="GetModelos()">
-                                    <option value="" selected>@Model.Brand</option>
+
+                                <select required asp-for="Brand" asp-items="Model.BrandList" class="form-control" onchange="GetModelos()">
+                                    <option value="" disabled>Selecione...</option>
                                 </select>
                                 <span asp-validation-for="Brand" class="text-danger"></span>
 
@@ -154,7 +143,7 @@
                             <div class="form-group">
                                 <label for="Model">Modelo:</label>
                                 <select required asp-for="Model" asp-items="Model.ModelList" class="form-control" onchange="GetAnosDoModelo()">
-                                    <option value="" selected>@Model.Model</option>
+                                    <option value="" disabled>Selecione...</option>
                                 </select>
                                 <span asp-validation-for="Model" class="text-danger"></span>
                             </div>
@@ -163,12 +152,22 @@
 
                     <div class="form-row">
 
+                        <div class="form-group col-md-2">
+                            <label for="LicensePlate">Placa:</label>
+                            <input type="text" class="form-control"value="@ViewBag.Placa" disabled>                            
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="LicensePlate">Renavam:</label>
+                            <input type="text" class="form-control" value="@ViewBag.Renavam" disabled>
+                        </div>
+
 
 
                         <div class="form-group col-md-3">
                             <label for="Brand">Ano:</label>
-                            <select required asp-for="Year" class="form-control">
-                                <option value="" selected>@Model.Year</option>
+                            <select required asp-for="Year" asp-items="Model.YearList" class="form-control">
+                                <option value="" disabled>Selecione...</option>
                             </select>
                             <span asp-validation-for="Year" class="text-danger"></span>
                         </div>
@@ -184,8 +183,8 @@
                     <div class="form-row float-right">
                         <div class="col ">
 
-                            <button class="btn btnlink-outline" type="reset">Limpar</button>
-                            <button class="btn breadcrumb-bgcolor   text-white" type="submit" value="Edit">Editar</button>
+                            <button class="btn btnlink-outline" type="reset">Reverter</button>
+                            <button class="btn breadcrumb-bgcolor   text-white" type="submit">Salvar</button>
                         </div>
                     </div>
                 </form>
@@ -195,4 +194,4 @@
     </div>
 </div>
 
-   
+

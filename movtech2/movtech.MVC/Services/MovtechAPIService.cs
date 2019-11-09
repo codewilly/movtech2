@@ -31,6 +31,9 @@ namespace movtech.MVC.Services
         }
         #endregion
 
+        #region Veiculos
+               
+
         public async Task<ConsultarMarcasResponse> ConsultarMarcas(VehicleType type)
         {
             try
@@ -132,5 +135,23 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
+
+
+        #endregion
+
+        public async Task<IEnumerable<Driver>> GetAllDrivers()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Drivers");
+                return JsonConvert.DeserializeObject<IEnumerable<Driver>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

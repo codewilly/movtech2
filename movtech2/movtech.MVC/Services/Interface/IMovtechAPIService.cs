@@ -12,6 +12,8 @@ namespace movtech.MVC.Services.Interface
     public interface IMovtechAPIService
     {
 
+        #region Veiculos        
+
         Task<ConsultarMarcasResponse> ConsultarMarcas(VehicleType type);
 
         Task<ConsultarModelosResponse> ConsultarModelos(VehicleType type, int MarcaId);
@@ -26,6 +28,9 @@ namespace movtech.MVC.Services.Interface
 
         Task<IEnumerable<Vehicle>> GetAllVeiculos();
 
+        #endregion
+
+        Task<IEnumerable<Driver>> GetAllDrivers();
 
     }
 }

@@ -16,6 +16,8 @@ namespace movtech.MVC.ViewModels.Vehicle
 
         public List<SelectListItem> ModelList { get; set; } = new List<SelectListItem>();
 
+        public List<SelectListItem> YearList { get; set; } = new List<SelectListItem>();
+
         public string HiddenBrand { get; set; }
 
         public string HiddenModel { get; set; }
