@@ -115,5 +115,5 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\m
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.dll
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\movtech.MVC.pdb
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Drivers\Edit.cshtml.g.cs
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Drivers\Details.cshtml.g.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Drivers\Create.cshtml.g.cs
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Drivers\Details.cshtml.g.cs

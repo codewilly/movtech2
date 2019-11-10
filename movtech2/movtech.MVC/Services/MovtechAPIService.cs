@@ -4,6 +4,7 @@ using movtech.Domain.Entities;
 using movtech.Domain.Enums;
 using movtech.Domain.Services;
 using movtech.MVC.Services.Interface;
+using movtech.MVC.ViewModels.Driver;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -153,5 +154,34 @@ namespace movtech.MVC.Services
             }
         }
 
+        public async Task<bool> CadastarMotorista(CreateDriverViewModel viewModel)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Drivers",
+                    new StringContent(JsonConvert.SerializeObject(viewModel),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Driver> GetDriver(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Drivers/{id}");
+                return JsonConvert.DeserializeObject<Driver>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

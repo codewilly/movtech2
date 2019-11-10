@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using movtech.Domain.Contracts.Vehicle;
 using movtech.MVC.Services.Interface;
 using movtech.MVC.ViewModels.Driver;
 
@@ -43,17 +44,29 @@ namespace movtech.MVC.Controllers
         }
         
         [HttpPost]
-        public IActionResult Create(CreateDriverViewModel viewModel)
+        public async Task<IActionResult> Create(CreateDriverViewModel viewModel)
         {
 
             if (ModelState.IsValid)
             {
-                return RedirectToAction("index");
+                               
+                if (await _movtechAPIService.CadastarMotorista(viewModel))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Não foi possível cadastrar!");
+                    return View(viewModel);
+                }
+
             }
             else
             {
                 return View(viewModel);
             }
+
+
 
                 
         }
@@ -65,9 +78,10 @@ namespace movtech.MVC.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            var motorista = await _movtechAPIService.GetDriver(id);
+            return View(motorista);
         }
 
         #region AJAX

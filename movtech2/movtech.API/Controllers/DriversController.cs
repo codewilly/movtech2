@@ -47,7 +47,7 @@ namespace movtech.API.Controllers
 
         }
 
-        [HttpGet("{cpf}")]
+        [HttpGet("cpf/{cpf}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public IActionResult GetDriverByCPF(string cpf)

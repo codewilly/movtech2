@@ -2,6 +2,7 @@
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
+using movtech.MVC.ViewModels.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,10 @@ namespace movtech.MVC.Services.Interface
         #endregion
 
         Task<IEnumerable<Driver>> GetAllDrivers();
+
+        Task<bool> CadastarMotorista(CreateDriverViewModel viewModel);
+
+        Task<Driver> GetDriver(int id);
 
     }
 }
