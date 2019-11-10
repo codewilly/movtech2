@@ -38,10 +38,16 @@ namespace MOVTech
                 c.BaseAddress = new Uri(Configuration.GetValue<string>("MOVTechAPI:UrlBase"));
                 c.DefaultRequestHeaders.Add("Accept", "application/json");
             });
+            services.AddHttpClient("ViaCEPApi", c =>
+            {
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("ViaCEPApi:UrlBase"));
+                c.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
 
             #region DI
 
             services.AddScoped<IMovtechAPIService, MovtechAPIService>();
+            services.AddScoped<IViaCepService, ViaCepService>();
 
             #endregion
 

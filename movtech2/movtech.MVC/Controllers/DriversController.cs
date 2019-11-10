@@ -14,10 +14,12 @@ namespace movtech.MVC.Controllers
         #region Config
 
         private readonly IMovtechAPIService _movtechAPIService;
+        private readonly IViaCepService _viaCepService;
 
-        public DriversController(IMovtechAPIService movtechAPIService)
+        public DriversController(IMovtechAPIService movtechAPIService, IViaCepService viaCepService)
         {
             _movtechAPIService = movtechAPIService;
+            _viaCepService = viaCepService;
         }
 
         #endregion
@@ -31,12 +33,29 @@ namespace movtech.MVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            
 
             var viewModel = new CreateDriverViewModel();
 
             return View(viewModel);
+        }
+        
+        [HttpPost]
+        public IActionResult Create(CreateDriverViewModel viewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("index");
+            }
+            else
+            {
+                return View(viewModel);
+            }
+
+                
         }
 
         [HttpGet]
@@ -51,6 +70,15 @@ namespace movtech.MVC.Controllers
             return View();
         }
 
+        #region AJAX
+
+        public async Task<JsonResult> SearchCep(string cep)
+        {
+            var response = await _viaCepService.SearchCep(cep);
+            return Json(response);
+        }
+
+        #endregion
 
     }
 }

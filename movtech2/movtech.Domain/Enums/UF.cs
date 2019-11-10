@@ -6,6 +6,8 @@ namespace movtech.Domain.Enums
 {
     public enum UF
     {
+        INVALID,
+
         AC,
 
         AL,
