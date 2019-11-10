@@ -48,13 +48,25 @@
                                 {
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>@item.LicensePlate</td>
-                                            <td>@item.Brand</td>
-                                            <td>@item.Model</td>
-                                            <td>-</td>
-                                            <td><a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes" class="btn-link"><span class="fas fa-search"></span></a> <a asp-action="Edit" asp-route-id="@item.Id" class="btn-link"><span class="fas fa-pencil-alt"></span></a></td>
-                                        </tr>
+                                <tr>
+                                    <td>@item.LicensePlate</td>
+                                    <td>@item.Brand</td>
+                                    <td>@item.Model</td>
+                                    @*<td>@(item.Driver!= null? item.Driver.Name: "-")</td>*@
+                                    @if (item.Driver != null)
+                                    {
+                                        <td>
+                                        <a href="@Url.Action("Details", "Drivers", new { id = item.DriverId })">@item.Driver.Name</a>
+
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>-</td>
+                                    }
+
+                                    <td><a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes" class="btn-link"><span class="fas fa-search"></span></a> <a asp-action="Edit" asp-route-id="@item.Id" class="btn-link"><span class="fas fa-pencil-alt"></span></a></td>
+                                </tr>
                                     }
                                 }
                                 else

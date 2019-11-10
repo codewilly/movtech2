@@ -79,6 +79,11 @@ namespace movtech.Domain.Entities
             _year = SetYear(year);
         }
 
+        public readonly float[] MAINTENANCE_KMS = { 10000, 2000 };
+        public readonly float[] OIL_KMS = { 5000, 1000 };
+        public readonly float[] TIRE_KMS = { 70000, 20000 };
+        public readonly int[] MAINTENANCE_DAYS = { 180, 120 };
+
         public Vehicle(string brand, string model, string licensePlate, string renavam, int year, float quilometers, FuelType fuelType, VehicleType vehicleType, bool inGarage, VehicleStatus status, Driver driver, int? driverId, DateTime lastMaintenanceDate, float lastMaintenanceKms, float lastTireChangeKms, float lastOilChangeKms)
         {
             Brand = brand;
@@ -130,9 +135,6 @@ namespace movtech.Domain.Entities
                 case VehicleType.Carro:
                     return 'B';
 
-                case VehicleType.Caminhao:
-                    return 'D';
-
                 default:
                     throw new Exception("Tipo não reconhecido");
             }
@@ -166,36 +168,72 @@ namespace movtech.Domain.Entities
 
         // Maintenance
 
+        public int GetMaintenancePercent()
+        {
+            var _type = (int)VehicleType - 1;            
+            var Rodados = Quilometers - LastMaintenanceKms;
+
+            return (int)Math.Round((Rodados / MAINTENANCE_KMS[_type]) *100);
+        }
+        
+        public int GetTireLifePercent()
+        {
+            var _type = (int)VehicleType - 1;            
+            var Rodados = Quilometers - LastTireChangeKms;
+
+            return (int)Math.Round((Rodados / TIRE_KMS[_type]) *100);
+        }
+        
+        public int GetOilLifePercent()
+        {
+            var _type = (int)VehicleType - 1;            
+            var Rodados = Quilometers - LastOilChangeKms;
+
+            return (int)Math.Round((Rodados / OIL_KMS[_type]) * 100);
+        }
+
+        public float GetNextMaintenanceKms(string what)
+        {
+            
+
+            var _type = (int)VehicleType - 1;
+            switch (what)
+            {                
+                case "manutencao":
+                    return LastMaintenanceKms + MAINTENANCE_KMS[_type];
+
+                case "oleo":
+                    return LastOilChangeKms + OIL_KMS[_type];
+                
+                case "rodas":
+                    return LastTireChangeKms + TIRE_KMS[_type];
+
+                default:
+                    return 0;
+            }
+        }
+
         public void CheckMaintenance()
         {
-
-            // 0 Carro, 1 Moto, 2 Caminhao
-            int[] _maintenanceDays = { 180, 120, 360 };
-            float[] _maintenanceKms = { 10000, 2000, 15000 };
-
-            float[] _oilKms = { 5000, 1000, 10000 };
-
-            float[] _tireKms = { 70000, 70000, 70000 };
-
             var _maintenanceDateDiff = DateTime.Now - LastMaintenanceDate;
 
             int _vehicleType = (int)VehicleType - 1;
 
             // Manutenção preventiva
-            if (LastMaintenanceKms + _maintenanceKms[_vehicleType] <= Quilometers ||
-                _maintenanceDateDiff.Days >= _maintenanceDays[_vehicleType])
+            if (LastMaintenanceKms + MAINTENANCE_KMS[_vehicleType] <= Quilometers ||
+                _maintenanceDateDiff.Days >= MAINTENANCE_DAYS[_vehicleType])
             {
                 NeedsMaintenance = true;
             }
 
             // Troca de óleo
-            if (LastOilChangeKms + _oilKms[_vehicleType] <= Quilometers)
+            if (LastOilChangeKms + OIL_KMS[_vehicleType] <= Quilometers)
             {
                 NeedsChangeOil = true;
             }
 
             // Troca de pneu
-            if (LastTireChangeKms + _tireKms[_vehicleType] <= Quilometers)
+            if (LastTireChangeKms + TIRE_KMS[_vehicleType] <= Quilometers)
             {
                 NeedsChangeTires = true;
             }

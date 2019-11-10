@@ -45,6 +45,7 @@ $(document).ready(function () {
     $('.cnh').mask('00000000000', { clearIfNotMatch: true })
     $('.cep').mask('00000-000', { clearIfNotMatch: true })
     $('.float_number').mask('#.##0,00', { reverse: true });
+    $('.kms').mask('#.##0,0');
 
 });
 

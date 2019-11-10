@@ -11,6 +11,5 @@ namespace movtech.Domain.Enums
 
         Moto = 2,
 
-        Caminhao = 3
     }
 }

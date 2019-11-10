@@ -1,7 +1,4 @@
-﻿@model movtech.Domain.Entities.Vehicle
-@{
-    ViewData["Title"] = "Details";
-}
+﻿@model movtech.MVC.ViewModels.Vehicle.DetailsVehicleViewModel
 
 
 <div class="row ">
@@ -9,203 +6,190 @@
         <ul class="breadcrumb breadcrumb-bgcolor">
             <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Vehicles")'><span class="fas fa-car-side"></span> Veículos</a></li>
             <li class="breadcrumb-item  text-white">Detalhes</li>
+            <li class="breadcrumb-item  text-white">@Model.Vehicle.Model</li>
         </ul>
     </nav>
 </div>
 
-
 <div class="row">
-
     <div class="col-12 p-1">
-
-
-
-        <div class="card " style="width: 100%;">
-
-
+        <div class="card ">
             <div class="card-header">
-                <h2>Detalhes</h2>
-                <p class="card-subtitle">Visualize detalhes sobre um veículo específico !</p>
+                <h2>Detalhes do Veículo</h2>
+                <p class="card-subtitle">@Model.Vehicle.Brand - @Model.Vehicle.Model </p>
             </div>
-
-
             <div class="card-body">
-                <div class="row text-center">
-                    <div class="col-12">
-                        
-                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn breadcrumb-bgcolor   text-white float-lg-right"><span class="fas fa-pencil-alt"></span>   Editar</a>
-                    </div>
-                    <div class="col-12 text-center mt-3 mb-3 ">
-                        <h1 class="subtitle ">Informações</h1>
-                    </div>
+                <div class="row">
 
-                    <div class="col-lg-4 content">
-                        <h3 class="content"><b>Placa:</b>  @Model.LicensePlate</h3><hr />
-                    </div>
-                    <div class="col-lg-4 content">
-                        <h3 class="content"><b>Tipo do Veículo:</b>  @Model.VehicleType</h3><hr />
-                    </div>
-                    <div class="col-lg-4 content">
-                        <h3 class="content"><b>Status:</b>  @Model.Status</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content">
-                            <b>Está na Garagem: </b>
-
-                            @{
-                                if (Model.InGarage)
-                                {
-                                    <Garagem>Não</Garagem>
-
-                                }
-                                else
-                                {
-
-                                    <Garagem>Sim</Garagem>
-                                }
-                            }
-                        </h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Marca:</b>  @Model.Brand</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Modelo:</b>  @Model.Model</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Ano:</b>  @Model.Year</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Quilometragem:</b>  @Model.Quilometers</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Combustível:</b>  @Model.FuelType</h3><hr />
-                    </div>
-
-                    <div class="col-12 text-center mt-3 mb-3">
-                        <h1 class="subtitle">Manutenções</h1><hr />
-                    </div>
-
-                    <div class="col-lg-4 ">
-                        <h3 class="content"><b>Ultima Manutenção:</b>  @Model.LastMaintenanceDate.ToString("dd/MM/yyyy")</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Ultima Manutenção KM:</b>  @Model.LastMaintenanceKms Km</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Ultima Troca de Pneu KM:</b>  @Model.LastTireChangeKms Km</h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content"><b>Ultima Troca de Óleo KM:</b>  @Model.LastOilChangeKms Km</h3> <hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content">
-                            <b>Precisa de Manutenção: </b>
-
-                            @{
-                                if (Model.NeedsMaintenance == false)
-                                {
-                                    <Manutencao>Sim</Manutencao>
-
-
-                                }
-                                else
-                                {
-                                    <Manutencao>Não</Manutencao>
-                                }
-                            }
-                        </h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content">
-                            <b>Precisa de Troca de Pneus: </b>
-
-                            @{
-                                if (Model.NeedsChangeTires == false)
-                                {
-
-                                    <TrocaPneus>Não</TrocaPneus>
-
-                                }
-                                else
-                                {
-                                    <TrocaPneus>Sim</TrocaPneus>
-
-                                }
-                            }
-                        </h3><hr />
-                    </div>
-                    <div class="col-lg-4">
-                        <h3 class="content">
-                            <b>Precisa de Troca de Óleo: </b>
-
-                            @{
-                                if (Model.NeedsChangeOil == false)
-                                {
-
-                                    <TrocaOleo>Não</TrocaOleo>
-
-                                }
-                                else
-                                {
-                                    <TrocaOleo>Sim</TrocaOleo>
-
-                                }
-                            }
-                        </h3><hr />
-                    </div>
-
-                    <div class="col-12 text-center mt-3 mb-3">
-                        <h1 class="subtitle">Motorista</h1><hr />
-                    </div>
-
-
-
-                    @if (Model.Driver != null)
+                    @if (Model.Vehicle.NeedsMaintenance || Model.Vehicle.NeedsChangeOil || Model.Vehicle.NeedsChangeTires)
                     {
-                        <div class="col-lg-4">
-                            <h3 class="content"><b>Nome:</b>  @Model.Driver.Name </h3><hr />
-                        </div>
-                        <div class="col-lg-4">
-                            <h3 class="content"><b>CNH:</b>  @Model.Driver.CNH </h3><hr />
-                        </div>
-                        <div class="col-lg-4">
-                            <h3 class="content"><b>Categoria:</b>  @Model.Driver.CNHCategory </h3><hr />
-                        </div>
-                        <div class="col-lg-4">
-                            <h3 class="content"><b>Email:</b>  @Model.Driver.Email </h3><hr />
-                        </div>
-                        <div class="col-lg-4">
-                            <h3 class="content"><b>Telefone:</b>  @Model.Driver.Phone </h3><hr />
-                        </div>
-                        <div class="col-lg-4">
-                            <h3 class="content"><b>UF:</b>  @Model.Driver.UF </h3><hr />
-                        </div>
+                        <div class="col-12">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h5>Atenção!</h5>
+                                <ul>
+                                    @if (Model.Vehicle.NeedsMaintenance)
+                                    {
+                                        <li>
+                                            Realizar manutenção preventiva.
+                                        </li>
+                                    }
+                                    @if (Model.Vehicle.NeedsChangeOil)
+                                    {
+                                        <li>
+                                            Realizar troca de óleo.
+                                        </li>
+                                    }
+                                    @if (Model.Vehicle.NeedsChangeTires)
+                                    {
+                                        <li>
+                                            Realizar troca dos pneus.
+                                        </li>
+                                    }
 
-                    }
-                    else
-                    {
-                        <div class="col-lg-12">
-                            <div class="alert  bg-info text-white" role="alert">
-                                O Veículo está disponível!!!
+                                </ul>
                             </div>
                         </div>
-
                     }
+
+
+                    <div class="col-md-4">
+                        <h5>Dados Básicos (@Html.DisplayFor(model => model.Vehicle.VehicleType))</h5>
+                        <hr />
+                        <dl>
+
+                            <dt>
+                                Placa
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Vehicle.LicensePlate)
+                            </dd>
+
+                            <dt>
+                                Marca:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Vehicle.Brand)
+                            </dd>
+                            <dt>
+                                Modelo:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Vehicle.Model)
+                            </dd>
+                            <dt>
+                                Ano:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Vehicle.Year)
+                            </dd>
+
+                            <dt>
+                                Tipo de Combustível:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Vehicle.FuelType)
+                            </dd>
+
+                            <dt>
+                                RENAVAM:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Vehicle.Renavam)
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h5>Manutenção</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Quilometragem:
+                            </dt>
+                            <dd>
+                                <span>@Model.Vehicle.Quilometers.ToString("F")</span> KMs
+                            </dd>
+
+                            <dt>
+                                Preventiva:
+                            </dt>
+                            <dd>
+                                <small class="text-muted">Realizar ao atingir @Model.Vehicle.GetNextMaintenanceKms("manutencao").ToString("F") KMs</small>
+                                <div class="progress">
+                                    <div class="progress-bar @Model.PercentMaintenanceClass" role="progressbar" style="width: @Model.PercentMaintenance%">@Model.PercentMaintenance%</div>
+                                </div>
+                            </dd>
+
+                            <dt>
+                                Uso do Óleo:
+                            </dt>
+                            <dd>
+                                <small class="text-muted">Trocar ao atingir @Model.Vehicle.GetNextMaintenanceKms("oleo").ToString("F") KMs</small>
+                                <div class="progress">
+                                    <div class="progress-bar @Model.PercentOilClass" role="progressbar" style="width: @Model.PercentOil%">@Model.PercentOil%</div>
+                                </div>
+                            </dd>
+
+                            <dt>
+                                Uso dos Pneus
+
+                            </dt>
+                            <dd>
+                                <small class="text-muted">Trocar ao atingir @Model.Vehicle.GetNextMaintenanceKms("rodas").ToString("F") KMs</small>
+                                <div class="progress">
+                                    <div class="progress-bar @Model.PercentTiresClass" role="progressbar" style="width: @Model.PercentTires%">@Model.PercentTires%</div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h5>Status</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Na Garagem?
+                            </dt>
+                            <dd>
+                                @(Model.Vehicle.InGarage ? "Sim" : "Não")
+                            </dd>
+
+                            <dt>
+                                Condição:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Vehicle.Status)
+                            </dd>
+
+                            <dt>
+                                Motorista:
+                            </dt>
+                            <dd>
+                                @if (Model.Vehicle.Driver != null)
+                                {
+                                    <a href="@Url.Action("Details", "Drivers", new { id = Model.Vehicle.DriverId })">@Model.Vehicle.Driver.Name</a>
+                                }
+                                else
+                                {
+                                    <span class="text-success">Veiculo disponível!</span>
+                                }
+                            </dd>
+                        </dl>
+                    </div>
+
                 </div>
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+                        <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
 
-
-
-
-
-
-
-
-
-
-
+                        <a class="btn breadcrumb-bgcolor float-right text-white" href="@Url.Action("Edit", "Vehicles", new { id = Model.Vehicle.Id })"><span class="fas fa-pencil-alt"></span> Editar</a>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

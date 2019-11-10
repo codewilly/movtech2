@@ -42,6 +42,8 @@ namespace movtech.MVC.Controllers
             return View(viewModel);
         }
 
+        // TODO -> Esta falantando salvar o tipo de combustível!
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateVehicleViewModel viewModel)
         {
@@ -91,16 +93,16 @@ namespace movtech.MVC.Controllers
             var _modelId = _models.Modelos.Where(x => x.Label == vehicle.Model).FirstOrDefault().Value;
 
             var _years = await _movtechAPIService.ConsultarAnosDoModelo(vehicle.VehicleType, int.Parse(_brandId), _modelId);
-            var _yearId = _years.AnoModelos.Where(x => x.Label.Substring(0,4) == vehicle.Year.ToString()).FirstOrDefault().Value;
+            var _yearId = _years.AnoModelos.Where(x => x.Label.Substring(0, 4) == vehicle.Year.ToString()).FirstOrDefault().Value;
 
             // Prepara a viewmodel
             var viewModel = new UpdateVehicleViewModel();
-            
+
             viewModel.Quilometers = vehicle.Quilometers;
-            viewModel.BrandList = _brands.Marcas.Select(x => new SelectListItem(){Text = x.Label,Value = x.Value}).ToList();
-            viewModel.ModelList = _models.Modelos.Select(x => new SelectListItem(){Text = x.Label,Value = x.Value.ToString()}).ToList();
-            viewModel.YearList = _years.AnoModelos.Select(x => new SelectListItem(){Text = x.Label.Substring(0, 4), Value = x.Value.Substring(0, 4) }).ToList();
-      
+            viewModel.BrandList = _brands.Marcas.Select(x => new SelectListItem() { Text = x.Label, Value = x.Value }).ToList();
+            viewModel.ModelList = _models.Modelos.Select(x => new SelectListItem() { Text = x.Label, Value = x.Value.ToString() }).ToList();
+            viewModel.YearList = _years.AnoModelos.Select(x => new SelectListItem() { Text = x.Label.Substring(0, 4), Value = x.Value.Substring(0, 4) }).ToList();
+
             // Transfere os dados da classe VEHICLE para a view model UPDATEVEHICLEVIEWMODEL
             viewModel.VehicleType = vehicle.VehicleType;
             viewModel.Brand = _brandId;
@@ -160,7 +162,22 @@ namespace movtech.MVC.Controllers
                 return NotFound();
             }
 
-            return View(vehicle);
+            // View Model
+            var viewModel = new DetailsVehicleViewModel();
+
+            viewModel.Vehicle = vehicle;
+
+            // Percentuais
+            viewModel.PercentMaintenance = vehicle.GetMaintenancePercent();//(int)Math.Round(vehicle.Quilometers / vehicle.GetNextMaintenanceKms("manutencao") * 100);
+            viewModel.PercentOil = vehicle.GetOilLifePercent();//(int)Math.Round((vehicle.Quilometers / vehicle.GetNextMaintenanceKms("oleo")) * 100);
+            viewModel.PercentTires = vehicle.GetTireLifePercent();//(int)Math.Round(((vehicle.Quilometers - vehicle.LastTireChangeKms) / (vehicle.GetNextMaintenanceKms("rodas") - vehicle.LastTireChangeKms)) * 100);
+
+            //Cores (class do progress bar)
+            viewModel.PercentMaintenanceClass = ProgressColorClass(viewModel.PercentMaintenance);
+            viewModel.PercentOilClass = ProgressColorClass(viewModel.PercentOil);
+            viewModel.PercentTiresClass = ProgressColorClass(viewModel.PercentTires);
+
+            return View(viewModel);
         }
 
 
@@ -194,6 +211,22 @@ namespace movtech.MVC.Controllers
             return Json(_yearList);
         }
         #endregion
+
+
+        private string ProgressColorClass(int percent)
+        {
+            if (percent <= 25)
+                return "bg-success";
+
+            if (percent <= 50)
+                return "bg-info";
+
+            if (percent <= 75)
+                return "bg-warning";
+
+            return "bg-danger";
+
+        }
     }
 
 
