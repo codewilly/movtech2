@@ -1,7 +1,9 @@
-﻿<div class="row ">
+﻿@model movtech.MVC.ViewModels.EntranceAndExit.IndexEntranceAndExitViewModel
+
+<div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
-            <li class="breadcrumb-item  text-white"><span class="fas fa-user-tie"></span> Entrada e Saída</li>
+            <li class="breadcrumb-item  text-white"><span class="fas fa-exchange-alt"></span> Entradas e Saídas</li>
         </ul>
     </nav>
 </div>
@@ -9,23 +11,111 @@
 <div class="row">
     <div class="col-12 p-1">
         <div class="card ">
-            <div class="card-body font-colors">
-                <h2>Abastecimentos</h2>
+            <div class="card-header">
+                <h2>Entradas e Saídas</h2>
+                <p class="card-subtitle">Controle os veículos que entram e saem da garagem</p>
+            </div>
 
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
-                <p>LOREM IPSUM DOLORS</p>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="fas fa-sign-in-alt"></span> Registar Entrada
+                            </div>
+                            <div class="card-body">
+                                <form asp-action="Entrance">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label asp-for="LicencePlateEntrance">Placa:</label>
+                                                <input asp-for="LicencePlateEntrance" type="text" class="form-control placa" placeholder="ABC-1234">
+                                                <span asp-validation-for="LicencePlateEntrance" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label asp-for="CpfEntrance" class="control-label">CPF</label>
+                                                <input asp-for="CpfEntrance" class="form-control cpf" placeholder="000.000.000-00" />
+                                                <span asp-validation-for="CpfEntrance" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label asp-for="QuilometersEntrance" for="Brand">Quilometragem:</label>
+                                                <input asp-for="QuilometersEntrance" type="tel" class="form-control float_number" placeholder="0,00">
+                                                <span asp-validation-for="QuilometersEntrance" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row float-right">
+                                        <div class="col">
+                                            <button class="btn btnlink-outline" type="reset">Limpar</button>
+                                            <button class="btn breadcrumb-bgcolor   text-white" type="submit"><span class="fas fa-sign-in-alt"></span>  Registrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="fas fa-sign-out-alt"></span> Registrar Saída
+                            </div>
+                            <div class="card-body">
+                                <form asp-action="Exit">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="LicencePlateExit">Placa:</label>
+                                                <input asp-for="LicencePlateExit" type="text" class="form-control placa" placeholder="ABC-1234">
+                                                <span asp-validation-for="LicencePlateExit" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="CpfExit" class="control-label">CPF</label>
+                                                <input asp-for="CpfExit" class="form-control cpf" placeholder="000.000.000-00" />
+                                                <span asp-validation-for="CpfExit" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row float-right">
+                                        <div class="col">
+                                            <button class="btn btnlink-outline" type="reset">Limpar</button>
+                                            <button class="btn breadcrumb-bgcolor   text-white" type="submit"><span class="fas fa-sign-out-alt"></span>  Registrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-striped table-sm text-center">
+                            <thead >
+                                <tr>
+                                    <th><span class="fas fa-exchange-alt"></span></th>
+                                    <th>Data</th>                                    
+                                    <th>Descrição</th>
+                                    <th>Visualizar</th>
+                                    
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </div>
-

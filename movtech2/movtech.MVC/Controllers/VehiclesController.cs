@@ -138,7 +138,7 @@ namespace movtech.MVC.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Não foi possível cadastrar!");
+                    ModelState.AddModelError("", "Não foi possível atualizar!");
 
                     return View(viewModel);
 

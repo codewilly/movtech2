@@ -1,7 +1,9 @@
-﻿using movtech.Domain.Contracts.FipeAPI;
+﻿using movtech.Domain.Contracts.EntranceAndExit;
+using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
+using movtech.MVC.ViewModels;
 using movtech.MVC.ViewModels.Driver;
 using System;
 using System.Collections.Generic;
@@ -31,11 +33,23 @@ namespace movtech.MVC.Services.Interface
 
         #endregion
 
+        #region Drivers
         Task<IEnumerable<Driver>> GetAllDrivers();
 
         Task<bool> CadastarMotorista(CreateDriverViewModel viewModel);
 
+        Task<bool> AtualizarMotorista(int id, EditDriverViewModel request);
+
         Task<Driver> GetDriver(int id);
+        #endregion
+
+        #region Entrance and Exit
+
+        Task<bool> RegisterExit(RegisterExitRequest request);
+
+        Task<bool> RegisterEntrance(RegisterEntranceRequest request);
+
+        #endregion
 
     }
 }

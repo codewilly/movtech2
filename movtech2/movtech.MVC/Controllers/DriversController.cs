@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.MVC.Services.Interface;
+using movtech.MVC.ViewModels;
 using movtech.MVC.ViewModels.Driver;
 
 namespace movtech.MVC.Controllers
@@ -36,20 +37,19 @@ namespace movtech.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            
+
 
             var viewModel = new CreateDriverViewModel();
 
             return View(viewModel);
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateDriverViewModel viewModel)
         {
-
             if (ModelState.IsValid)
             {
-                               
+
                 if (await _movtechAPIService.CadastarMotorista(viewModel))
                 {
                     return RedirectToAction("Index");
@@ -66,15 +66,52 @@ namespace movtech.MVC.Controllers
                 return View(viewModel);
             }
 
-
-
-                
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            var driver = await _movtechAPIService.GetDriver(id);
+            return View(new EditDriverViewModel()
+            {
+                Id = id,
+                BirthDate = driver.BirthDate,
+                CEP = driver.CEP, 
+                City = driver.City,
+                CNHCategory = driver.CNHCategory,
+                Email = driver.Email,
+                Name = driver.Name,
+                Neighborhood = driver.Neighborhood,
+                Number = driver.Number,
+                Phone = driver.Phone,
+                Street = driver.Street,
+                UF = driver.UF,
+                
+
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditDriverViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await _movtechAPIService.AtualizarMotorista(viewModel.Id, viewModel))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Não foi possível atualizar!");
+
+                    return View(viewModel);
+
+                }
+            }
+            else
+            {
+                return View(viewModel);
+            }
         }
 
         [HttpGet]

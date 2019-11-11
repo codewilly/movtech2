@@ -1,9 +1,11 @@
-﻿using movtech.Domain.Contracts.FipeAPI;
+﻿using movtech.Domain.Contracts.EntranceAndExit;
+using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
 using movtech.Domain.Services;
 using movtech.MVC.Services.Interface;
+using movtech.MVC.ViewModels;
 using movtech.MVC.ViewModels.Driver;
 using Newtonsoft.Json;
 using System;
@@ -177,6 +179,57 @@ namespace movtech.MVC.Services
             {
                 HttpResponseMessage _message = await _client.GetAsync($"api/v1/Drivers/{id}");
                 return JsonConvert.DeserializeObject<Driver>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> AtualizarMotorista(int id, EditDriverViewModel request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PutAsync($"api/v1/Drivers/{id}", new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> RegisterExit(RegisterExitRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/EntranceAndExits/exit",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> RegisterEntrance(RegisterEntranceRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/EntranceAndExits/entrance",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
             }
             catch (Exception ex)
             {

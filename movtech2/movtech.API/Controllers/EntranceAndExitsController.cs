@@ -81,7 +81,7 @@ namespace movtech.API.Controllers
         [HttpPost("exit")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public IActionResult RegisterExit([FromBody] RegisterEntranceExitViewModel viewModel)
+        public IActionResult RegisterExit([FromBody] RegisterExitRequest viewModel)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace movtech.API.Controllers
                 Vehicle _vehicle = _vehicleService.GetByLicensePlate(viewModel.LicensePlate);
                 Driver _driver = _driverService.GetByCPF(viewModel.DriverCPF);
 
-                List<AuxModelState> _modelState = _entranceAndExitService.EntranceExitValidation(_vehicle, _driver, viewModel.Quilometers, false);
+                List<AuxModelState> _modelState = _entranceAndExitService.EntranceExitValidation(_vehicle, _driver, _vehicle.Quilometers, false);
 
                 if (_modelState != null)
                 {
@@ -99,7 +99,7 @@ namespace movtech.API.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    return Ok(_entranceAndExitService.Register(_vehicle, _driver, viewModel.Quilometers, false));
+                    return Ok(_entranceAndExitService.Register(_vehicle, _driver, _vehicle.Quilometers, false));
                 }
                 else
                 {
