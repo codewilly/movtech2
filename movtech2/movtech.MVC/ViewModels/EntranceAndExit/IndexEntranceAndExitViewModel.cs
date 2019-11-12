@@ -7,6 +7,8 @@ namespace movtech.MVC.ViewModels.EntranceAndExit
 {
     public class IndexEntranceAndExitViewModel
     {
+        public IEnumerable<Domain.Entities.EntranceAndExit> EntradasSaidas { get; set; }
+
         public string CpfExit { get; set; }
 
         public string LicencePlateExit { get; set; }

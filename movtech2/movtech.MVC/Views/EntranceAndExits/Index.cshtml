@@ -21,7 +21,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <span class="fas fa-sign-in-alt"></span> Registar Entrada
+                                <span class="fas fa-sign-in-alt text-success""></span> Registar Entrada
                             </div>
                             <div class="card-body">
                                 <form asp-action="Entrance">
@@ -65,7 +65,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <span class="fas fa-sign-out-alt"></span> Registrar Saída
+                                <span class="fas fa-sign-out-alt text-warning"></span> Registrar Saída
                             </div>
                             <div class="card-body">
                                 <form asp-action="Exit">
@@ -108,10 +108,25 @@
                                     <th><span class="fas fa-exchange-alt"></span></th>
                                     <th>Data</th>                                    
                                     <th>Descrição</th>
-                                    <th>Visualizar</th>
+                                    
                                     
                                 </tr>
                             </thead>
+                            <tbody>
+                                @foreach (var i in Model.EntradasSaidas)
+                                {
+                                <tr>
+                                    <td><span class='@(i.IsEntrance? "fas fa-sign-in-alt text-success":"fas fa-sign-out-alt text-warning")'></span></td>
+                                    <td>@i.CreationDate</td>
+                                    <td>@i.Description</td>
+                                    
+                                   
+                                </tr>
+                                }
+                                  
+
+                            </tbody>   
+
                         </table>
                     </div>
                 </div>

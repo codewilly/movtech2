@@ -19,6 +19,11 @@ namespace movtech.Infra.Repository
             _context = context;
         }
 
+        public new IEnumerable<EntranceAndExit> GetAll()
+        {
+            return _context.Set<EntranceAndExit>().OrderByDescending(x => x.CreationDate);
+        }
+
         public async Task<List<EntranceAndExit>> GetEntranceAndExitLog(string placa, string cpf, bool asc)
         {
 

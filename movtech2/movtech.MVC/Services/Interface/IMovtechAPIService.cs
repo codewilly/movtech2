@@ -49,6 +49,8 @@ namespace movtech.MVC.Services.Interface
 
         Task<bool> RegisterEntrance(RegisterEntranceRequest request);
 
+        Task<IEnumerable<EntranceAndExit>> GetAllEntranceAndExit();
+
         #endregion
 
     }

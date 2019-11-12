@@ -236,5 +236,18 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
+
+        public async Task<IEnumerable<EntranceAndExit>> GetAllEntranceAndExit()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/EntranceAndExits");
+                return JsonConvert.DeserializeObject<IEnumerable<EntranceAndExit>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

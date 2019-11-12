@@ -24,9 +24,15 @@ namespace movtech.MVC.Controllers
 
         #endregion
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+
+            var viewModel = new IndexEntranceAndExitViewModel()
+            {
+                EntradasSaidas = await _movtechAPIService.GetAllEntranceAndExit()
+            };
+            
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Exit(IndexEntranceAndExitViewModel viewModel)
