@@ -22,7 +22,7 @@ namespace movtech.Infra.Repository
         public async Task<List<EntranceAndExit>> GetEntranceAndExitLog(string placa, string cpf, bool asc)
         {
 
-            var _log = from l in _context.EntranceAndExits select l;
+            var _log = from l in _context.EntranceAndExits.Include(p => p.Vehicle).ThenInclude(p => p.Driver) select l;
 
             if (!string.IsNullOrEmpty(placa))
             {
