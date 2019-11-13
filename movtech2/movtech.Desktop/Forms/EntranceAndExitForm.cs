@@ -1,5 +1,6 @@
 ﻿
 using movtech.Desktop.Entities;
+using movtech.Desktop.FormModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,36 +17,72 @@ namespace movtech.Desktop.Forms
 {
     public partial class EntranceAndExitForm : Form
     {
+        
         public EntranceAndExitForm()
         {
             InitializeComponent();
-            //this.dataGridVehicle.DataSource = 
-            GetAllVehicles();
+                       
+            
+            GetAll();
+
 
 
         }
-        public async void GetAllVehicles()
+        public async void GetAll()
         {
-            //string APIURI = "https://localhost:44310/api/v1/EntranceAndExits";
-            string APIURI = "https://localhost:44310/api/v1/Vehicles";
+           
+            string APIURI = "https://localhost:44310/api/v1/EntranceAndExits/log";
             using (var client = new HttpClient())
             {
                 using (var response = await client.GetAsync(APIURI))
                 {
                     if (response.IsSuccessStatusCode)
                     {
-                        var VehiclesJsonString = await response.Content.ReadAsStringAsync();
-                        this.dataGridVehicle.DataSource = JsonConvert.DeserializeObject<Vehicle[]>(VehiclesJsonString).ToList();
+                        var EntranceAndExitsJsonString = await response.Content.ReadAsStringAsync();
+                        var listaEntranceAndExit = JsonConvert.DeserializeObject<EntranceAndExit[]>(EntranceAndExitsJsonString).ToList();
+
+                        var listaFormModel = from fields in listaEntranceAndExit
+                                             select new EntranceAndExitsFormModel
+                                             {
+                                                 CreationDate = fields.CreationDate,
+                                                 VehicleBrand = fields.Vehicle.Brand,
+                                                 DriverName = fields.Driver.Name,
+                                                 Description = fields.Description
+
+                                             };
+                        this.dataGridVehicle.DataSource = listaFormModel.ToList();
+
+
                     }
                     else
                     {
-                        textTeste.Text = "Fail";
+                        return;
+
                     }
 
 
                 }
 
             }
+            
         }
+      
+       
+
+        private void buttonClearEntrance_Click(object sender, EventArgs e)
+        {
+            maskedTextCPFEntrance.Text = "";
+           
+            maskedTextLicensePlateEntrance.Text = "";
+            textKMEntrance.Text = "";
+        }
+
+        private void buttonClearExit_Click(object sender, EventArgs e)
+        {
+           maskedTextCPFExit.Text = "";
+           maskedTextLicensePlateExit.Text = "";
+        }
+
+       
     }
 }
