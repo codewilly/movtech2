@@ -1,6 +1,6 @@
 ﻿
 using movtech.Desktop.Entities;
-using movtech.Desktop.FormModel;
+
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace movtech.Desktop.Forms
                         var listaEntranceAndExit = JsonConvert.DeserializeObject<EntranceAndExit[]>(EntranceAndExitsJsonString).ToList();
 
                         var listaFormModel = from fields in listaEntranceAndExit
-                                             select new EntranceAndExitsFormModel
+                                             select new 
                                              {
                                                  CreationDate = fields.CreationDate,
                                                  VehicleBrand = fields.Vehicle.Brand,
@@ -50,7 +50,7 @@ namespace movtech.Desktop.Forms
                                                  Description = fields.Description
 
                                              };
-                        this.dataGridVehicle.DataSource = listaFormModel.ToList();
+                        this.dataGridVehicle.DataSource = listaFormModel.OrderByDescending(p => p.CreationDate).ToList();
 
 
                     }

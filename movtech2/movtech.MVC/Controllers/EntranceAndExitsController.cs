@@ -42,7 +42,7 @@ namespace movtech.MVC.Controllers
                 DriverCPF = viewModel.CpfExit,
                 LicensePlate = viewModel.LicencePlateExit
 
-            });
+            });            
 
             return RedirectToAction("Index");
         }

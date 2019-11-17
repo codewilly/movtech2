@@ -145,7 +145,6 @@
     <Compile Include="Enums\UF.cs" />
     <Compile Include="Enums\VehicleStatus.cs" />
     <Compile Include="Enums\VehicleType.cs" />
-    <Compile Include="FormModel\EntranceAndExitsFormModel.cs" />
     <Compile Include="Forms\AuthenticationForm.cs">
       <SubType>Form</SubType>
     </Compile>
