@@ -13,7 +13,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using movtech.API.Seed;
 using movtech.Domain.Interfaces.Repository;
 using movtech.Domain.Interfaces.Services;
 using movtech.Domain.Services;
@@ -36,10 +35,7 @@ namespace movtech.API
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-
-
-            
+        {            
 
             services.AddDbContext<MovtechContext>(opt => opt.UseMySql(Configuration.GetConnectionString("MovTech_Mysql"))); // MYSQL
 
@@ -100,15 +96,15 @@ namespace movtech.API
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
-            services.AddScoped<SeedingService>(); // serviço para popular dados
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,SeedingService seedingService)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
-                seedingService.Seed();
+                
                 app.UseDeveloperExceptionPage();
             }
             else
