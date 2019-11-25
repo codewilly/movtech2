@@ -1,89 +1,26 @@
-﻿<div class="row ">
-    <nav aria-label="breadcrumb" class="w-100">
-        <ul class="breadcrumb breadcrumb-bgcolor">
-            <li class="breadcrumb-item  text-white"><span class="fas fa-home"></span> Home</li>
-        </ul>
-    </nav>
-</div>
+﻿
+    <style>
+        body{
+            background-image: url("/images/fleet.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: center;
+            background-attachment: fixed;
+        }
+
+        .footer-copyright{
+            position: absolute;
+            left: 40%;
+            text-align: center;
+            bottom: 0;
+        }
+    </style>
 
 
-<div class="row ">
-    <div class="col-12 p-1 ">
-        <div class="card font-colors ">
-            <div class="card-body">
-                <h2>Bem-vindo ao MOVTech</h2>
-
-                <div class="card-deck">
-                    <div class="card  ">
-                        <div class="card-body text-center">
-                            <h1 class="card-title"><span class="fas fa-car-side"></span></h1>
-                            <h5>Veículos</h5>
-                            <p class="card-text">Gerencie os veículos de sua frota.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a asp-action="Index" asp-controller="Vehicles" class="btn btn-custom w-100"><span class="fas fa-share"></span> Acessar</a>
-                        </div>
-                    </div>
-
-                    <div class="card ">
-                        <div class="card-body text-center">
-                            <h1 class="card-title"><span class="fas fa-user-tie"></span></h1>
-                            <h5 class="font-colors" style="color:  #25374d;">Motoristas</h5>
-                            <p class="card-text">Crie, edite ou desabilite usuários</p>
-                        </div>
-                        <div class="card-footer">
-                            <a asp-action="Index" asp-controller="Drivers" class="btn btn-custom w-100"><span class="fas fa-share"></span> Acessar</a>
-
-                        </div>
-                    </div>
-
-
-
-                    <div class="card ">
-                        <div class="card-body text-center">
-                            <h1 class="card-title"><span class="fas fa-exchange-alt"></span></h1>
-                            <h5>Entrada e Saída</h5>
-                            <p class="card-text">Gerencie as viagens agendadas e realizadas</p>
-                        </div>
-                        <div class="card-footer">
-                            <a asp-action="Index" asp-controller="EntranceAndExits" class="btn btn-custom w-100"><span class="fas fa-share"></span> Acessar</a>
-                        </div>
-                    </div>
-
-                </div>
-                <br />
-                <!-- Card deck para Manutenção e Abastecimentos, ainda nao implementados 
-                <div class="card-deck">
-
-                    <div class="card  ">
-                        <div class="card-body text-center">
-                            <h1 class="card-title"><span class="fas fa-hammer"></span></h1>
-                            <h5>Manutenções</h5>
-                            <p class="card-text">Agende manutençoes, verifique orçamentos e veja relatórios de gastos.</p>
-                        </div>
-                        <div class="card-footer">
-                            <button class="btn btn-custom w-100"><span class="fas fa-share"></span> Acessar</button>
-                        </div>
-                    </div>
-
-                    <div class="card   ">
-                        <div class="card-body text-center">
-                            <h1 class="card-title"><span class="fas fa-gas-pump"></span></h1>
-                            <h5>Abastecimentos</h5>
-                            <p class="card-text">Acompanhe os gastos e consumo de combustível.</p>
-                        </div>
-                        <div class="card-footer">
-                            <button class="btn btn-custom w-100"><span class="fas fa-share"></span> Acessar</button>
-                        </div>
-                    </div>
-
-
-                </div>
-                -->
-
-            </div>
-        </div>
-        
+    <div class="jumbotron text-white mt-4" style="background-color: rgba(45, 52, 54, 0.50);">
+        <h2 class="display">Bem-vindo, Michael Willy!</h2>
+        <h5>Utilize o menu lateral à esquerda para navegar pelo sistema MOVTech.</h5>
     </div>
-</div>
+
+
 

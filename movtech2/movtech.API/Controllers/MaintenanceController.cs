@@ -68,7 +68,7 @@ namespace movtech.API.Controllers
 
                     Maintenance _maintenance = new Maintenance()
                     {
-                        MaintenanceType = type,
+                        //MaintenanceType = type,
                         MaintenanceDate = DateTime.Now,
                         VehicleId = _vehicle.Id,
                         Vehicle = _vehicle,

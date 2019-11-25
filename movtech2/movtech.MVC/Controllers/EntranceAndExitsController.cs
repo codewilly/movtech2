@@ -44,6 +44,13 @@ namespace movtech.MVC.Controllers
 
             });            
 
+            if (!result)
+            {
+                ModelState.AddModelError("", "Não foi possível registrar a saída!");
+                viewModel.EntradasSaidas = await _movtechAPIService.GetAllEntranceAndExit();
+                return View("Index", viewModel);
+            }
+
             return RedirectToAction("Index");
         }
         
@@ -56,6 +63,13 @@ namespace movtech.MVC.Controllers
                 Quilometers = viewModel.QuilometersEntrance
 
             });
+
+            if (!result)
+            {
+                ModelState.AddModelError("", "Não foi possível registrar a entrada!");
+                viewModel.EntradasSaidas = await _movtechAPIService.GetAllEntranceAndExit();
+                return View("Index", viewModel);
+            }
 
             return RedirectToAction("Index");
         }

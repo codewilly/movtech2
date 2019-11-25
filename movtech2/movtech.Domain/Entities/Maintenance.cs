@@ -11,7 +11,7 @@ namespace movtech.Domain.Entities
 
         public DateTime MaintenanceDate { get; set; }
 
-        public MaintenanceType MaintenanceType { get; set; }
+        //public MaintenanceType MaintenanceType { get; set; }
 
         public int VehicleId { get; set; }
 
@@ -30,10 +30,10 @@ namespace movtech.Domain.Entities
         {
 
         }
-        public Maintenance(DateTime maintenanceDate, MaintenanceType maintenanceType, int vehicleId, Vehicle vehicle, decimal cost, bool preventivaOrCorretiva, bool tiresChanged, bool oilChanged, string operationDescription)
+        public Maintenance(DateTime maintenanceDate, /*MaintenanceType maintenanceType,*/ int vehicleId, Vehicle vehicle, decimal cost, bool preventivaOrCorretiva, bool tiresChanged, bool oilChanged, string operationDescription)
         {
             MaintenanceDate = maintenanceDate;
-            MaintenanceType = maintenanceType;
+            //MaintenanceType = maintenanceType;
             VehicleId = vehicleId;
             Vehicle = vehicle;
             Cost = cost;

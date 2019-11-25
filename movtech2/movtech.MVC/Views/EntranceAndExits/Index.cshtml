@@ -18,19 +18,26 @@
             </div>
 
             <div class="card-body">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
                                 <span class="fas fa-sign-in-alt text-success"></span> Registar Entrada
                             </div>
+
+
                             <div class="card-body">
                                 <form asp-action="Entrance">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label asp-for="LicencePlateEntrance">Placa:</label>
-                                                <input asp-for="LicencePlateEntrance" type="text" class="form-control placa" placeholder="ABC-1234">
+                                                <input asp-for="LicencePlateEntrance" type="text" class="form-control placa" placeholder="ABC-1234" required>
                                                 <span asp-validation-for="LicencePlateEntrance" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -38,7 +45,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label asp-for="CpfEntrance" class="control-label">CPF</label>
-                                                <input asp-for="CpfEntrance" class="form-control cpf" placeholder="000.000.000-00" />
+                                                <input asp-for="CpfEntrance" class="form-control cpf" placeholder="000.000.000-00" required />
                                                 <span asp-validation-for="CpfEntrance" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -46,7 +53,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label asp-for="QuilometersEntrance" for="Brand">Quilometragem:</label>
-                                                <input asp-for="QuilometersEntrance" type="tel" class="form-control float_number" placeholder="0,00">
+                                                <input asp-for="QuilometersEntrance" type="tel" class="form-control float_number" placeholder="0,00" required>
                                                 <span asp-validation-for="QuilometersEntrance" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -74,7 +81,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label asp-for="LicencePlateExit">Placa:</label>
-                                                <input asp-for="LicencePlateExit" type="text" class="form-control placa" placeholder="ABC-1234">
+                                                <input asp-for="LicencePlateExit" type="text" class="form-control placa" placeholder="ABC-1234" required>
                                                 <span asp-validation-for="LicencePlateExit" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -82,7 +89,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label asp-for="CpfExit" class="control-label">CPF</label>
-                                                <input asp-for="CpfExit" class="form-control cpf" placeholder="000.000.000-00" />
+                                                <input asp-for="CpfExit" class="form-control cpf" placeholder="000.000.000-00" required/>
                                                 <span asp-validation-for="CpfExit" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -104,29 +111,29 @@
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-striped table-sm text-center">
-                            <thead >
+                            <thead>
                                 <tr>
                                     <th><span class="fas fa-exchange-alt"></span></th>
-                                    <th>Data</th>                                    
+                                    <th>Data</th>
                                     <th>Descrição</th>
-                                    
-                                    
+
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var i in Model.EntradasSaidas)
                                 {
-                                <tr>
-                                    <td><span class='@(i.IsEntrance? "fas fa-sign-in-alt text-success":"fas fa-sign-out-alt text-warning")'></span></td>
-                                    <td>@i.CreationDate</td>
-                                    <td>@i.Description</td>
-                                    
-                                   
-                                </tr>
-                                }
-                                  
+                                    <tr>
+                                        <td><span class='@(i.IsEntrance? "fas fa-sign-in-alt text-success":"fas fa-sign-out-alt text-warning")'></span></td>
+                                        <td>@i.CreationDate</td>
+                                        <td>@i.Description</td>
 
-                            </tbody>   
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
 
                         </table>
                     </div>

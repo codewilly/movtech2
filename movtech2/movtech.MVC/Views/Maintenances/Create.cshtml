@@ -1,0 +1,79 @@
+﻿@model movtech.Domain.Entities.Maintenance
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item text-white"><a href='@Url.Action("Index", "Maintenances")'><span class="fas fa-hammer"></span> Manutenções</a></li>
+            <li class="breadcrumb-item  text-white">Registrar Manutenção</li>
+        </ul>
+    </nav>
+</div>
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Registrar Manutenção</h2>
+                <p class="card-subtitle">@ViewBag.Placa, @ViewBag.Modelo - @ViewBag.Marca</p>
+
+
+            </div>
+
+            <div class="card-body">
+                <form action="/" method="post">
+                    
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <h5>Operações realizadas:</h5>
+                            <div class="form-check custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" asp-for="PreventivaOrCorretiva">
+                                <label class="custom-control-label" asp-for="PreventivaOrCorretiva">
+                                    Preventiva ou Corretiva
+                                </label>
+                            </div>
+                            <div class="form-check custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" asp-for="OilChanged">
+                                <label class="custom-control-label" asp-for="OilChanged">
+                                    Troca de Óleo
+                                </label>
+                            </div>
+                            <div class="form-check custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" asp-for="TiresChanged">
+                                <label class="custom-control-label" asp-for="TiresChanged">
+                                    Troca dos Pneus
+                                </label>
+                            </div>
+                            <hr />
+                            <div class="form-group">
+                                <label asp-for="Cost">Custo Total:</label>
+                                <input type="tel" class="form-control" asp-for="Cost" placeholder="R$ 0,00">
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="OperationDescription">Descrição da Operação</label>
+                                <textarea class="form-control" asp-for="OperationDescription" rows="7" placeholder="Ex.: Troca do carburador e troca de óleo."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-2">
+                            <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
+                        </div>
+                        <div class="col-10">
+                            <div class="float-right mb-2">
+                                <button type="reset" class="btn btnlink-outline ">Limpar</button>
+                                <button type="submit" class="btn breadcrumb-bgcolor text-white">Registrar Manutenção</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

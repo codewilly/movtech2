@@ -11,6 +11,7 @@
     <script>
 
         function GetMarcas() {
+            Loading(true);
             $.ajax({
                 type: "GET",
                 data: { type: $("#VehicleType").val() },
@@ -29,10 +30,13 @@
                 error: function () {
                     alert("Ocorreu um erro ao buscar marcas.")
                 }
+            }).always(function () {
+                Loading(false);
             });
         }
 
         function GetModelos() {
+            Loading(true);
             $.ajax({
                 type: "GET",
                 data: { type: $("#VehicleType").val(), marcaId: $("#Brand").val() },
@@ -53,10 +57,13 @@
                 error: function () {
                     alert("Ocorreu um erro ao buscar marcas.")
                 }
+            }).always(function () {
+                Loading(false);
             });
         }
 
         function GetAnosDoModelo() {
+            Loading(true);
             $.ajax({
                 type: "GET",
                 data: { type: $("#VehicleType").val(), marcaId: $("#Brand").val(), modeloId: $("#Model").val() },
@@ -78,6 +85,8 @@
                 error: function () {
                     alert("Ocorreu um erro ao buscar marcas.")
                 }
+            }).always(function () {
+                Loading(false);
             });
         }
 
@@ -108,6 +117,12 @@
                 <form asp-action="Create" method="post">
                     <input asp-for="HiddenBrand" type="hidden" />
                     <input asp-for="HiddenModel" type="hidden" />
+
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
 
                     <div class="form-row">

@@ -1,4 +1,19 @@
-﻿// Jquery Mask
+﻿//Loading
+
+function Loading(show) {
+    if (show == true) {
+        $("#loading").css({ display: 'block' });
+    } else {
+        $("#loading").css({ display: 'none' });
+    }
+}
+
+//$(document).on("submit", "form", function () {
+//    Loading(true);
+//});
+
+
+// Jquery Mask
 $(document).ready(function () {
 
     var SPMaskBehavior = function (val) {

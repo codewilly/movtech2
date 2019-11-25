@@ -249,5 +249,19 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
+
+        public async Task<IEnumerable<Vehicle>> GetVehiclesWhoNeedsMaintenance()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Maintenance/Vehicles");
+                return JsonConvert.DeserializeObject<IEnumerable<Vehicle>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

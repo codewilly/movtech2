@@ -64,8 +64,11 @@
             <div class="card-body">
                 <form asp-action="Edit">
                     <input asp-for="Id" type="hidden"/>
+
                     <div asp-validation-summary="ModelOnly" class="alert alert-danger">
-                        <p>Ocorreram erros durante sua solicitação de cadastro:</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
 
                     <h5>Dados básicos:</h5>

@@ -70,7 +70,7 @@ namespace movtech.API.Seed
             EntranceAndExit e1 = new EntranceAndExit(DateTime.Parse("10/10/2010"),1,v1,1, d1,11000, false, "Tudo certo");
             GasStation g1 = new GasStation("1234567897", "Shell","12210215","Rua das flores",154,"Vila César","SJC",UF.SP);
             Refuel r1 = new Refuel(100, 10, 10, FuelType.Alcool, DateTime.Parse("10/10/2010"),v1,d1,g1);
-            Maintenance m1 = new Maintenance(DateTime.Parse("10/10/2005"), MaintenanceType.Preventiva, 1, v1, 1000, false, true,true, "Ocorreu tudo Certo");
+            Maintenance m1 = new Maintenance(DateTime.Parse("10/10/2005"), 1, v1, 1000, false, true,true, "Ocorreu tudo Certo");
             TrafficTicket t1 = new TrafficTicket(d1, v1, DateTime.Parse("10/10/2011"), DateTime.Parse("18/10/2011"), null, 1000, 5, TrafficTickeLevel.Gave, "Alta velocidade", false,"12456458","Rua das Rosas",157,"Vila Maria","SJC",UF.SP);
 
 
@@ -79,7 +79,7 @@ namespace movtech.API.Seed
             EntranceAndExit e2 = new EntranceAndExit(DateTime.Parse("10/10/2015"), 2, v2, 2, d2, 6000, false, "Veículo Normal");
             GasStation g2 = new GasStation("484808954", "Ipiranga", "12451978", "Avenida Brasil", 158, "Cajurú", "Jacareí", UF.SP);
             Refuel r2 = new Refuel(80, 10, 8, FuelType.Gasolina, DateTime.Parse("10/10/2015"), v2, d2, g2);
-            Maintenance m2 = new Maintenance(DateTime.Parse("10/12/2016"), MaintenanceType.Preventiva, 2, v2, 2000, false, true, true, "Ocorreu tudo Certo");
+            Maintenance m2 = new Maintenance(DateTime.Parse("10/12/2016"), 2, v2, 2000, false, true, true, "Ocorreu tudo Certo");
             TrafficTicket t2 = new TrafficTicket(d2, v2, DateTime.Parse("02/05/2015"), DateTime.Parse("05/10/2015"), null, 1000, 5, TrafficTickeLevel.Gave, "Alta velocidade", false, "45748410", "Rua Deserta", 80, "Vila Nair", "Jacareí", UF.SP);
 
             Vehicle v3 = new Vehicle("Fiat", "Palio", "XAE-1455", "1245174584", 2001, 15000, FuelType.Flex, VehicleType.Carro, true, VehicleStatus.Alocado, null, null, DateTime.Parse("05/05/2015"), 20000, 20000, 20000);
@@ -87,7 +87,7 @@ namespace movtech.API.Seed
             EntranceAndExit e3 = new EntranceAndExit(DateTime.Parse("10/10/2017"), 3, v3, 3, d3, 16000, false, "Veículo Normal");
             GasStation g3 = new GasStation("454412121454", "Sete Estrelas", "12210054", "Avenida Bonsucesso", 814, "Bom Retiro", "Jacareí", UF.SP);
             Refuel r3 = new Refuel(70, 10, 7, FuelType.Gasolina, DateTime.Parse("10/10/2016"), v3, d3, g3);
-            Maintenance m3 = new Maintenance(DateTime.Parse("10/12/2017"), MaintenanceType.Preventiva, 3, v3, 1500, false, true, true, "Ocorreu tudo Certo");
+            Maintenance m3 = new Maintenance(DateTime.Parse("10/12/2017"), 3, v3, 1500, false, true, true, "Ocorreu tudo Certo");
             TrafficTicket t3 = new TrafficTicket(d3, v3, DateTime.Parse("08/05/2016"), DateTime.Parse("15/10/2016"), null, 200, 2, TrafficTickeLevel.Leve, "Buzina", false, "45745781", "Rua Dos Lobos", 780, "Cambucá", "Jacareí", UF.SP);
 
 

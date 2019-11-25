@@ -59,17 +59,15 @@ namespace movtech.MVC.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Não foi possível cadastrar!");
+                    ModelState.AddModelError("", "Não foi possível cadastrar com os dados informados.");
                     return View(viewModel);
                 }
-
 
             }
             else
             {
                 return View(viewModel);
             }
-
         }
 
         [HttpGet]
@@ -149,6 +147,8 @@ namespace movtech.MVC.Controllers
                 return View(viewModel);
             }
         }
+        
+        
         [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {

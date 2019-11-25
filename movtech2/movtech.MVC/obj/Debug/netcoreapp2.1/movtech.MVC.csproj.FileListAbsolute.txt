@@ -165,6 +165,7 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\R
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Sinistros\Index.cshtml.g.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\TrafficTickets\Index.cshtml.g.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Secures\Index.cshtml.g.cs
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Refuels\Index.cshtml.g.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Travels\Index.cshtml.g.cs
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Maintenances\Index.cshtml.g.cs
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Maintenances\Create.cshtml.g.cs
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.MVC\obj\Debug\netcoreapp2.1\Razor\Views\Refuels\Index.cshtml.g.cs

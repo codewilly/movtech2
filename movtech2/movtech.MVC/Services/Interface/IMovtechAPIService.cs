@@ -53,5 +53,11 @@ namespace movtech.MVC.Services.Interface
 
         #endregion
 
+        #region Maintenances
+
+        Task<IEnumerable<Vehicle>> GetVehiclesWhoNeedsMaintenance();
+
+
+        #endregion
     }
 }

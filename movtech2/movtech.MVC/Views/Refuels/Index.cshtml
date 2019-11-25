@@ -1,7 +1,129 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model movtech.MVC.ViewModels.Refuel.RefuelIndexViewModel
 
-<h2>Abastecimentos</h2>
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><span class="fas fa-gas-pump"></span> Abastecimentos</li>
+        </ul>
+    </nav>
+</div>
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Abastecimentos</h2>
+                <p class="card-subtitle">Informe os abastecimentos realizados.</p>
+            </div>
+            <form asp-action="Index">
+                <div class="card-body">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>Identificação:</h5>
+                            <hr />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="LicensePlate" class="control-label">Placa</label>
+                                <input asp-for="LicensePlate" class="form-control" />
+                                <span asp-validation-for="LicensePlate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CPF" class="control-label">Motorista (CPF)</label>
+                                <input asp-for="CPF" class="form-control" />
+                                <span asp-validation-for="CPF" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label asp-for="CNPJ" class="control-label">Posto de Gasolina</label>
+                            <div class="input-group">
+                                <select class="custom-select" asp-for="CNPJ">
+                                    <option selected disabled>Selecione...</option>
+                                    <option value="idPosto">Posto A</option>
+
+                                </select>
+                                <div class="input-group-append">
+                                    <a href='@Url.Action("Create", "GasStations")' class="btn breadcrumb-bgcolor text-white"><span class="fas fa-plus"></span> <span class="fas fa-gas-pump"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>Dados do Abastecimento:</h5>
+                            <hr />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="RefuelDate" class="control-label">Data do Abastecimento</label>
+                                <input asp-for="RefuelDate" class="form-control" />
+                                <span asp-validation-for="RefuelDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="FuelType" class="control-label">Tipo de Combustível</label>
+                                <select class="custom-select" asp-for="FuelType">
+                                    <option selected disabled>Selecione...</option>
+                                    <option value="idPosto">Gasolina</option>
+                                    <option value="idPosto">Álcool</option>
+                                    <option value="idPosto">GNV</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="Liters" class="control-label">Litros</label>
+                                <input asp-for="Liters" class="form-control" />
+                                <span asp-validation-for="Liters" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="LiterValue" class="control-label">Valor do Litro (R$)</label>
+                                <input asp-for="LiterValue" class="form-control" />
+                                <span asp-validation-for="LiterValue" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="TotalValue" class="control-label">Total</label>
+                                <input asp-for="TotalValue" class="form-control" />
+                                <span asp-validation-for="TotalValue" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
+                            <div class="form-row float-right">
+                                <div class="col ">
+                                    <button class="btn btnlink-outline" type="reset">Limpar</button>
+                                    <button class="btn breadcrumb-bgcolor   text-white" type="submit">Registrar Abastecimento</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
