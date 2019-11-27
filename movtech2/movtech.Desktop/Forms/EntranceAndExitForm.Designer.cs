@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridVehicle = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textTeste = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.maskedTextLicensePlateEntrance = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextCPFEntrance = new System.Windows.Forms.MaskedTextBox();
             this.buttonClearEntrance = new System.Windows.Forms.Button();
             this.buttonRegisterEntrance = new System.Windows.Forms.Button();
             this.textKMEntrance = new System.Windows.Forms.TextBox();
@@ -45,15 +48,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.maskedTextLicensePlateExit = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextCPFExit = new System.Windows.Forms.MaskedTextBox();
             this.buttonClearExit = new System.Windows.Forms.Button();
             this.buttonRegisterExit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.maskedTextCPFEntrance = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextCPFExit = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextLicensePlateEntrance = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextLicensePlateExit = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVehicle)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -70,55 +71,63 @@
             this.dataGridVehicle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridVehicle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dataGridVehicle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridVehicle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridVehicle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridVehicle.ColumnHeadersHeight = 40;
             this.dataGridVehicle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridVehicle.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridVehicle.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridVehicle.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridVehicle.EnableHeadersVisualStyles = false;
             this.dataGridVehicle.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridVehicle.Location = new System.Drawing.Point(0, 353);
+            this.dataGridVehicle.Location = new System.Drawing.Point(0, 355);
             this.dataGridVehicle.Name = "dataGridVehicle";
             this.dataGridVehicle.ReadOnly = true;
             this.dataGridVehicle.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridVehicle.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridVehicle.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridVehicle.RowHeadersVisible = false;
             this.dataGridVehicle.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridVehicle.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridVehicle.RowTemplate.Height = 40;
             this.dataGridVehicle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridVehicle.Size = new System.Drawing.Size(1011, 136);
+            this.dataGridVehicle.Size = new System.Drawing.Size(1011, 134);
             this.dataGridVehicle.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textTeste);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1011, 100);
             this.panel1.TabIndex = 2;
+            // 
+            // textTeste
+            // 
+            this.textTeste.Location = new System.Drawing.Point(705, 50);
+            this.textTeste.Name = "textTeste";
+            this.textTeste.Size = new System.Drawing.Size(257, 20);
+            this.textTeste.TabIndex = 4;
             // 
             // label1
             // 
@@ -133,8 +142,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.tableLayoutPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1011, 253);
@@ -148,11 +157,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.04946F));
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1011, 244);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1011, 253);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // panel3
@@ -169,8 +179,26 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(497, 236);
+            this.panel3.Size = new System.Drawing.Size(497, 245);
             this.panel3.TabIndex = 0;
+            // 
+            // maskedTextLicensePlateEntrance
+            // 
+            this.maskedTextLicensePlateEntrance.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextLicensePlateEntrance.Location = new System.Drawing.Point(8, 73);
+            this.maskedTextLicensePlateEntrance.Mask = "AAA-0000";
+            this.maskedTextLicensePlateEntrance.Name = "maskedTextLicensePlateEntrance";
+            this.maskedTextLicensePlateEntrance.Size = new System.Drawing.Size(192, 47);
+            this.maskedTextLicensePlateEntrance.TabIndex = 9;
+            // 
+            // maskedTextCPFEntrance
+            // 
+            this.maskedTextCPFEntrance.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextCPFEntrance.Location = new System.Drawing.Point(206, 73);
+            this.maskedTextCPFEntrance.Mask = "000,000,000-00";
+            this.maskedTextCPFEntrance.Name = "maskedTextCPFEntrance";
+            this.maskedTextCPFEntrance.Size = new System.Drawing.Size(277, 47);
+            this.maskedTextCPFEntrance.TabIndex = 8;
             // 
             // buttonClearEntrance
             // 
@@ -182,7 +210,7 @@
             this.buttonClearEntrance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClearEntrance.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClearEntrance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.buttonClearEntrance.Location = new System.Drawing.Point(249, 167);
+            this.buttonClearEntrance.Location = new System.Drawing.Point(256, 197);
             this.buttonClearEntrance.Name = "buttonClearEntrance";
             this.buttonClearEntrance.Size = new System.Drawing.Size(116, 45);
             this.buttonClearEntrance.TabIndex = 7;
@@ -201,18 +229,19 @@
             this.buttonRegisterEntrance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegisterEntrance.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegisterEntrance.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonRegisterEntrance.Location = new System.Drawing.Point(378, 167);
+            this.buttonRegisterEntrance.Location = new System.Drawing.Point(378, 197);
             this.buttonRegisterEntrance.Name = "buttonRegisterEntrance";
             this.buttonRegisterEntrance.Size = new System.Drawing.Size(116, 45);
             this.buttonRegisterEntrance.TabIndex = 4;
             this.buttonRegisterEntrance.Text = "Registrar";
             this.buttonRegisterEntrance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonRegisterEntrance.UseVisualStyleBackColor = false;
+            this.buttonRegisterEntrance.Click += new System.EventHandler(this.buttonRegisterEntrance_Click);
             // 
             // textKMEntrance
             // 
             this.textKMEntrance.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textKMEntrance.Location = new System.Drawing.Point(371, 89);
+            this.textKMEntrance.Location = new System.Drawing.Point(93, 152);
             this.textKMEntrance.Name = "textKMEntrance";
             this.textKMEntrance.Size = new System.Drawing.Size(119, 47);
             this.textKMEntrance.TabIndex = 6;
@@ -220,7 +249,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(348, 63);
+            this.label6.Location = new System.Drawing.Point(89, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 23);
             this.label6.TabIndex = 5;
@@ -229,7 +258,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(220, 63);
+            this.label5.Location = new System.Drawing.Point(315, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 23);
             this.label5.TabIndex = 3;
@@ -238,7 +267,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 63);
+            this.label4.Location = new System.Drawing.Point(66, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 23);
             this.label4.TabIndex = 2;
@@ -265,8 +294,26 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(508, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(499, 236);
+            this.panel4.Size = new System.Drawing.Size(499, 245);
             this.panel4.TabIndex = 1;
+            // 
+            // maskedTextLicensePlateExit
+            // 
+            this.maskedTextLicensePlateExit.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextLicensePlateExit.Location = new System.Drawing.Point(3, 89);
+            this.maskedTextLicensePlateExit.Mask = "AAA-0000";
+            this.maskedTextLicensePlateExit.Name = "maskedTextLicensePlateExit";
+            this.maskedTextLicensePlateExit.Size = new System.Drawing.Size(166, 47);
+            this.maskedTextLicensePlateExit.TabIndex = 10;
+            // 
+            // maskedTextCPFExit
+            // 
+            this.maskedTextCPFExit.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextCPFExit.Location = new System.Drawing.Point(175, 89);
+            this.maskedTextCPFExit.Mask = "000,000,000-00";
+            this.maskedTextCPFExit.Name = "maskedTextCPFExit";
+            this.maskedTextCPFExit.Size = new System.Drawing.Size(321, 47);
+            this.maskedTextCPFExit.TabIndex = 9;
             // 
             // buttonClearExit
             // 
@@ -278,7 +325,7 @@
             this.buttonClearExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClearExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClearExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.buttonClearExit.Location = new System.Drawing.Point(243, 167);
+            this.buttonClearExit.Location = new System.Drawing.Point(258, 197);
             this.buttonClearExit.Name = "buttonClearExit";
             this.buttonClearExit.Size = new System.Drawing.Size(116, 45);
             this.buttonClearExit.TabIndex = 8;
@@ -297,13 +344,14 @@
             this.buttonRegisterExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegisterExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegisterExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonRegisterExit.Location = new System.Drawing.Point(380, 167);
+            this.buttonRegisterExit.Location = new System.Drawing.Point(380, 197);
             this.buttonRegisterExit.Name = "buttonRegisterExit";
             this.buttonRegisterExit.Size = new System.Drawing.Size(116, 45);
             this.buttonRegisterExit.TabIndex = 7;
             this.buttonRegisterExit.Text = "Registrar";
             this.buttonRegisterExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonRegisterExit.UseVisualStyleBackColor = false;
+            this.buttonRegisterExit.Click += new System.EventHandler(this.buttonRegisterExit_Click);
             // 
             // label7
             // 
@@ -332,55 +380,21 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Registrar Saída";
             // 
-            // maskedTextCPFEntrance
-            // 
-            this.maskedTextCPFEntrance.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextCPFEntrance.Location = new System.Drawing.Point(150, 89);
-            this.maskedTextCPFEntrance.Mask = "000,000,000-00";
-            this.maskedTextCPFEntrance.Name = "maskedTextCPFEntrance";
-            this.maskedTextCPFEntrance.Size = new System.Drawing.Size(215, 47);
-            this.maskedTextCPFEntrance.TabIndex = 8;
-            // 
-            // maskedTextCPFExit
-            // 
-            this.maskedTextCPFExit.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextCPFExit.Location = new System.Drawing.Point(153, 89);
-            this.maskedTextCPFExit.Mask = "000.000.000-00";
-            this.maskedTextCPFExit.Name = "maskedTextCPFExit";
-            this.maskedTextCPFExit.Size = new System.Drawing.Size(215, 47);
-            this.maskedTextCPFExit.TabIndex = 9;
-            // 
-            // maskedTextLicensePlateEntrance
-            // 
-            this.maskedTextLicensePlateEntrance.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextLicensePlateEntrance.Location = new System.Drawing.Point(8, 89);
-            this.maskedTextLicensePlateEntrance.Mask = "AAA-0000";
-            this.maskedTextLicensePlateEntrance.Name = "maskedTextLicensePlateEntrance";
-            this.maskedTextLicensePlateEntrance.Size = new System.Drawing.Size(136, 47);
-            this.maskedTextLicensePlateEntrance.TabIndex = 9;
-            // 
-            // maskedTextLicensePlateExit
-            // 
-            this.maskedTextLicensePlateExit.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextLicensePlateExit.Location = new System.Drawing.Point(3, 89);
-            this.maskedTextLicensePlateExit.Mask = "AAA-0000";
-            this.maskedTextLicensePlateExit.Name = "maskedTextLicensePlateExit";
-            this.maskedTextLicensePlateExit.Size = new System.Drawing.Size(144, 47);
-            this.maskedTextLicensePlateExit.TabIndex = 10;
-            // 
             // EntranceAndExitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 489);
+            this.Controls.Add(this.dataGridVehicle);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridVehicle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EntranceAndExitForm";
             this.Text = "EntranceAndExit";
+            this.Load += new System.EventHandler(this.EntranceAndExitForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVehicle)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -402,7 +416,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textKMEntrance;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -416,5 +429,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextCPFEntrance;
         private System.Windows.Forms.MaskedTextBox maskedTextLicensePlateExit;
         private System.Windows.Forms.MaskedTextBox maskedTextCPFExit;
+        private System.Windows.Forms.TextBox textTeste;
+        private System.Windows.Forms.TextBox textKMEntrance;
     }
 }
