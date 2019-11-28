@@ -92,7 +92,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 11, 23, 19, 47, 13, 925, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 11, 27, 18, 34, 48, 741, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -165,7 +165,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("MaintenanceDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 11, 23, 19, 47, 13, 939, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 11, 27, 18, 34, 48, 760, DateTimeKind.Local));
 
                     b.Property<bool>("OilChanged");
 
@@ -300,9 +300,13 @@ namespace movtech.Infra.Migrations
 
                     b.Property<float>("LastTireChangeKms");
 
+                    b.Property<double>("Latitude");
+
                     b.Property<string>("LicensePlate")
                         .IsRequired()
                         .HasMaxLength(8);
+
+                    b.Property<double>("Longitude");
 
                     b.Property<string>("Model")
                         .IsRequired()

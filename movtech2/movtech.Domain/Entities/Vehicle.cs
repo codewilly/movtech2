@@ -51,6 +51,10 @@ namespace movtech.Domain.Entities
 
         public int? DriverId { get; set; }
 
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
+
         // Maintenance
 
         public List<Maintenance> Maintenances { get; set; }

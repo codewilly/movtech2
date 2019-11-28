@@ -1,0 +1,85 @@
+﻿
+
+@section Scripts
+{
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBAs_b60U_-Y8o7kAN73fDUcLRwsVtIEc4&sensor=false" type="text/javascript"></script>
+
+
+    <script>
+         var AjaxGetLocalizations = '@Url.Action("GetLocalizations","Maps")';
+    </script>
+
+    <script>
+        GetLocalizations();
+        function GetLocalizations() {
+            Loading(true);
+            $.ajax({
+                type: "GET",
+                url: AjaxGetLocalizations,
+                dataType: 'json',
+                success: function (json) {    
+
+                    var locations = json;
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 11,
+                        center: new google.maps.LatLng(-23.2244076, -45.902704),
+
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    var infowindow = new google.maps.InfoWindow();
+
+                    var marker, i;
+
+                    for (i = 0; i < locations.length; i++) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map
+                        });
+
+                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                            return function () {
+                                infowindow.setContent(locations[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(marker, i));
+                    }
+
+
+
+                },
+                error: function () {
+                    alert("Ocorreu um erro ao buscar marcas.")
+                }
+            }).always(function () {
+                Loading(false);
+            });
+        }
+
+
+
+    </script>
+}
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><span class="fas fa-map-marker-alt"></span> Mapa</li>
+        </ul>
+    </nav>
+</div>
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Mapa</h2>
+                <p class="card-subtitle">Saiba onde sua frota está!</p>
+            </div>
+            <div class="card-body">
+                <div id="map" style="width: 100%; height: 500px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

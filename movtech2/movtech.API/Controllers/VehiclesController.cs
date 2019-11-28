@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using movtech.API.ViewModels.Vehicle;
+using movtech.Domain.Contracts.Driver;
 using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
@@ -54,6 +55,34 @@ namespace movtech.API.Controllers
                 return NotFound();
             }
 
+        }
+
+        /// <summary>
+        /// Atualizar Localização
+        /// </summary>
+        /// <param name="placa"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("LicensePlate/{placa}/localization")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public IActionResult UpdateLocalization(string placa, [FromBody]UpdateLocalizationRequest request)
+        {
+            Vehicle _vehicle = _vehicleService.GetByLicensePlate(placa);
+
+            if (_vehicle != null)
+            {
+                _vehicle.Latitude = request.Latitude;
+                _vehicle.Longitude = request.Longitude;
+
+                _vehicleService.Update(_vehicle);
+
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         /// <summary>

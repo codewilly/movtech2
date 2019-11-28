@@ -1,7 +1,57 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><span class="fas fa-balance-scale"></span> Multas</li>
+        </ul>
+    </nav>
+</div>
 
-<h2>Multas</h2>
 
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Multas</h2>
+                <p class="card-subtitle">Visualize, pague e informe novas multas.</p>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-12">
+                        <a href='@Url.Action("Create", "TrafficTickets")' class="btn breadcrumb-bgcolor btn-sm float-right text-white"><span class="fas fa-plus"></span> Registrar Multa</a>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+
+                        <table class="table table-striped table-sm text-center">
+
+                            <thead>
+                                <tr>
+                                    <th>Infrator</th>
+                                    <th>Veículo</th>
+                                    <th>Custo</th>
+                                    <th>Pago?</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                
+                                    <tr>
+                                        <td colspan="5">Parabéns! Nenhuma multa encontrada!</td>
+                                    </tr>
+                                
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

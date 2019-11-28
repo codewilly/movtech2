@@ -10,6 +10,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:movtech.API.Controllers.VehiclesController.UpdateLocalization(System.String,movtech.Domain.Contracts.Driver.UpdateLocalizationRequest)">
+            <summary>
+            Atualizar Localização
+            </summary>
+            <param name="placa"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
         <member name="M:movtech.API.Controllers.VehiclesController.GetVehicle(System.Int32)">
             <summary>
             Retorna um Veículo baseado no ID

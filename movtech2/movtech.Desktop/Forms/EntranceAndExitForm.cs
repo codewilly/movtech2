@@ -59,14 +59,15 @@ namespace movtech.Desktop.Forms
 
             if (!registerTry)
             {
-                textTeste.Text = "Deu ruim";
+                textTeste.Text = "Deu ruim na Saída";
             }
             else{
-                textTeste.Text = "Deu Certo";
+                textTeste.Text = "Deu Certo na Saída";
             }
-            
-            
-            
+            this.dataGridVehicle.DataSource = await _entranceAndExitsService.GetAll();
+
+
+
         }
 
         private async void buttonRegisterEntrance_Click(object sender, EventArgs e)
@@ -82,13 +83,14 @@ namespace movtech.Desktop.Forms
 
             if (!registerTry)
             {
-                textTeste.Text = "Deu ruim";
+                textTeste.Text = "Deu ruim na entrada";
             }
             else
             {
-                textTeste.Text = "Deu Certo";
+                textTeste.Text = "Deu Certo na entrada";
             }
-            
+            this.dataGridVehicle.DataSource = await _entranceAndExitsService.GetAll();
+
         }
         #endregion 
 
