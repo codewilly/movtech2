@@ -32,31 +32,27 @@
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonUserLogged = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonEntranceAndExit = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.panelContainer = new System.Windows.Forms.Panel();
             this.pictureMinimize = new System.Windows.Forms.PictureBox();
-            this.pictureRestore = new System.Windows.Forms.PictureBox();
-            this.pictureMaximize = new System.Windows.Forms.PictureBox();
             this.pictureExit = new System.Windows.Forms.PictureBox();
             this.pictureHamburguer = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.panelSidebar.SuspendLayout();
-            this.panelTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureHamburguer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHamburguer)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSidebar
             // 
-            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
             this.panelSidebar.Controls.Add(this.buttonExit);
             this.panelSidebar.Controls.Add(this.buttonUserLogged);
             this.panelSidebar.Controls.Add(this.pictureBox2);
@@ -73,8 +69,8 @@
             // 
             this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonExit.FlatAppearance.BorderSize = 0;
-            this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
+            this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.ForeColor = System.Drawing.SystemColors.Control;
@@ -93,8 +89,8 @@
             // 
             this.buttonUserLogged.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonUserLogged.FlatAppearance.BorderSize = 0;
-            this.buttonUserLogged.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.buttonUserLogged.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonUserLogged.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
+            this.buttonUserLogged.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
             this.buttonUserLogged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUserLogged.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUserLogged.ForeColor = System.Drawing.SystemColors.Control;
@@ -108,12 +104,22 @@
             this.buttonUserLogged.Text = "     Marco Antonio";
             this.buttonUserLogged.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 61);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
             // buttonEntranceAndExit
             // 
             this.buttonEntranceAndExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonEntranceAndExit.FlatAppearance.BorderSize = 0;
-            this.buttonEntranceAndExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.buttonEntranceAndExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonEntranceAndExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
+            this.buttonEntranceAndExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
             this.buttonEntranceAndExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEntranceAndExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEntranceAndExit.ForeColor = System.Drawing.SystemColors.Control;
@@ -132,8 +138,8 @@
             // 
             this.buttonHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonHome.FlatAppearance.BorderSize = 0;
-            this.buttonHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.buttonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.buttonHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
+            this.buttonHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
             this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHome.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHome.ForeColor = System.Drawing.SystemColors.Control;
@@ -148,35 +154,35 @@
             this.buttonHome.UseVisualStyleBackColor = true;
             this.buttonHome.Click += new System.EventHandler(this.ButtonHome_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(73, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 61);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panelTitle
             // 
             this.panelTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelTitle.Controls.Add(this.pictureMinimize);
-            this.panelTitle.Controls.Add(this.pictureRestore);
-            this.panelTitle.Controls.Add(this.pictureMaximize);
             this.panelTitle.Controls.Add(this.pictureExit);
             this.panelTitle.Controls.Add(this.pictureHamburguer);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(250, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1034, 50);
+            this.panelTitle.Size = new System.Drawing.Size(1083, 50);
             this.panelTitle.TabIndex = 1;
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitle_MouseDown);
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(250, 50);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1034, 561);
-            this.panelContainer.TabIndex = 2;
             // 
             // pictureMinimize
             // 
             this.pictureMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
-            this.pictureMinimize.Location = new System.Drawing.Point(915, 7);
+            this.pictureMinimize.Location = new System.Drawing.Point(995, 7);
             this.pictureMinimize.Name = "pictureMinimize";
             this.pictureMinimize.Size = new System.Drawing.Size(25, 25);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,40 +190,13 @@
             this.pictureMinimize.TabStop = false;
             this.pictureMinimize.Click += new System.EventHandler(this.PictureMinimize_Click);
             // 
-            // pictureRestore
-            // 
-            this.pictureRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureRestore.Image = ((System.Drawing.Image)(resources.GetObject("pictureRestore.Image")));
-            this.pictureRestore.Location = new System.Drawing.Point(946, 7);
-            this.pictureRestore.Name = "pictureRestore";
-            this.pictureRestore.Size = new System.Drawing.Size(25, 25);
-            this.pictureRestore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureRestore.TabIndex = 3;
-            this.pictureRestore.TabStop = false;
-            this.pictureRestore.Visible = false;
-            this.pictureRestore.Click += new System.EventHandler(this.PictureRestore_Click);
-            // 
-            // pictureMaximize
-            // 
-            this.pictureMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureMaximize.Image = global::movtech.Desktop.Properties.Resources.maximize_size_option;
-            this.pictureMaximize.Location = new System.Drawing.Point(946, 7);
-            this.pictureMaximize.Name = "pictureMaximize";
-            this.pictureMaximize.Size = new System.Drawing.Size(25, 25);
-            this.pictureMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureMaximize.TabIndex = 2;
-            this.pictureMaximize.TabStop = false;
-            this.pictureMaximize.Click += new System.EventHandler(this.PictureMaximize_Click);
-            // 
             // pictureExit
             // 
             this.pictureExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureExit.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureExit.ErrorImage")));
             this.pictureExit.Image = ((System.Drawing.Image)(resources.GetObject("pictureExit.Image")));
-            this.pictureExit.Location = new System.Drawing.Point(977, 7);
+            this.pictureExit.Location = new System.Drawing.Point(1026, 7);
             this.pictureExit.Name = "pictureExit";
             this.pictureExit.Size = new System.Drawing.Size(25, 25);
             this.pictureExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -238,31 +217,20 @@
             this.pictureHamburguer.TabStop = false;
             this.pictureHamburguer.Click += new System.EventHandler(this.pictureHamburguer_Click);
             // 
-            // pictureBox2
+            // panelContainer
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 61);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(73, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 61);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.panelContainer.BackColor = System.Drawing.SystemColors.Control;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(250, 50);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1083, 561);
+            this.panelContainer.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 611);
+            this.ClientSize = new System.Drawing.Size(1333, 611);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelSidebar);
@@ -270,14 +238,12 @@
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.panelSidebar.ResumeLayout(false);
-            this.panelTitle.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureHamburguer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelTitle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHamburguer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,10 +255,8 @@
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.PictureBox pictureHamburguer;
         private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.PictureBox pictureMaximize;
         private System.Windows.Forms.PictureBox pictureExit;
         private System.Windows.Forms.PictureBox pictureMinimize;
-        private System.Windows.Forms.PictureBox pictureRestore;
         private System.Windows.Forms.Button buttonHome;
         private System.Windows.Forms.Button buttonEntranceAndExit;
         private System.Windows.Forms.PictureBox pictureBox2;

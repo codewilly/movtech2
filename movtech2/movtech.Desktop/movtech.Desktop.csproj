@@ -175,6 +175,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EntranceAndExitsService.cs" />
+    <EmbeddedResource Include="Forms\AuthenticationForm.resx">
+      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EntranceAndExitForm.resx">
       <DependentUpon>EntranceAndExitForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,8 +211,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Icons\" />
+    <None Include="Icons\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

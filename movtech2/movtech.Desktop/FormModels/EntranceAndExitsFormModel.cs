@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+
 
 namespace movtech.Desktop
 {
     public class EntranceAndExitsFormModel
     {
+        [DisplayName("Data")]
         public DateTime CreationDate { get; set; }
+        [DisplayName("Marca")]
         public string VehicleBrand { get; set; }
+        [DisplayName("Descrição")]
         public string  Description { get; set; }
     }
 }

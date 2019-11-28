@@ -41,6 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
             this.label1.Location = new System.Drawing.Point(42, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 30);
@@ -59,6 +60,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
             this.label2.Location = new System.Drawing.Point(42, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 30);
@@ -78,7 +80,7 @@
             // 
             // buttonSingIn
             // 
-            this.buttonSingIn.BackColor = System.Drawing.Color.DimGray;
+            this.buttonSingIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
             this.buttonSingIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSingIn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSingIn.ForeColor = System.Drawing.SystemColors.Control;
@@ -94,11 +96,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 58);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
+            this.label3.Location = new System.Drawing.Point(129, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(383, 30);
+            this.label3.Size = new System.Drawing.Size(193, 30);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Insira o Login e a Senha abaixo";
+            this.label3.Text = "Autentique - se";
             // 
             // labelFail
             // 
