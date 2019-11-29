@@ -100,7 +100,7 @@ namespace movtech.Domain.Entities
                     Points = 4;
                     break;
 
-                case TrafficTickeLevel.Gave:
+                case TrafficTickeLevel.Grave:
                     Points = 5;
                     break;
 

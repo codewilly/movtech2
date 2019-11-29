@@ -1,4 +1,7 @@
-﻿<div class="row ">
+﻿@model IEnumerable<movtech.MVC.ViewModels.TrafficTicket.TrafficTicketIndexViewModel>
+
+
+<div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
             <li class="breadcrumb-item  text-white"><span class="fas fa-balance-scale"></span> Multas</li>
@@ -38,12 +41,29 @@
                             </thead>
 
                             <tbody>
-                                
-                                    <tr>
-                                        <td colspan="5">Parabéns! Nenhuma multa encontrada!</td>
-                                    </tr>
-                                
+                                @if(Model == null)
+                                {
+                                    <tr><td colspan="5" class="text-danger">Nenhuma Multa</td></tr>
+                                }
+                                @{foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+
+
+
+
+
+                                        </tr>
+                                    }
+                                }
+
                             </tbody>
+
 
                         </table>
 

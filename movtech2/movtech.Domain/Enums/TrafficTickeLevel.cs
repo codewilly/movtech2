@@ -10,7 +10,7 @@ namespace movtech.Domain.Enums
 
         Media,
 
-        Gave,
+        Grave,
 
         Gravissima
     }
