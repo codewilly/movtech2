@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj": {}
+    "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
+    "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
         "projectName": "movtech.Domain",
-        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
-        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -72,21 +72,21 @@
         }
       }
     },
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj": {
+    "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj",
         "projectName": "movtech.Infra",
-        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj",
-        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Infra\\obj\\",
+        "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Infra\\movtech.Infra.csproj",
+        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -100,8 +100,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
-                "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj"
+              "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
+                "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj"
               }
             }
           }
