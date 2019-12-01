@@ -1,4 +1,48 @@
-﻿@model movtech.Domain.Entities.TrafficTicket
+﻿@model movtech.MVC.ViewModels.TrafficTicket.CreateTrafficTicketViewModel;
+
+@section Scripts{
+
+    <script>
+        // Ajax Declarations
+        var AjaxSearchCEP = '@Url.Action("SearchCep","Drivers")';
+
+
+    </script>
+
+    <script>
+        function SearchCEP() {
+
+            var _cep = $("#CEP").val();
+
+            if (_cep.length == 9) {
+
+                $.ajax({
+                    type: "GET",
+                    data: { cep: _cep },
+                    url: AjaxSearchCEP,
+                    dataType: 'json',
+                    success: function (json) {
+
+                        if (json.cep == null) {
+                            WarningAlert("CEP não encontrado!")
+                        }
+
+                        $("#Street").val(json.logradouro);
+                        $("#Neighborhood").val(json.bairro);
+                        $("#City").val(json.localidade);
+                        $("#UF").val(json.uf);
+
+
+                    },
+                    error: function () {
+                        alert("Ocorreu um erro ao buscar pelo CEP")
+                    }
+                });
+            }
+        }
+    </script>
+
+}
 
 <div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
@@ -24,17 +68,18 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="Driver.CPF" class="control-label">Motorista Infrator (CPF)</label>
-                                <input asp-for="Driver.CPF" class="form-control" />
-                                <span asp-validation-for="Driver.CPF" class="text-danger"></span>
+                                <label asp-for="DriverCPF" class="control-label">Motorista Infrator (CPF)</label>
+                                <input asp-for="DriverCPF" class="form-control cpf" placeholder="000.000.000-00" />
+                                <span asp-validation-for="DriverCPF" class="text-danger"></span>
                             </div>
+
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label asp-for="Vehicle.LicensePlate" class="control-label">Placa</label>
-                                <input asp-for="Vehicle.LicensePlate" class="form-control" />
-                                <span asp-validation-for="Vehicle.LicensePlate" class="text-danger"></span>
+                                <label asp-for="VehicleLicensePlate" class="control-label">Placa</label>
+                                <input asp-for="VehicleLicensePlate" class="form-control placa" placeholder="AAA-0000" />
+                                <span asp-validation-for="VehicleLicensePlate" class="text-danger"></span>
                             </div>
                         </div>
 
@@ -48,14 +93,15 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="TrafficTicketDate" class="control-label">Data da Multa</label>
-                                <input asp-for="TrafficTicketDate" class="form-control" />
+                                <input asp-for="TrafficTicketDate" class="form-control"  />
                                 <span asp-validation-for="TrafficTicketDate" class="text-danger"></span>
+                                
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="BilletExpiration" class="control-label">Vencimento da Multa</label>
-                                <input asp-for="BilletExpiration" class="form-control" />
+                                <input asp-for="BilletExpiration" class="form-control"   />
                                 <span asp-validation-for="BilletExpiration" class="text-danger"></span>
                             </div>
                         </div>
@@ -71,7 +117,14 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Level" class="control-label">Nível da Infração</label>
-                                <input asp-for="Level" class="form-control" />
+                                <select asp-for="Level" class="form-control">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <option value="Leve">Leve</option>
+                                    <option value="Media">Media</option>
+                                    <option value="Grave">Grave</option>
+                                    <option value="Gravissima">Gravíssima</option>
+                                </select>
+
                                 <span asp-validation-for="Level" class="text-danger"></span>
                             </div>
                         </div>

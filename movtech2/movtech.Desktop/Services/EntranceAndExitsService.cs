@@ -62,8 +62,8 @@ namespace movtech.Desktop.Services
                         var listaFormModel = from fields in listaEntranceAndExit
                                              select new EntranceAndExitsFormModel
                                              {
-                                                 CreationDate = fields.CreationDate,
-                                                 VehicleBrand = fields.Vehicle.Brand,                                                 
+                                                 CreationDate  = fields.CreationDate ,
+                                                 VehicleBrand = fields.Vehicle.Brand,                                                
                                                  Description = fields.Description
 
                                              };

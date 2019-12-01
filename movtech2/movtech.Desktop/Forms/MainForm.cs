@@ -45,20 +45,9 @@ namespace movtech.Desktop.Forms
             Application.Exit();
         }
 
-        private void PictureMaximize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            pictureRestore.Visible = true;
-            pictureMaximize.Visible = false;
+       
 
-        }
-
-        private void PictureRestore_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            pictureRestore.Visible = false;
-            pictureMaximize.Visible = true;
-        }
+       
 
         private void PictureMinimize_Click(object sender, EventArgs e)
         {

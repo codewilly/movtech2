@@ -1,10 +1,12 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
+using movtech.Domain.Contracts.TrafficTicket;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
 using movtech.MVC.ViewModels;
 using movtech.MVC.ViewModels.Driver;
+using movtech.MVC.ViewModels.TrafficTicket;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,5 +61,13 @@ namespace movtech.MVC.Services.Interface
 
 
         #endregion
+
+
+        #region TrafficTrickets
+        Task<bool> CadastrarMulta(CreateTrafficTicketRequest request);
+        Task<IEnumerable<TrafficTicketIndexViewModel>> ConsultarMultas();
+
+        #endregion
+
     }
 }

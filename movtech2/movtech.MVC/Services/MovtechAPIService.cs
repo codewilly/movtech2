@@ -1,5 +1,6 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
+using movtech.Domain.Contracts.TrafficTicket;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
@@ -7,6 +8,7 @@ using movtech.Domain.Services;
 using movtech.MVC.Services.Interface;
 using movtech.MVC.ViewModels;
 using movtech.MVC.ViewModels.Driver;
+using movtech.MVC.ViewModels.TrafficTicket;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -35,7 +37,7 @@ namespace movtech.MVC.Services
         #endregion
 
         #region Veiculos
-               
+
 
         public async Task<ConsultarMarcasResponse> ConsultarMarcas(VehicleType type)
         {
@@ -95,13 +97,13 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
-        public async Task<bool>AtualizarVeiculo(int id,UpdateVehicleRequest request)
+        public async Task<bool> AtualizarVeiculo(int id, UpdateVehicleRequest request)
         {
             try
             {
-                HttpResponseMessage _message =  await _client.PutAsync($"api/v1/Vehicles/{id}", new StringContent(JsonConvert.SerializeObject(request),
+                HttpResponseMessage _message = await _client.PutAsync($"api/v1/Vehicles/{id}", new StringContent(JsonConvert.SerializeObject(request),
                     Encoding.UTF8, "application/json"));
-               
+
 
                 return _message.IsSuccessStatusCode;
 
@@ -117,7 +119,7 @@ namespace movtech.MVC.Services
             try
             {
                 HttpResponseMessage _message = await _client.GetAsync($"api/v1/Vehicles");
-                return JsonConvert.DeserializeObject<IEnumerable<Vehicle>> (await _message.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<IEnumerable<Vehicle>>(await _message.Content.ReadAsStringAsync());
             }
             catch (Exception ex)
             {
@@ -263,5 +265,40 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
+
+        public async Task<bool> CadastrarMulta(CreateTrafficTicketRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/TrafficTickets",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public async Task<IEnumerable<TrafficTicketIndexViewModel>> ConsultarMultas()
+        {
+
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/TrafficTickets");
+                return JsonConvert.DeserializeObject<IEnumerable<TrafficTicketIndexViewModel>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
+
+
     }
 }
