@@ -41,26 +41,31 @@
                             </thead>
 
                             <tbody>
-                                @if(Model == null)
+                                @if (Model == null)
                                 {
                                     <tr><td colspan="5" class="text-danger">Nenhuma Multa</td></tr>
                                 }
-                                @{foreach (var item in Model)
+                                else
+                                {
                                     {
-                                        <tr>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>-</td>
 
 
 
 
 
-                                        </tr>
+                                            </tr>
+                                        }
                                     }
                                 }
+
 
                             </tbody>
 

@@ -1,4 +1,4 @@
-﻿@model movtech.Domain.Entities.Maintenance
+﻿@model movtech.MVC.ViewModels.Maintenance.RegisterMaintenanceViewModel;
 
 <div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
@@ -20,10 +20,12 @@
             </div>
 
             <div class="card-body">
-                <form action="/" method="post">
-                    
+                <form asp-action="PerformMaintenance">
+
+                    <input type="text" asp-for="VehicleId" />
+
                     <div class="row">
-                        
+
                         <div class="col-md-6">
                             <h5>Operações realizadas:</h5>
                             <div class="form-check custom-checkbox">
@@ -59,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="row">
                         <div class="col-2">
                             <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
@@ -69,7 +71,7 @@
                                 <button type="reset" class="btn btnlink-outline ">Limpar</button>
                                 <button type="submit" class="btn breadcrumb-bgcolor text-white">Registrar Manutenção</button>
                             </div>
-                            
+
                         </div>
                     </div>
                 </form>

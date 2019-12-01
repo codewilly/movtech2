@@ -1,5 +1,6 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
+using movtech.Domain.Contracts.Maintenance;
 using movtech.Domain.Contracts.TrafficTicket;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
@@ -58,6 +59,8 @@ namespace movtech.MVC.Services.Interface
         #region Maintenances
 
         Task<IEnumerable<Vehicle>> GetVehiclesWhoNeedsMaintenance();
+
+        Task<bool> RegisterMaintenance(RegisterMaintenanceRequest request);
 
 
         #endregion

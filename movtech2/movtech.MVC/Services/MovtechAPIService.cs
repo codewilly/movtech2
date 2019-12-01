@@ -1,5 +1,6 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
+using movtech.Domain.Contracts.Maintenance;
 using movtech.Domain.Contracts.TrafficTicket;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
@@ -266,6 +267,23 @@ namespace movtech.MVC.Services
             }
         }
 
+        public async Task<bool> RegisterMaintenance(RegisterMaintenanceRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Maintenance",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public async Task<bool> CadastrarMulta(CreateTrafficTicketRequest request)
         {
             try
@@ -299,6 +317,6 @@ namespace movtech.MVC.Services
 
         }
 
-
+        
     }
 }

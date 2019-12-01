@@ -12,5 +12,10 @@ namespace movtech.MVC.Controllers
         {
             return View();
         }
+
+        public IActionResult CreateGasStation()
+        {
+            return View();
+        }
     }
 }
