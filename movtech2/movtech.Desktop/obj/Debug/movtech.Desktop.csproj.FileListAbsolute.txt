@@ -135,6 +135,7 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Des
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.CopyComplete
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.exe
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.pdb
+C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.AuthenticationForm.resources
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\bin\Debug\movtech.Desktop.exe.config
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\bin\Debug\movtech.Desktop.exe
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\bin\Debug\movtech.Desktop.pdb
@@ -189,6 +190,7 @@ C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\bin\Debug\Syste
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csprojAssemblyReference.cache
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.AuthenticationForm.resources
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.EntranceAndExitForm.resources
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.HomeForm.resources
@@ -198,4 +200,3 @@ C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movte
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.CopyComplete
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.exe
 C:\Users\Marco\Desktop\MOVTECH\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.pdb
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.AuthenticationForm.resources

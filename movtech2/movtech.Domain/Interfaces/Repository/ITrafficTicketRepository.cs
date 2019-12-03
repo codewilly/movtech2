@@ -9,5 +9,6 @@ namespace movtech.Domain.Interfaces.Repository
     public interface ITrafficTicketRepository : IBaseRepository<TrafficTicket>
     {
         Task<List<TrafficTicket>> GetTrafficTickets(string cpf, string placa);
+        Task<TrafficTicket> GetTrafficTicket(int id);
     }
 }

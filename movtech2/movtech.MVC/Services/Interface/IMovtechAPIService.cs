@@ -68,7 +68,9 @@ namespace movtech.MVC.Services.Interface
 
         #region TrafficTrickets
         Task<bool> CadastrarMulta(CreateTrafficTicketRequest request);
-        Task<IEnumerable<TrafficTicketIndexViewModel>> ConsultarMultas();
+        Task<IEnumerable<TrafficTicket>> ConsultarMultas();
+        Task<TrafficTicket> ConsultarMulta(int id);
+        Task PagarMulta(int id);
 
         #endregion
 

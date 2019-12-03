@@ -17,6 +17,11 @@ namespace movtech.Domain.Services
             _trafficTicketRepository = trafficTicketRepository;
         }
 
+        public Task<TrafficTicket> GetTrafficTicket(int id)
+        {
+            return _trafficTicketRepository.GetTrafficTicket(id);
+        }
+
         public Task<List<TrafficTicket>> GetTrafficTickets(string cpf, string placa)
         {
             return _trafficTicketRepository.GetTrafficTickets(cpf, placa);

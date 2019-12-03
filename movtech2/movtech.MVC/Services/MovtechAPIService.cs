@@ -301,13 +301,13 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
-        public async Task<IEnumerable<TrafficTicketIndexViewModel>> ConsultarMultas()
+        public async Task<IEnumerable<TrafficTicket>> ConsultarMultas()
         {
 
             try
             {
                 HttpResponseMessage _message = await _client.GetAsync($"api/v1/TrafficTickets");
-                return JsonConvert.DeserializeObject<IEnumerable<TrafficTicketIndexViewModel>>(await _message.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<IEnumerable<TrafficTicket>>(await _message.Content.ReadAsStringAsync());
             }
             catch (Exception ex)
             {
@@ -317,6 +317,35 @@ namespace movtech.MVC.Services
 
         }
 
-        
+        public async Task<TrafficTicket> ConsultarMulta(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/TrafficTickets/{id}");
+                return JsonConvert.DeserializeObject<TrafficTicket>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        public async Task PagarMulta(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync($"api/v1/TrafficTickets/{id}/pay",
+                    new StringContent(JsonConvert.SerializeObject(id),
+                    Encoding.UTF8, "application/json"));
+
+                
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
