@@ -1,6 +1,7 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Contracts.Maintenance;
+using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Contracts.TrafficTicket;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
@@ -72,5 +73,10 @@ namespace movtech.MVC.Services.Interface
 
         #endregion
 
+        #region Refuel and GasStations
+
+        Task<bool> CreateGasStation(CreateGasStationRequest gs);
+
+        #endregion
     }
 }

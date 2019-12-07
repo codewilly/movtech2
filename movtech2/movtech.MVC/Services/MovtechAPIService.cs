@@ -1,6 +1,7 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Contracts.Maintenance;
+using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Contracts.TrafficTicket;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
@@ -317,6 +318,21 @@ namespace movtech.MVC.Services
 
         }
 
-        
+        public async Task<bool> CreateGasStation(CreateGasStationRequest gs)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("v1/Refuels/gasStations",
+                    new StringContent(JsonConvert.SerializeObject(gs),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

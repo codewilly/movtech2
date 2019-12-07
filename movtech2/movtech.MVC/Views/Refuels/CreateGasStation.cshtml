@@ -1,70 +1,202 @@
 ﻿@model movtech.Domain.Entities.GasStation
 
-@{
-    ViewData["Title"] = "CreateGasStation";
+@section Scripts{
+
+    <script>
+        // Ajax Declarations
+        var AjaxSearchCEP = '@Url.Action("SearchCep","Drivers")';
+
+
+    </script>
+
+    <script>
+        function SearchCEP() {
+
+            var _cep = $("#CEP").val();
+
+            if (_cep.length == 9) {
+
+                $.ajax({
+                    type: "GET",
+                    data: { cep: _cep },
+                    url: AjaxSearchCEP,
+                    dataType: 'json',
+                    success: function (json) {
+
+                        if (json.cep == null) {
+                            WarningAlert("CEP não encontrado!")
+                        }
+
+                        $("#Street").val(json.logradouro);
+                        $("#Neighborhood").val(json.bairro);
+                        $("#City").val(json.localidade);
+                        $("#UF").val(json.uf);
+
+
+                    },
+                    error: function () {
+                        alert("Ocorreu um erro ao buscar pelo CEP")
+                    }
+                });
+            }
+        }
+    </script>
+
 }
 
-<h2>CreateGasStation</h2>
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Refuels")'><span class="fas fa-gas-pump"></span> Abastecimentos</a></li>
+            <li class="breadcrumb-item  text-white">Cadastrar Posto de Combustível</li>
 
-<h4>GasStation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateGasStation">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CNPJ" class="control-label"></label>
-                <input asp-for="CNPJ" class="form-control" />
-                <span asp-validation-for="CNPJ" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CEP" class="control-label"></label>
-                <input asp-for="CEP" class="form-control" />
-                <span asp-validation-for="CEP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Street" class="control-label"></label>
-                <input asp-for="Street" class="form-control" />
-                <span asp-validation-for="Street" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Number" class="control-label"></label>
-                <input asp-for="Number" class="form-control" />
-                <span asp-validation-for="Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Neighborhood" class="control-label"></label>
-                <input asp-for="Neighborhood" class="form-control" />
-                <span asp-validation-for="Neighborhood" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UF" class="control-label"></label>
-                <input asp-for="UF" class="form-control" />
-                <span asp-validation-for="UF" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
+
+        </ul>
+    </nav>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Cadastrar Posto de Combustível</h2>
+                <p class="card-subtitle"></p>
+            </div>
+            <form asp-action="CreateGasStation">
+                <div class="card-body">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>Identificação:</h5>
+                            <hr />
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CNPJ" class="control-label"></label>
+                                <input asp-for="CNPJ" class="form-control" />
+                                <span asp-validation-for="CNPJ" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label">Nome do Posto</label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5>Localização</h5>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="CEP" class="control-label"></label>
+                                <input asp-for="CEP" class="form-control cep" placeholder="00000-000" onchange="SearchCEP()" />
+                                <span asp-validation-for="CEP" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label asp-for="Street" class="control-label">Rua</label>
+                                <input asp-for="Street" class="form-control" placeholder="Ex.: Rua das Acácias" />
+                                <span asp-validation-for="Street" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label asp-for="Number" class="control-label">Número</label>
+                                <input asp-for="Number" class="form-control houseNumber" type="tel" />
+                                <span asp-validation-for="Number" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Neighborhood" class="control-label">Bairro</label>
+                                <input asp-for="Neighborhood" class="form-control" placeholder="Ex.: Parque dos Ipês" />
+                                <span asp-validation-for="Neighborhood" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="City" class="control-label">Cidade</label>
+                                <input asp-for="City" class="form-control" placeholder="Ex.: São Paulo" />
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="UF" class="control-label">Estado</label>
+
+                                <select asp-for="UF" class="form-control">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+
+                                <span asp-validation-for="UF" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <hr />
+                            <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
+                            <div class="form-row float-right">
+                                <div class="col ">
+
+
+                                    <button class="btn btnlink-outline" type="reset">Limpar</button>
+                                    <button class="btn breadcrumb-bgcolor   text-white" type="submit">Cadastrar Posto de Combustível</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
 </div>
 
