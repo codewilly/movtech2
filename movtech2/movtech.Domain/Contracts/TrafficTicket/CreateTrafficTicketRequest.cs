@@ -15,11 +15,12 @@ namespace movtech.Domain.Contracts.TrafficTicket
         [Required(ErrorMessage = "Informe o CPF do infrator")]
         [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}\-\d{2}$", ErrorMessage = "Informe um CPF no formato  000.000.000-00")]
         public string DriverCPF { get; set; }
-
+        
         [Required(ErrorMessage = "Informe a data da multa")]
         public DateTime TrafficTicketDate { get; set; }
 
         [Required(ErrorMessage = "Informe a data do vencimento do boleto")]
+        
         public DateTime BilletExpiration { get; set; }
 
         [Required(ErrorMessage = "Informe o valor da multa")]

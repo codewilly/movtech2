@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using movtech.Domain.Entities;
 using movtech.MVC.Services.Interface;
 using movtech.MVC.ViewModels.TrafficTicket;
 
@@ -18,11 +19,13 @@ namespace movtech.MVC.Controllers
             _movtechAPIService = movtechAPIService;
             
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string payed)
         {
-            IEnumerable<TrafficTicketIndexViewModel> trafficTickets;
+            IEnumerable<TrafficTicket> trafficTickets;
 
             trafficTickets = await _movtechAPIService.ConsultarMultas();
+
+            ViewBag.Payed = payed;
 
             return View(trafficTickets);
         }
@@ -48,7 +51,7 @@ namespace movtech.MVC.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Não foi possível cadastrarrrr!");
+                    ModelState.AddModelError("", "Não foi possível cadastrar!");
                     return View(viewModel);
                 }
                 
@@ -60,7 +63,25 @@ namespace movtech.MVC.Controllers
 
 
 
-            return View(viewModel);
+           
         }
+        public async Task<IActionResult> Details(TrafficTicket trafficTicket)
+        {
+            TrafficTicket ticket = await _movtechAPIService.ConsultarMulta(trafficTicket.Id);
+
+            return View(ticket);
+        }
+
+        
+        public async Task<IActionResult> Pay(TrafficTicket trafficTicket)
+        {
+            await _movtechAPIService.PagarMulta(trafficTicket.Id);
+
+
+            return RedirectToAction("Index");
+
+            
+        }
+
     }
 }

@@ -142,6 +142,27 @@ namespace movtech.API.Controllers
 
         }
 
+        [HttpGet("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetTrafficTicket(int id)
+        {
+
+            TrafficTicket _traffickTricket = await _trafficTicketService.GetTrafficTicket(id);
+
+
+            if (_traffickTricket != null)
+            {
+                
+                return Ok(_traffickTricket);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
 
 
 

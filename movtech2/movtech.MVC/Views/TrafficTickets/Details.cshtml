@@ -1,0 +1,165 @@
+﻿@model movtech.Domain.Entities.TrafficTicket
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a asp-action="Index"><span class="fas fa-user-tie"></span> Multas</a></li>
+            <li class="breadcrumb-item  text-white">Detalhes</li>
+            <li class="breadcrumb-item  text-white"> <a href="@Url.Action("Details", "Drivers", new { id = Model.Driver.Id })">@Model.Driver.Name</a> - <a href="@Url.Action("Details", "Vehicles", new { id = Model.Vehicle.Id })">@Model.Vehicle.Brand </a> </li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Detalhes da Multa</h2>
+                <p class="card-subtitle">
+                    Status -
+                    @if (Model.WasPaid)
+                    {
+                        <strong class="text-success">Multa Paga!</strong>
+                    }
+                    else
+                    {
+                        <strong class="text-danger">Multa Não Paga!</strong>
+                    }
+
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Dados Básicos</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Data da Multa
+                            </dt>
+                            <dd>
+                                @Model.TrafficTicketDate
+                            </dd>
+
+                            <dt>
+                                Data de Vencimento
+                            </dt>
+                            @if (!Model.WasPaid)
+                            {
+                                <dd class='@(Model.BilletExpiration >= DateTime.Now ? "fas fa-dollar-sign text-warning" : " fas fa-dollar-sign text-danger")'>
+                                    <b>@Model.BilletExpiration.ToString("dd/MM/yyyy")</b>
+                                </dd>
+
+                            }
+                            else
+                            {
+                                <dd class="">
+                                    @Model.BilletExpiration
+                                </dd>
+                                <dt>
+                                    Data do Pagamento
+                                </dt>
+                                <dd class="text-success">
+                                    @Model.PaymentDate
+                                </dd>
+                            }
+
+                            <dt>
+                                Custo
+                            </dt>
+                            <dd>
+                                @Model.Cost
+                            </dd>
+                            <dt>
+                                Level
+                            </dt>
+                            <dd>
+                                @Model.Level - @Model.Points Pontos
+                            </dd>
+                            <dt>
+                                Descrição
+                            </dt>
+                            <dd>
+                                @Model.Description
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Local da Multa</h5>
+                        <hr />
+
+                        <dl>
+                            <dt>
+                                CEP:
+                            </dt>
+                            <dd>
+                                @Model.CEP
+                            </dd>
+
+                            <dt>
+                                Rua:
+                            </dt>
+                            <dd>
+                                @Model.Street, Nº @Model.Number
+                            </dd>
+
+                            <dt>
+                                Bairro:
+                            </dt>
+                            <dd>
+                                @Model.Neighborhood
+                            </dd>
+
+                            <dt>
+                                Cidade / Estado:
+                            </dt>
+                            <dd>
+                                @Model.City - @Model.UF
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Atores</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Veículo
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details", "Vehicles", new { id = Model.Vehicle.Id })">@Model.Vehicle.Brand - @Model.Vehicle.Model</a>
+                            </dd>
+                            <dt>
+                                Infrator
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details", "Drivers", new { id = Model.Driver.Id })">@Model.Driver.Name</a>
+
+                            </dd>
+                        </dl>
+                    </div>
+
+                </div>
+
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+                        <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
+
+                        @if (!Model.WasPaid)
+                        {
+                            <a asp-action="Pay" asp-route-id="@Model.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes" class="btn breadcrumb-bgcolor text-white float-right"><span class="fas fa-tag"></span>  Pagar</a>
+
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -93,7 +93,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="TrafficTicketDate" class="control-label">Data da Multa</label>
-                                <input asp-for="TrafficTicketDate" class="form-control"  />
+                                <input asp-for="TrafficTicketDate" class="form-control data" type="text" placeholder="DD/MM/AAAA" value="" />
                                 <span asp-validation-for="TrafficTicketDate" class="text-danger"></span>
                                 
                             </div>
@@ -101,7 +101,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="BilletExpiration" class="control-label">Vencimento da Multa</label>
-                                <input asp-for="BilletExpiration" class="form-control"   />
+                                <input asp-for="BilletExpiration" class="form-control data" type="text" placeholder="DD/MM/AAAA" value="" />
                                 <span asp-validation-for="BilletExpiration" class="text-danger"></span>
                             </div>
                         </div>

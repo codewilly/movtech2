@@ -1,7 +1,6 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Contracts.Maintenance;
-using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Contracts.TrafficTicket;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
@@ -302,13 +301,13 @@ namespace movtech.MVC.Services
                 throw;
             }
         }
-        public async Task<IEnumerable<TrafficTicketIndexViewModel>> ConsultarMultas()
+        public async Task<IEnumerable<TrafficTicket>> ConsultarMultas()
         {
 
             try
             {
                 HttpResponseMessage _message = await _client.GetAsync($"api/v1/TrafficTickets");
-                return JsonConvert.DeserializeObject<IEnumerable<TrafficTicketIndexViewModel>>(await _message.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<IEnumerable<TrafficTicket>>(await _message.Content.ReadAsStringAsync());
             }
             catch (Exception ex)
             {
@@ -318,15 +317,29 @@ namespace movtech.MVC.Services
 
         }
 
-        public async Task<bool> CreateGasStation(CreateGasStationRequest gs)
+        public async Task<TrafficTicket> ConsultarMulta(int id)
         {
             try
             {
-                HttpResponseMessage _message = await _client.PostAsync("v1/Refuels/gasStations",
-                    new StringContent(JsonConvert.SerializeObject(gs),
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/TrafficTickets/{id}");
+                return JsonConvert.DeserializeObject<TrafficTicket>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        public async Task PagarMulta(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync($"api/v1/TrafficTickets/{id}/pay",
+                    new StringContent(JsonConvert.SerializeObject(id),
                     Encoding.UTF8, "application/json"));
 
-                return _message.IsSuccessStatusCode;
+                
+
 
             }
             catch (Exception ex)
