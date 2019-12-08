@@ -8,7 +8,7 @@
         <ul class="breadcrumb breadcrumb-bgcolor">
             <li class="breadcrumb-item  text-white"><a asp-action="Index"><span class="fas fa-user-tie"></span> Multas</a></li>
             <li class="breadcrumb-item  text-white">Detalhes</li>
-            <li class="breadcrumb-item  text-white"> <a href="@Url.Action("Details", "Drivers", new { id = Model.Driver.Id })">@Model.Driver.Name</a> - <a href="@Url.Action("Details", "Vehicles", new { id = Model.Vehicle.Id })">@Model.Vehicle.Brand </a> </li>
+            @*<li class="breadcrumb-item  text-white"> <a href="@Url.Action("Details", "Drivers", new { id = Model.Driver.Id })">@Model.Driver.Name</a> - <a href="@Url.Action("Details", "Vehicles", new { id = Model.Vehicle.Id })">@Model.Vehicle.Brand </a> </li>*@
         </ul>
     </nav>
 </div>

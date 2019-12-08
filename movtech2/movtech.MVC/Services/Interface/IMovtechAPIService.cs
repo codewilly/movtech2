@@ -3,6 +3,7 @@ using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Contracts.Maintenance;
 using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Contracts.TrafficTicket;
+using movtech.Domain.Contracts.User;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
@@ -18,6 +19,11 @@ namespace movtech.MVC.Services.Interface
 {
     public interface IMovtechAPIService
     {
+        #region Users
+
+        Task<User> Login(UserLoginRequest request);
+
+        #endregion
 
         #region Veiculos        
 
@@ -78,6 +84,10 @@ namespace movtech.MVC.Services.Interface
         #region Refuel and GasStations
 
         Task<bool> CreateGasStation(CreateGasStationRequest gs);
+
+        Task<IEnumerable<GasStation>> GetGasStations();
+
+        Task<bool> RegisterRefuel(RegisterRefuelRequest request);
 
         #endregion
     }

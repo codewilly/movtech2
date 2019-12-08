@@ -1,5 +1,22 @@
 ﻿@model IEnumerable<movtech.Domain.Entities.Vehicle>
 
+@section Scripts{
+
+    @if (ViewBag.ManutencaoSucesso == "true")
+    {
+        <script>
+            Swal.fire({
+                title: "Pronto!",
+                html: "Manutenção registrada com sucesso!",
+                icon: 'success',
+                confirmButtonText: 'Fechar'
+            })
+        </script>
+    }
+
+
+}
+
 <div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
@@ -40,7 +57,7 @@
                                     {
                                         <tr>
                                             <td>
-                                                
+
                                                 <a href="@Url.Action("Details", "Vehicles", new { id = item.Id })">@item.LicensePlate</a>
 
                                             </td>

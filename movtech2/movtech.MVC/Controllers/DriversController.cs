@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.MVC.Services.Interface;
@@ -10,6 +11,7 @@ using movtech.MVC.ViewModels.Driver;
 
 namespace movtech.MVC.Controllers
 {
+    [Authorize]
     public class DriversController : Controller
     {
 
@@ -52,7 +54,9 @@ namespace movtech.MVC.Controllers
 
                 if (await _movtechAPIService.CadastarMotorista(viewModel))
                 {
-                    return RedirectToAction("Index");
+                    ViewBag.MotoristaCadastrado = "true";
+                    var drivers = await _movtechAPIService.GetAllDrivers();
+                    return View("Index", drivers);
                 }
                 else
                 {
@@ -98,7 +102,9 @@ namespace movtech.MVC.Controllers
             {
                 if (await _movtechAPIService.AtualizarMotorista(viewModel.Id, viewModel))
                 {
-                    return RedirectToAction("Index");
+                    ViewBag.MotoristaEditado = "true";
+                    var drivers = await _movtechAPIService.GetAllDrivers();
+                    return View("Index", drivers);
                 }
                 else
                 {

@@ -17,6 +17,7 @@ namespace movtech.Infra.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Set Specific models Configurations
+            modelBuilder.ApplyConfiguration(new UserConfig());
             modelBuilder.ApplyConfiguration(new VehicleConfig());
             modelBuilder.ApplyConfiguration(new DriverConfig());
             modelBuilder.ApplyConfiguration(new EntranceAndExitConfig());
@@ -26,6 +27,8 @@ namespace movtech.Infra.Context
             modelBuilder.ApplyConfiguration(new MaintenanceConfig());
             
         }
+
+        public DbSet<User> Users { get; set; }
 
         public DbSet<Vehicle> Vehicles { get; set; }
 

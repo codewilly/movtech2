@@ -15,7 +15,7 @@
             var _cep = $("#CEP").val();
 
             if (_cep.length == 9) {
-
+                Loading(true);
                 $.ajax({
                     type: "GET",
                     data: { cep: _cep },
@@ -31,10 +31,11 @@
                         $("#Neighborhood").val(json.bairro);
                         $("#City").val(json.localidade);
                         $("#UF").val(json.uf);
-
+                        Loading(false);
 
                     },
                     error: function () {
+                        Loading(false);
                         alert("Ocorreu um erro ao buscar pelo CEP")
                     }
                 });
@@ -79,7 +80,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="CNPJ" class="control-label"></label>
-                                <input asp-for="CNPJ" class="form-control" />
+                                <input asp-for="CNPJ" class="form-control cnpj" placeholder="00.000.000/0000-00"/>
                                 <span asp-validation-for="CNPJ" class="text-danger"></span>
                             </div>
                         </div>
@@ -87,7 +88,7 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label asp-for="Name" class="control-label">Nome do Posto</label>
-                                <input asp-for="Name" class="form-control" />
+                                <input asp-for="Name" class="form-control" placeholder="Ex.: Posto Shell Jd. Aquarius"/>
                                 <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
                         </div>
@@ -194,7 +195,7 @@
                     </div>
                 </div>
 
-                
+
             </form>
         </div>
     </div>

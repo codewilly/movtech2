@@ -1,7 +1,9 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
 using movtech.Domain.Contracts.Maintenance;
+using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Contracts.TrafficTicket;
+using movtech.Domain.Contracts.User;
 using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
@@ -346,6 +348,73 @@ namespace movtech.MVC.Services
             {
                 throw;
             }
+        }
+
+        public async Task<bool> CreateGasStation(CreateGasStationRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Refuels/gasStations",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<GasStation>> GetGasStations()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Refuels/gasStations");
+                return JsonConvert.DeserializeObject<IEnumerable<GasStation>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> RegisterRefuel(RegisterRefuelRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Refuels",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<User> Login(UserLoginRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Users/login",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return JsonConvert.DeserializeObject<User>(await _message.Content.ReadAsStringAsync());
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+
+            
         }
     }
 }

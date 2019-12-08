@@ -1,5 +1,33 @@
 ﻿@model movtech.MVC.ViewModels.EntranceAndExit.IndexEntranceAndExitViewModel
 
+@section Scripts{
+
+    @if (ViewBag.EntradaSucesso == "true")
+    {
+        <script>
+            Swal.fire({
+                title: "Pronto!",
+                html: "Entrada registrada com sucesso!",
+                icon: 'success',
+                confirmButtonText: 'Fechar'
+            })
+        </script>
+    }
+
+    @if (ViewBag.SaidaSucesso == "true")
+    {
+        <script>
+            Swal.fire({
+                title: "Pronto!",
+                html: "Saída registrada com sucesso!",
+                icon: 'success',
+                confirmButtonText: 'Fechar'
+            })
+        </script>
+    }
+
+}
+
 <div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
@@ -89,7 +117,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label asp-for="CpfExit" class="control-label">CPF</label>
-                                                <input asp-for="CpfExit" class="form-control cpf" placeholder="000.000.000-00" required/>
+                                                <input asp-for="CpfExit" class="form-control cpf" placeholder="000.000.000-00" required />
                                                 <span asp-validation-for="CpfExit" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -137,7 +165,7 @@
                                 else
                                 {
                                     <tr>
-                                        <td colspan="5" class="text-danger">Nenhuma Entrada/Saída Registrada ainda!</td>
+                                        <td colspan="5">Não há registros de entrada ou saída.</td>
                                     </tr>
                                 }
 

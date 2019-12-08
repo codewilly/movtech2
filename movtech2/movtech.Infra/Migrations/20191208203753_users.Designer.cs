@@ -9,8 +9,8 @@ using movtech.Infra.Context;
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    [Migration("20191030142910_initial")]
-    partial class initial
+    [Migration("20191208203753_users")]
+    partial class users
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,7 +94,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 30, 11, 29, 10, 740, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 8, 17, 37, 52, 968, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -167,9 +167,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("MaintenanceDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 30, 11, 29, 10, 752, DateTimeKind.Local));
-
-                    b.Property<int>("MaintenanceType");
+                        .HasDefaultValue(new DateTime(2019, 12, 8, 17, 37, 52, 982, DateTimeKind.Local));
 
                     b.Property<bool>("OilChanged");
 
@@ -230,9 +228,11 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("BilletExpiration");
 
-                    b.Property<string>("CEP");
+                    b.Property<string>("CEP")
+                        .HasMaxLength(9);
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .HasMaxLength(100);
 
                     b.Property<decimal>("Cost")
                         .HasColumnType("decimal(10, 2)");
@@ -244,7 +244,8 @@ namespace movtech.Infra.Migrations
 
                     b.Property<int>("Level");
 
-                    b.Property<string>("Neighborhood");
+                    b.Property<string>("Neighborhood")
+                        .HasMaxLength(100);
 
                     b.Property<int>("Number");
 
@@ -252,7 +253,8 @@ namespace movtech.Infra.Migrations
 
                     b.Property<int>("Points");
 
-                    b.Property<string>("Street");
+                    b.Property<string>("Street")
+                        .HasMaxLength(100);
 
                     b.Property<DateTime>("TrafficTicketDate");
 
@@ -272,6 +274,30 @@ namespace movtech.Infra.Migrations
                     b.HasIndex("VehicleId");
 
                     b.ToTable("TrafficTickets");
+                });
+
+            modelBuilder.Entity("movtech.Domain.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasMaxLength(14);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("CPF");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("movtech.Domain.Entities.Vehicle", b =>
@@ -300,9 +326,13 @@ namespace movtech.Infra.Migrations
 
                     b.Property<float>("LastTireChangeKms");
 
+                    b.Property<double>("Latitude");
+
                     b.Property<string>("LicensePlate")
                         .IsRequired()
                         .HasMaxLength(8);
+
+                    b.Property<double>("Longitude");
 
                     b.Property<string>("Model")
                         .IsRequired()

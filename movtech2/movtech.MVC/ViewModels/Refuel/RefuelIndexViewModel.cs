@@ -1,4 +1,5 @@
-﻿using movtech.Domain.Enums;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using movtech.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,8 @@ namespace movtech.MVC.ViewModels.Refuel
 {
     public class RefuelIndexViewModel
     {
+
+        public List<SelectListItem> Postos { get; set; } = new List<SelectListItem>();
 
         [Required(ErrorMessage = "Informe a placa")]
         [RegularExpression(@"^[a-zA-Z]{3}\-\d{4}$", ErrorMessage = "A placa deve seguir o padrão: AAA-0000")]

@@ -9,8 +9,8 @@ using movtech.Infra.Context;
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    [Migration("20191030143446_var types changed")]
-    partial class vartypeschanged
+    [Migration("20191207215807_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,7 +94,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 30, 11, 34, 46, 138, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 7, 18, 58, 7, 604, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -167,9 +167,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("MaintenanceDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 10, 30, 11, 34, 46, 151, DateTimeKind.Local));
-
-                    b.Property<int>("MaintenanceType");
+                        .HasDefaultValue(new DateTime(2019, 12, 7, 18, 58, 7, 618, DateTimeKind.Local));
 
                     b.Property<bool>("OilChanged");
 
@@ -304,9 +302,13 @@ namespace movtech.Infra.Migrations
 
                     b.Property<float>("LastTireChangeKms");
 
+                    b.Property<double>("Latitude");
+
                     b.Property<string>("LicensePlate")
                         .IsRequired()
                         .HasMaxLength(8);
+
+                    b.Property<double>("Longitude");
 
                     b.Property<string>("Model")
                         .IsRequired()

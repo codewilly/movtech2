@@ -9,8 +9,8 @@ using movtech.Infra.Context;
 namespace movtech.Infra.Migrations
 {
     [DbContext(typeof(MovtechContext))]
-    [Migration("20191123224714_removido-maintenance-type")]
-    partial class removidomaintenancetype
+    [Migration("20191208215310_user name")]
+    partial class username
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,7 +94,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 11, 23, 19, 47, 13, 925, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 8, 18, 53, 10, 325, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -167,7 +167,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("MaintenanceDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 11, 23, 19, 47, 13, 939, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 8, 18, 53, 10, 339, DateTimeKind.Local));
 
                     b.Property<bool>("OilChanged");
 
@@ -276,6 +276,32 @@ namespace movtech.Infra.Migrations
                     b.ToTable("TrafficTickets");
                 });
 
+            modelBuilder.Entity("movtech.Domain.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasMaxLength(14);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("CPF");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("movtech.Domain.Entities.Vehicle", b =>
                 {
                     b.Property<int>("Id")
@@ -302,9 +328,13 @@ namespace movtech.Infra.Migrations
 
                     b.Property<float>("LastTireChangeKms");
 
+                    b.Property<double>("Latitude");
+
                     b.Property<string>("LicensePlate")
                         .IsRequired()
                         .HasMaxLength(8);
+
+                    b.Property<double>("Longitude");
 
                     b.Property<string>("Model")
                         .IsRequired()

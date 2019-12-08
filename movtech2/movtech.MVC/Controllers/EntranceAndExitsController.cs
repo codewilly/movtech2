@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.MVC.Services.Interface;
@@ -9,6 +10,7 @@ using movtech.MVC.ViewModels.EntranceAndExit;
 
 namespace movtech.MVC.Controllers
 {
+    [Authorize]
     public class EntranceAndExitsController : Controller
     {
 
@@ -51,7 +53,10 @@ namespace movtech.MVC.Controllers
                 return View("Index", viewModel);
             }
 
-            return RedirectToAction("Index");
+            ViewBag.SaidaSucesso = "true";
+
+            viewModel.EntradasSaidas = await _movtechAPIService.GetAllEntranceAndExit();
+            return View("Index", viewModel);
         }
         
         public async Task<IActionResult> Entrance(IndexEntranceAndExitViewModel viewModel)
@@ -71,7 +76,10 @@ namespace movtech.MVC.Controllers
                 return View("Index", viewModel);
             }
 
-            return RedirectToAction("Index");
+            ViewBag.EntradaSucesso = "true";
+
+            viewModel.EntradasSaidas = await _movtechAPIService.GetAllEntranceAndExit();
+            return View("Index", viewModel);
         }
     }
 }

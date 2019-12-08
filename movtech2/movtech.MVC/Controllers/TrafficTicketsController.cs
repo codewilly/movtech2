@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using movtech.Domain.Entities;
 using movtech.MVC.Services.Interface;
@@ -9,6 +10,7 @@ using movtech.MVC.ViewModels.TrafficTicket;
 
 namespace movtech.MVC.Controllers
 {
+    [Authorize]
     public class TrafficTicketsController : Controller
     {
         private readonly IMovtechAPIService _movtechAPIService;

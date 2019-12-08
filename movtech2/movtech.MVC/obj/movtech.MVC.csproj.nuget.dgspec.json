@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {}
+    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
+    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
         "projectName": "movtech.Domain",
-        "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
-        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\obj\\",
+        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
+        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -72,21 +72,21 @@
         }
       }
     },
-    "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {
+    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
+        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
         "projectName": "movtech.MVC",
-        "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
-        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.MVC\\obj\\",
+        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
+        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
+        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -100,8 +100,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
-                "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj"
+              "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
+                "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj"
               }
             }
           }

@@ -92,7 +92,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 11, 27, 18, 34, 48, 741, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 8, 18, 53, 10, 325, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -165,7 +165,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("MaintenanceDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 11, 27, 18, 34, 48, 760, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 8, 18, 53, 10, 339, DateTimeKind.Local));
 
                     b.Property<bool>("OilChanged");
 
@@ -272,6 +272,32 @@ namespace movtech.Infra.Migrations
                     b.HasIndex("VehicleId");
 
                     b.ToTable("TrafficTickets");
+                });
+
+            modelBuilder.Entity("movtech.Domain.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasMaxLength(14);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("CPF");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("movtech.Domain.Entities.Vehicle", b =>

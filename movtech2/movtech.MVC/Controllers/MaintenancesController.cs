@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using movtech.Domain.Contracts.Maintenance;
 using movtech.Domain.Entities;
@@ -10,6 +11,7 @@ using movtech.MVC.ViewModels.Maintenance;
 
 namespace movtech.MVC.Controllers
 {
+    [Authorize]
     public class MaintenancesController : Controller
     {
 
@@ -45,7 +47,7 @@ namespace movtech.MVC.Controllers
                 {
                     VehicleId = id
                 };
-
+                
                 return View(viewModel);
 
             }
@@ -78,7 +80,9 @@ namespace movtech.MVC.Controllers
 
                 if (success)
                 {
-                    return RedirectToAction("Index");
+                    ViewBag.ManutencaoSucesso = "true";
+                    var drivers = await _movtechAPIService.GetVehiclesWhoNeedsMaintenance();
+                    return View("Index", drivers);
                 }
                 else
                 {

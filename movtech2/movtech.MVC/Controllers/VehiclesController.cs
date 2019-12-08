@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using movtech.Domain.Enums;
@@ -11,6 +12,7 @@ using movtech.MVC.ViewModels.Vehicle;
 
 namespace movtech.MVC.Controllers
 {
+    [Authorize]
     public class VehiclesController : Controller
     {
 
@@ -55,7 +57,9 @@ namespace movtech.MVC.Controllers
 
                 if (await _movtechAPIService.CadastrarVeiculo(viewModel))
                 {
-                    return RedirectToAction("Index");
+                    ViewBag.VeiculoCadastrado = "true";
+                    var vehicles = await _movtechAPIService.GetAllVeiculos();
+                    return View("Index", vehicles);
                 }
                 else
                 {
@@ -132,7 +136,9 @@ namespace movtech.MVC.Controllers
 
                 if (await _movtechAPIService.AtualizarVeiculo(Id, viewModel))
                 {
-                    return RedirectToAction("Index");
+                    ViewBag.VeiculoEditado = "true";
+                    var vehicles = await _movtechAPIService.GetAllVeiculos();
+                    return View("Index", vehicles);
                 }
                 else
                 {

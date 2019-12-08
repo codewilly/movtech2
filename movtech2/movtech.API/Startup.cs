@@ -51,6 +51,7 @@ namespace movtech.API
             services.AddScoped<IGasStationService, GasStationService>();
             services.AddScoped<ITrafficTicketService, TrafficTicketService>();
             services.AddScoped<IMaintenanceService, MaintenanceService>();
+            services.AddScoped<IUserService, UserService>();
 
             //Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
@@ -61,6 +62,7 @@ namespace movtech.API
             services.AddScoped<IGasStationRepository, GasStationRepository>();
             services.AddScoped<ITrafficTicketRepository, TrafficTicketRepository>();
             services.AddScoped<IMaintenanceRepository, MaintenanceRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             #endregion
 

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace movtech.Infra.Migrations
 {
-    public partial class initial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,8 @@ namespace movtech.Infra.Migrations
                     InGarage = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     Status = table.Column<int>(nullable: false),
                     DriverId = table.Column<int>(nullable: true),
+                    Latitude = table.Column<double>(nullable: false),
+                    Longitude = table.Column<double>(nullable: false),
                     LastMaintenanceDate = table.Column<DateTime>(nullable: false),
                     LastMaintenanceKms = table.Column<float>(nullable: false),
                     LastTireChangeKms = table.Column<float>(nullable: false),
@@ -102,8 +104,7 @@ namespace movtech.Infra.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    MaintenanceDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 10, 30, 11, 29, 10, 752, DateTimeKind.Local)),
-                    MaintenanceType = table.Column<int>(nullable: false),
+                    MaintenanceDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 12, 7, 18, 58, 7, 618, DateTimeKind.Local)),
                     VehicleId = table.Column<int>(nullable: false),
                     Cost = table.Column<decimal>(type: "decimal(10, 2)", nullable: false),
                     PreventivaOrCorretiva = table.Column<bool>(nullable: false),
@@ -128,7 +129,7 @@ namespace movtech.Infra.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 10, 30, 11, 29, 10, 740, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 12, 7, 18, 58, 7, 604, DateTimeKind.Local)),
                     VehicleId = table.Column<int>(nullable: false),
                     DriverId = table.Column<int>(nullable: false),
                     VehicleKms = table.Column<float>(nullable: false),
@@ -194,11 +195,11 @@ namespace movtech.Infra.Migrations
                 name: "TrafficTickets",
                 columns: table => new
                 {
-                    CEP = table.Column<string>(nullable: true),
-                    Street = table.Column<string>(nullable: true),
+                    CEP = table.Column<string>(maxLength: 9, nullable: true),
+                    Street = table.Column<string>(maxLength: 100, nullable: true),
                     Number = table.Column<int>(nullable: false),
-                    Neighborhood = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
+                    Neighborhood = table.Column<string>(maxLength: 100, nullable: true),
+                    City = table.Column<string>(maxLength: 100, nullable: true),
                     UF = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
