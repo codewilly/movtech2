@@ -19,6 +19,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movtech.Desktop", "movtech.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "movtech.MVC", "movtech.MVC\movtech.MVC.csproj", "{2F7B3D79-A177-4EE3-B078-7A3E3E69F278}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BKP", "BKP", "{9A3B7CDB-CE68-47F5-B264-7DC3032A973D}"
+	ProjectSection(SolutionItems) = preProject
+		movtech.Infra\Migrations\20191030142910_initial.cs = movtech.Infra\Migrations\20191030142910_initial.cs
+		movtech.Infra\Migrations\20191030142910_initial.Designer.cs = movtech.Infra\Migrations\20191030142910_initial.Designer.cs
+		movtech.Infra\Migrations\20191030143446_var types changed.cs = movtech.Infra\Migrations\20191030143446_var types changed.cs
+		movtech.Infra\Migrations\20191030143446_var types changed.Designer.cs = movtech.Infra\Migrations\20191030143446_var types changed.Designer.cs
+		movtech.Infra\Migrations\20191123224714_removido-maintenance-type.cs = movtech.Infra\Migrations\20191123224714_removido-maintenance-type.cs
+		movtech.Infra\Migrations\20191123224714_removido-maintenance-type.Designer.cs = movtech.Infra\Migrations\20191123224714_removido-maintenance-type.Designer.cs
+		movtech.Infra\Migrations\20191127213448_vehicle-lat-long.cs = movtech.Infra\Migrations\20191127213448_vehicle-lat-long.cs
+		movtech.Infra\Migrations\20191127213448_vehicle-lat-long.Designer.cs = movtech.Infra\Migrations\20191127213448_vehicle-lat-long.Designer.cs
+		movtech.Infra\Migrations\20191206183953_novaInsurence.cs = movtech.Infra\Migrations\20191206183953_novaInsurence.cs
+		movtech.Infra\Migrations\20191206183953_novaInsurence.Designer.cs = movtech.Infra\Migrations\20191206183953_novaInsurence.Designer.cs
+		movtech.Infra\Migrations\20191207225321_insurenceclaimnew.cs = movtech.Infra\Migrations\20191207225321_insurenceclaimnew.cs
+		movtech.Infra\Migrations\20191207225321_insurenceclaimnew.Designer.cs = movtech.Infra\Migrations\20191207225321_insurenceclaimnew.Designer.cs
+		movtech.Infra\Migrations\MovtechContextModelSnapshot.cs = movtech.Infra\Migrations\MovtechContextModelSnapshot.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +72,7 @@ Global
 		{0EE1C919-A3B1-4808-BB01-FAAAFBF5E529} = {6C2F1774-E485-4A66-AB11-8D5C4F21D702}
 		{64D7B43C-69E7-49B4-B703-A0AFAC59BCB1} = {6C2F1774-E485-4A66-AB11-8D5C4F21D702}
 		{2F7B3D79-A177-4EE3-B078-7A3E3E69F278} = {6C2F1774-E485-4A66-AB11-8D5C4F21D702}
+		{9A3B7CDB-CE68-47F5-B264-7DC3032A973D} = {A8DFEEEC-34A5-490E-AA37-793BD134D949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA3299C1-D9C1-4439-81FB-1BF7B3D20051}

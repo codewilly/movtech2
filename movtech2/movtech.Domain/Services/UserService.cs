@@ -4,7 +4,6 @@ using movtech.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace movtech.Domain.Services
 {
@@ -25,7 +24,7 @@ namespace movtech.Domain.Services
 
         public User Register(User user)
         {
-           return _userRepository.Register(user);
+            return _userRepository.Register(user);
         }
     }
 }

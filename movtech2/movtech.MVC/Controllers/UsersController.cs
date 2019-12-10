@@ -48,7 +48,7 @@ namespace movtech.MVC.Controllers
                     {
                         new Claim(ClaimTypes.NameIdentifier, request.CPF),
                         new Claim(ClaimTypes.Name, user.Name)
-                        
+
                     };
 
                 ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "login");
@@ -66,7 +66,7 @@ namespace movtech.MVC.Controllers
                 //    ModelState.AddModelError("", "Erro ao tentar logar-se");
                 //    return View(request);
                 //}
-                
+
             }
             else
             {

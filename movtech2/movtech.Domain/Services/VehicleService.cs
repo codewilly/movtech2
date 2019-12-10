@@ -27,5 +27,27 @@ namespace movtech.Domain.Services
         {
             return _vehicleRepository.GetVehiclesWhoNeedsMaintenance();
         }
+
+        public bool SetInsurence(Insurence insurence,int vehicleId)
+        {
+            Vehicle vehicle = _vehicleRepository.Get((vehicleId));
+            if (vehicle != null)
+            {
+                vehicle.Insurence = insurence;
+                vehicle.InsurenceId = insurence.Id;
+                _vehicleRepository.Update(vehicle);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            
+
+            
+
+
+        }
     }
 }

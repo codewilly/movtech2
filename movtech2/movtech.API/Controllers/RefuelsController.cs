@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using movtech.API.ViewModels.Refuel;
-using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Entities;
 using movtech.Domain.Interfaces.Services;
 
@@ -62,7 +61,7 @@ namespace movtech.API.Controllers
         [HttpPost("")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public IActionResult RegisterRefuel([FromBody]RegisterRefuelRequest viewModel)
+        public IActionResult RegisterRefuel([FromBody]RegisterRefuelViewModel viewModel)
         {
 
             try

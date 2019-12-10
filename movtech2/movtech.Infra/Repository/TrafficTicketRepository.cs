@@ -42,12 +42,9 @@ namespace movtech.Infra.Repository
         }
         public async Task<TrafficTicket> GetTrafficTicket(int id)
         {
-            return await _context.TrafficTickets.Where(d => d.Id == id)
-               .Include(p => p.Driver)
-               .Include(v => v.Vehicle)
-               .FirstOrDefaultAsync();
+             return await _context.TrafficTickets.Where(d => d.Id == id).Include(p => p.Driver).Include(v => v.Vehicle).FirstOrDefaultAsync();
 
-
+           
         }
     }
 }

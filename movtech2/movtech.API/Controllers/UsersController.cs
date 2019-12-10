@@ -66,9 +66,9 @@ namespace movtech.API.Controllers
                 throw new Exception("As senhas não batem");
             }
 
-            
+
         }
-               
+
 
         private string HashPassword(string password)
         {

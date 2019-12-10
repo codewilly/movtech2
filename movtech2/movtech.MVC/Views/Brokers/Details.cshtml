@@ -1,0 +1,126 @@
+﻿@model movtech.Domain.Entities.Broker
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Brokers")'><span class="fas fa-user-tie"></span> Corretoras</a></li>
+            <li class="breadcrumb-item  text-white">Detalhes</li>
+            <li class="breadcrumb-item  text-white">@Model.Name</li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Detalhes da Corretora</h2>
+                <p class="card-subtitle">@Model.Name - <strong>@Model.UF</strong> </p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Dados Básicos</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Nome Da Corretora:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+
+                            <dt>
+                                CNPJ:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CNPJ)
+                            </dd>
+
+                            <dt>
+                               Corretor Responsável
+                            </dt>
+                            <dd>
+                                @Model.ResponsibleBroker
+                            </dd>                                                   
+                                                       
+                           
+                        </dl>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Endereço</h5>
+                        <hr />
+
+                        <dl>
+                            <dt>
+                                CEP:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CEP)
+                            </dd>
+
+                            <dt>
+                                Rua:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Street), Nº @Html.DisplayFor(model => model.Number)
+                            </dd>
+
+                            <dt>
+                                Bairro:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Neighborhood)
+                            </dd>
+
+                            <dt>
+                                Cidade / Estado:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.City) - @Html.DisplayFor(model => model.UF)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contato</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Telefone:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Phone)
+                            </dd>
+                            <dt>
+                                E-mail:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Email)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+                        <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
+
+                        <a class="btn breadcrumb-bgcolor float-right text-white" href="@Url.Action("Edit", "Brokers", new { id = Model.Id })"><span class="fas fa-pencil-alt"></span> Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

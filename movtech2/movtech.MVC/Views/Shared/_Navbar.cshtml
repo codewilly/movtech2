@@ -8,56 +8,32 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <!-- Visível apenas em telas pequenas -->
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-md-none d-lg-none d-xs-block">
-
-            <li class="nav-item" id="Home">
+            <li class="nav-item" id="Home2">
                 <a asp-action="Index" asp-controller="Home" class="nav-link"><span class="fas fa-home"></span> Início</a>
             </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Vehicles" class="nav-link" id="Vehicles"><span class="fas fa-car-side"></span> Veículos</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Drivers" class="nav-link" id="Drivers"><span class="fas fa-user-tie"></span> Motoristas</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="EntranceAndExits" class="nav-link" id="EntranceAndExits"><span class="fas fa-exchange-alt"></span> Entradas e Saídas</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Refuels" class="nav-link" id="Refuels"><span class="fas fa-gas-pump"></span> Abastecimentos</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Maintenances" class="nav-link" id="Maintenances"><span class="fas fa-hammer"></span> Manutenções</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Maps" class="nav-link" id="Maps"><span class="fas fa-map-marker-alt"></span> Mapa</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="TrafficTickets" class="nav-link" id="TrafficTickets"><span class="fas fa-balance-scale"></span> Multas</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Secures" class="nav-link" id="Secures"><span class="fas fa-file-contract"></span> Seguros</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Sinistros" class="nav-link" id="Sinistros"><span class="fas fa-car-crash"></span> Sinistros</a>
-            </li>
-            <li class="nav-item">
-                <a asp-action="Index" asp-controller="Reports" class="nav-link" id="Reports"><span class="fas fa-chart-line"></span> Relatórios</a>
+
+            <li class="nav-item" id="User2">
+                <a asp-action="Index" asp-controller="Vehicles" class="nav-link"><span class="fas fa-car-side"></span> Veículos</a>
             </li>
 
+            <li class="nav-item" id="Vehicle2">
+                <a asp-action="Index" asp-controller="EntranceAndExits" class="nav-link"><span class="fa fa-arrow-circle-o-right"></span> Entrada e Saída</a>
+            </li>
+
+            <li class="nav-item" id="Travel2">
+                <a asp-action="Index" asp-controller="Drivers" class="nav-link"><span class="fas fa-user-tie"></span> Motoristas</a>
+            </li>
+
+            
 
         </ul>
 
-
-
-
-
-
-
         <ul class="navbar-nav ml-auto ">
             <li class="nav-item float-right">
-                <a class="nav-link" href="#"><span class="fas fa-user"></span> @User.Identity.Name</a>
+                <a class="nav-link" href="#"><span class="fas fa-user"></span> Michael Willy</a>
             </li>
             <li class="nav-item float-right">
-                <a asp-action="Logout" asp-controller="Users" class="nav-link">Sair <span class="fas fa-sign-out-alt"></span></a>
+                <a class="nav-link" asp-action="Logout" asp-controller="Users" >Sair <span class="fas fa-sign-out-alt"></span></a>
             </li>
         </ul>
     </div>

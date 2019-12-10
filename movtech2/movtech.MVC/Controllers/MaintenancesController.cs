@@ -47,7 +47,7 @@ namespace movtech.MVC.Controllers
                 {
                     VehicleId = id
                 };
-                
+
                 return View(viewModel);
 
             }
@@ -80,9 +80,7 @@ namespace movtech.MVC.Controllers
 
                 if (success)
                 {
-                    ViewBag.ManutencaoSucesso = "true";
-                    var drivers = await _movtechAPIService.GetVehiclesWhoNeedsMaintenance();
-                    return View("Index", drivers);
+                    return RedirectToAction("Index");
                 }
                 else
                 {

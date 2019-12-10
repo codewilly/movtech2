@@ -1,0 +1,168 @@
+﻿@model movtech.MVC.ViewModels.Insurence.InsurenceCreateViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Insurences")'><span class="fas fa-user-tie"></span> Seguros</a></li>
+            <li class="breadcrumb-item  text-white">Cadastrar</li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Cadastrar </h2>
+                <p class="card-subtitle">Cadastre um novo Seguro para seus veículos!</p>
+            </div>
+
+            <div class="card-body">
+                <form asp-action="CreateInsurence">
+
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="VehicleId" class="control-label">Veículo</label>
+                                <select asp-for="VehicleId" class="form-control">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    @if (Model.Vehicles == null)
+                                    {
+                                        <option value="" disabled>Nenhum Veículo Cadastrado</option>
+                                    }
+                                    else
+                                    {
+                                        @foreach (var item in Model.Vehicles)
+                                        {
+                                            <option value="@item.Id">@item.Brand - @item.LicensePlate </option>
+                                        }
+                                    }
+
+
+                                </select>
+
+
+                                <span asp-validation-for="VehicleId" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="BrokerId" class="control-label">Corretora</label>
+                                <select asp-for="BrokerId" class="form-control">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    @if (Model.Brokers == null)
+                                    {
+                                        <option value="" disabled>Nenhuma Corretora cadastrada</option>
+                                    }
+                                    else
+                                    {
+                                        @foreach (var item in Model.Brokers)
+                                        {
+                                            <option value="@item.Id">@item.Name </option>
+                                        }
+                                    }
+
+
+                                </select>
+
+
+                                <span asp-validation-for="BrokerId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="InsurerId" class="control-label">Seguradora</label>
+                            <select asp-for="InsurerId" class="form-control">
+                                <option value="" disabled selected>Selecione...</option>
+                                @if (Model.Insurers == null)
+                                {
+                                    <option value="" disabled>Nenhuma Seguradora cadastrada</option>
+                                }
+                                else
+                                {
+                                    @foreach (var item in Model.Insurers)
+                                    {
+                                        <option value="@item.Id">@item.Name </option>
+                                    }
+                                }
+                            </select>
+
+                            <span asp-validation-for="InsurerId" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                    <h5>Dados básicos:</h5>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CINumber" class="control-label">Numero de C.I</label>
+                                <input asp-for="CINumber" class="form-control" placeholder="Ex.: 00.0000.00000" />
+                                <span asp-validation-for="CINumber" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="PolicyNumber" class="control-label">Numero de Apólice</label>
+                                <input asp-for="PolicyNumber" class="form-control" placeholder="000.000.000-00" />
+                                <span asp-validation-for="PolicyNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="BonusClass" class="control-label">Classe de Bonus</label>
+                                <input asp-for="BonusClass" class="form-control "type="number" />
+                                <span asp-validation-for="BonusClass" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="BeginOfVigency" class="control-label">Início da Vigência</label>
+                                <input asp-for="BeginOfVigency" class="form-control date" type="text" value="" placeholder="DD/MM/AAAA" />
+                                <span asp-validation-for="BeginOfVigency" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="EndOfVigency" class="control-label">Término da Vigência</label>
+                                <input asp-for="EndOfVigency" class="form-control date" type="text" value="" placeholder="DD/MM/AAAA" />
+                                <span asp-validation-for="EndOfVigency" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <hr />
+                    <a class="btn btnlink-outline float-left" asp-action="Index">Voltar</a>
+                    <div class="form-row float-right">
+                        <div class="col ">
+
+
+                            <button class="btn btnlink-outline" type="reset">Limpar</button>
+                            <button class="btn breadcrumb-bgcolor   text-white" type="submit">Cadastrar Seguro</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+

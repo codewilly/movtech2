@@ -37,7 +37,7 @@ namespace movtech.MVC.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
 
 
@@ -54,9 +54,7 @@ namespace movtech.MVC.Controllers
 
                 if (await _movtechAPIService.CadastarMotorista(viewModel))
                 {
-                    ViewBag.MotoristaCadastrado = "true";
-                    var drivers = await _movtechAPIService.GetAllDrivers();
-                    return View("Index", drivers);
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -102,9 +100,7 @@ namespace movtech.MVC.Controllers
             {
                 if (await _movtechAPIService.AtualizarMotorista(viewModel.Id, viewModel))
                 {
-                    ViewBag.MotoristaEditado = "true";
-                    var drivers = await _movtechAPIService.GetAllDrivers();
-                    return View("Index", drivers);
+                    return RedirectToAction("Index");
                 }
                 else
                 {

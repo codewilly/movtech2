@@ -1,36 +1,5 @@
 ﻿@model IEnumerable<movtech.Domain.Entities.Driver>
 
-@section Scripts{
-
-    @if (ViewBag.MotoristaCadastrado == "true")
-    {
-        <script>
-            Swal.fire({
-                title: "Pronto!",
-                html: "Motorista cadastrado com sucesso!",
-                icon: 'success',
-                confirmButtonText: 'Fechar'
-            })
-        </script>
-    }
-
-    @if (ViewBag.MotoristaEditado == "true")
-    {
-        <script>
-            Swal.fire({
-                title: "Pronto!",
-                html: "Motorista editado com sucesso!",
-                icon: 'success',
-                confirmButtonText: 'Fechar'
-            })
-        </script>
-    }
-
-}
-
-
-
-
 <div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
@@ -81,8 +50,8 @@
                                             <td>@item.Phone</td>
                                             <td>@item.Email</td>
                                             <td>
-                                                <a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes" class="btn-link"><span class="fas fa-search"></span></a>
-                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-link"><span class="fas fa-pencil-alt"></span></a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes" class="btn-link"><span class="fas fa-search"></span></a>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn-link"><span class="fas fa-pencil-alt"></span></a>
                                             </td>
                                         </tr>
                                     }

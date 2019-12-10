@@ -70,7 +70,7 @@ namespace movtech.MVC.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> CreateGasStation(GasStation gs)
         {

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Security.Cryptography;
 
 namespace movtech.Infra.Repository
 {
@@ -29,7 +28,7 @@ namespace movtech.Infra.Repository
 
         public User Login(string cpf, string password)
         {
-            return  _context.Users.Where(u => u.CPF == cpf && u.Password == password).FirstOrDefault();            
+            return _context.Users.Where(u => u.CPF == cpf && u.Password == password).FirstOrDefault();
         }
 
         //private string HashPassword(string password)

@@ -24,7 +24,7 @@ namespace movtech.MVC.Controllers
 
         #endregion
 
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
             
             return View();
@@ -33,11 +33,6 @@ namespace movtech.MVC.Controllers
         public async Task<JsonResult> GetLocalizations()
         {
             var vehicles = await _movtechAPIService.GetAllVeiculos();
-
-            if (vehicles != null)
-            {
-
-            
 
             List<object> retorno = new List<object>();
 
@@ -50,11 +45,6 @@ namespace movtech.MVC.Controllers
             }
 
             return Json(retorno.ToArray());
-            }
-            else
-            {
-                return null;
-            }
 
         }
     }

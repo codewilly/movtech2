@@ -25,14 +25,7 @@ namespace movtech.Desktop.Entities
         public string Description { get; set; }
 
 
-        public override string ToString()
-        {
-
-            var _entrouSaiu = IsEntrance ? "entrou na" : "saiu da";
-
-            return $"{Driver.Name} {_entrouSaiu} garagem com o veículo de placa {Vehicle.LicensePlate} em {CreationDate}";
-
-        }
+       
 
     }
 }

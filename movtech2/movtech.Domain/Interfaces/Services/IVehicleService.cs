@@ -11,5 +11,8 @@ namespace movtech.Domain.Interfaces.Services
         Vehicle GetByLicensePlate(string lp);
 
         Task<List<Vehicle>> GetVehiclesWhoNeedsMaintenance();
+
+
+        bool SetInsurence(Insurence insurence,int vehicleId);
     }
 }

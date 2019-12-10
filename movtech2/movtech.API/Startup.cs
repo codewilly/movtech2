@@ -51,6 +51,10 @@ namespace movtech.API
             services.AddScoped<IGasStationService, GasStationService>();
             services.AddScoped<ITrafficTicketService, TrafficTicketService>();
             services.AddScoped<IMaintenanceService, MaintenanceService>();
+            services.AddScoped<IInsurenceService, InsurenceService>();
+            services.AddScoped<IInsurerService, InsurerService>();
+            services.AddScoped<IBrokerService, BrokerService>();
+            services.AddScoped<IInsurenceClaimService, InsurenceClaimService>();
             services.AddScoped<IUserService, UserService>();
 
             //Repository
@@ -62,6 +66,10 @@ namespace movtech.API
             services.AddScoped<IGasStationRepository, GasStationRepository>();
             services.AddScoped<ITrafficTicketRepository, TrafficTicketRepository>();
             services.AddScoped<IMaintenanceRepository, MaintenanceRepository>();
+            services.AddScoped<IInsurenceRepository, InsurenceRepository>();
+            services.AddScoped<IInsurerRepository, InsurerRepository>();
+            services.AddScoped<IBrokerRepository, BrokerRepository>();
+            services.AddScoped<IInsurenceClaimRepository, InsurenceClaimRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
             #endregion

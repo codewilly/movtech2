@@ -17,6 +17,58 @@ namespace movtech.Infra.Migrations
                 .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("movtech.Domain.Entities.Broker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CEP")
+                        .IsRequired()
+                        .HasMaxLength(9);
+
+                    b.Property<string>("CNPJ")
+                        .IsRequired()
+                        .HasMaxLength(18);
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150);
+
+                    b.Property<string>("Neighborhood")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<int>("Number");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(15);
+
+                    b.Property<string>("ResponsibleBroker")
+                        .IsRequired()
+                        .HasMaxLength(150);
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<int>("UF");
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("CNPJ");
+
+                    b.ToTable("Brokers");
+                });
+
             modelBuilder.Entity("movtech.Domain.Entities.Driver", b =>
                 {
                     b.Property<int>("Id")
@@ -92,7 +144,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 12, 8, 18, 53, 10, 325, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 9, 22, 33, 12, 812, DateTimeKind.Local));
 
                     b.Property<string>("Description")
                         .HasMaxLength(255);
@@ -155,6 +207,144 @@ namespace movtech.Infra.Migrations
                     b.ToTable("GasStations");
                 });
 
+            modelBuilder.Entity("movtech.Domain.Entities.Insurence", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("BeginOfVigency");
+
+                    b.Property<int>("BonusClass");
+
+                    b.Property<int?>("BrokerId");
+
+                    b.Property<string>("CINumber")
+                        .IsRequired();
+
+                    b.Property<DateTime>("EndOfVigency");
+
+                    b.Property<bool>("HasInsurenceClaim")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<int>("InsurerId");
+
+                    b.Property<string>("PolicyNumber")
+                        .IsRequired();
+
+                    b.Property<int>("VehicleId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrokerId");
+
+                    b.HasIndex("InsurerId");
+
+                    b.HasIndex("VehicleId")
+                        .IsUnique();
+
+                    b.ToTable("Insurences");
+                });
+
+            modelBuilder.Entity("movtech.Domain.Entities.InsurenceClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CEP")
+                        .IsRequired()
+                        .HasMaxLength(9);
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<int>("DriverId");
+
+                    b.Property<DateTime>("InsurenceClaimDate");
+
+                    b.Property<string>("InsurenceClaimNumber")
+                        .IsRequired();
+
+                    b.Property<int>("InsurenceClaimType");
+
+                    b.Property<int>("InsurenceId");
+
+                    b.Property<string>("Neighborhood")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<int>("Number");
+
+                    b.Property<string>("Observation");
+
+                    b.Property<string>("OccurrenceNumber")
+                        .IsRequired();
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<int>("UF");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DriverId");
+
+                    b.HasIndex("InsurenceId");
+
+                    b.ToTable("InsurenceClaims");
+                });
+
+            modelBuilder.Entity("movtech.Domain.Entities.Insurer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CEP")
+                        .IsRequired()
+                        .HasMaxLength(9);
+
+                    b.Property<string>("CNPJ")
+                        .IsRequired()
+                        .HasMaxLength(18);
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150);
+
+                    b.Property<string>("Neighborhood")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<int>("Number");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(15);
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<int>("UF");
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("CNPJ");
+
+                    b.ToTable("Insurers");
+                });
+
             modelBuilder.Entity("movtech.Domain.Entities.Maintenance", b =>
                 {
                     b.Property<int>("Id")
@@ -165,7 +355,7 @@ namespace movtech.Infra.Migrations
 
                     b.Property<DateTime>("MaintenanceDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 12, 8, 18, 53, 10, 339, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 12, 9, 22, 33, 12, 826, DateTimeKind.Local));
 
                     b.Property<bool>("OilChanged");
 
@@ -316,7 +506,9 @@ namespace movtech.Infra.Migrations
                     b.Property<bool>("InGarage")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasDefaultValue(false);
+
+                    b.Property<int?>("InsurenceId");
 
                     b.Property<DateTime>("LastMaintenanceDate");
 
@@ -383,6 +575,36 @@ namespace movtech.Infra.Migrations
                     b.HasOne("movtech.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("movtech.Domain.Entities.Insurence", b =>
+                {
+                    b.HasOne("movtech.Domain.Entities.Broker", "Broker")
+                        .WithMany()
+                        .HasForeignKey("BrokerId");
+
+                    b.HasOne("movtech.Domain.Entities.Insurer", "Insurer")
+                        .WithMany()
+                        .HasForeignKey("InsurerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("movtech.Domain.Entities.Vehicle", "Vehicle")
+                        .WithOne("Insurence")
+                        .HasForeignKey("movtech.Domain.Entities.Insurence", "VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("movtech.Domain.Entities.InsurenceClaim", b =>
+                {
+                    b.HasOne("movtech.Domain.Entities.Driver", "Driver")
+                        .WithMany()
+                        .HasForeignKey("DriverId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("movtech.Domain.Entities.Insurence", "Insurence")
+                        .WithMany()
+                        .HasForeignKey("InsurenceId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

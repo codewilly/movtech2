@@ -36,6 +36,8 @@
                                     <th>Veículo</th>
                                     <th>Custo</th>
                                     <th>Status</th>
+                                    <th>Vencimento</th>
+
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -53,20 +55,23 @@
                                             <tr>
                                                 <td><a href="@Url.Action("Details", "Drivers", new { id = item.Driver.Id })">@item.Driver.Name</a></td>
                                                 <td><a href="@Url.Action("Details", "Vehicles", new { id = item.Vehicle.Id })">@item.Vehicle.Brand</a></td>
-                                                <td>@item.Cost</td>
+                                                <td><span class="fas fa-coins btn-link">  </span>  @item.Cost</td>
                                                 <td>
 
                                                     @if (item.WasPaid)
                                                     {
-                                                        <span class="fas fa-dollar-sign text-success"></span> @item.PaymentDate.Value.ToString("dd/MMM/yy")
+                                                        <span class="fas fa-dollar-sign text-success"></span> 
                                                     }
                                                     else
                                                     {
-                                                        <span class='@(item.BilletExpiration >= DateTime.Now ? "fas fa-dollar-sign text-warning":" fas fa-dollar-sign text-danger")'></span> @item.BilletExpiration.ToString("dd/MMM/yyyy")
+                                                        <span class='@(item.BilletExpiration >= DateTime.Now ? "fas fa-dollar-sign text-warning":" fas fa-dollar-sign text-danger")'></span>
 
                                                     }
 
                                                 </td>
+                                                <td>
+                                                    @item.BilletExpiration.ToString("dd/MM/yyyy")
+                                                </td>  
                                                 <td>
 
                                                     <a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes" class="btn-link"><span class="fas fa-search"></span></a>

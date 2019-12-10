@@ -1,5 +1,7 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
+using movtech.Domain.Contracts.Insurence;
+using movtech.Domain.Contracts.InsurenceClaim;
 using movtech.Domain.Contracts.Maintenance;
 using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Contracts.TrafficTicket;
@@ -10,7 +12,9 @@ using movtech.Domain.Enums;
 using movtech.Domain.Services;
 using movtech.MVC.Services.Interface;
 using movtech.MVC.ViewModels;
+using movtech.MVC.ViewModels.Broker;
 using movtech.MVC.ViewModels.Driver;
+using movtech.MVC.ViewModels.Insurer;
 using movtech.MVC.ViewModels.TrafficTicket;
 using Newtonsoft.Json;
 using System;
@@ -340,7 +344,7 @@ namespace movtech.MVC.Services
                     new StringContent(JsonConvert.SerializeObject(id),
                     Encoding.UTF8, "application/json"));
 
-                
+
 
 
             }
@@ -348,6 +352,236 @@ namespace movtech.MVC.Services
             {
                 throw;
             }
+        }
+
+        public async Task<IEnumerable<Insurence>> GetAllInsurences()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Insurences");
+                return JsonConvert.DeserializeObject<IEnumerable<Insurence>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<Broker>> GetAllBrokers()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Brokers");
+                return JsonConvert.DeserializeObject<IEnumerable<Broker>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<Insurer>> GetAllInsurers()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Insurers");
+                return JsonConvert.DeserializeObject<IEnumerable<Insurer>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> CreateBroker(CreateBrokerViewModel viewModel)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Brokers",
+                    new StringContent(JsonConvert.SerializeObject(viewModel),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> CreateInsurer(CreateInsurerViewModel viewModel)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Insurers",
+                    new StringContent(JsonConvert.SerializeObject(viewModel),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> CreateInsurence(CreateInsurenceRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Insurences",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Insurence> GetInsurence(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Insurences/{id}");
+                return JsonConvert.DeserializeObject<Insurence>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Broker> GetBroker(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Brokers/{id}");
+                return JsonConvert.DeserializeObject<Broker>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Insurer> GetInsurer(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/Insurers/{id}");
+                return JsonConvert.DeserializeObject<Insurer>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> AtualizarSeguradora(int id, UpdateInsurerViewModel viewModel)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PutAsync($"api/v1/Insurers/{id}", new StringContent(JsonConvert.SerializeObject(viewModel),
+                    Encoding.UTF8, "application/json"));
+
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> AtualizarCorretora(int id, UpdateBrokerViewModel viewModel)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PutAsync($"api/v1/Brokers/{id}", new StringContent(JsonConvert.SerializeObject(viewModel),
+                    Encoding.UTF8, "application/json"));
+
+
+                return _message.IsSuccessStatusCode;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<InsurenceClaim> GetInsurenceClaim(int id)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/InsurenceClaims/{id}");
+                return JsonConvert.DeserializeObject<InsurenceClaim>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<InsurenceClaim>> GetAllInsurenceClaims()
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.GetAsync($"api/v1/InsurenceClaims");
+                return JsonConvert.DeserializeObject<IEnumerable<InsurenceClaim>>(await _message.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> CreateInsurenceClaim(CreateInsurenceClaimRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/InsurenceClaims",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return _message.IsSuccessStatusCode;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<User> Login(UserLoginRequest request)
+        {
+            try
+            {
+                HttpResponseMessage _message = await _client.PostAsync("api/v1/Users/login",
+                    new StringContent(JsonConvert.SerializeObject(request),
+                    Encoding.UTF8, "application/json"));
+
+                return JsonConvert.DeserializeObject<User>(await _message.Content.ReadAsStringAsync());
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+
+
         }
 
         public async Task<bool> CreateGasStation(CreateGasStationRequest request)
@@ -395,26 +629,6 @@ namespace movtech.MVC.Services
             {
                 throw;
             }
-        }
-
-        public async Task<User> Login(UserLoginRequest request)
-        {
-            try
-            {
-                HttpResponseMessage _message = await _client.PostAsync("api/v1/Users/login",
-                    new StringContent(JsonConvert.SerializeObject(request),
-                    Encoding.UTF8, "application/json"));
-
-                return JsonConvert.DeserializeObject<User>(await _message.Content.ReadAsStringAsync());
-
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-
-            
         }
     }
 }

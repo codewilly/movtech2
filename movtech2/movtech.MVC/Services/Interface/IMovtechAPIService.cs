@@ -1,5 +1,7 @@
 ﻿using movtech.Domain.Contracts.EntranceAndExit;
 using movtech.Domain.Contracts.FipeAPI;
+using movtech.Domain.Contracts.Insurence;
+using movtech.Domain.Contracts.InsurenceClaim;
 using movtech.Domain.Contracts.Maintenance;
 using movtech.Domain.Contracts.Refuel;
 using movtech.Domain.Contracts.TrafficTicket;
@@ -8,7 +10,9 @@ using movtech.Domain.Contracts.Vehicle;
 using movtech.Domain.Entities;
 using movtech.Domain.Enums;
 using movtech.MVC.ViewModels;
+using movtech.MVC.ViewModels.Broker;
 using movtech.MVC.ViewModels.Driver;
+using movtech.MVC.ViewModels.Insurer;
 using movtech.MVC.ViewModels.TrafficTicket;
 using System;
 using System.Collections.Generic;
@@ -19,11 +23,6 @@ namespace movtech.MVC.Services.Interface
 {
     public interface IMovtechAPIService
     {
-        #region Users
-
-        Task<User> Login(UserLoginRequest request);
-
-        #endregion
 
         #region Veiculos        
 
@@ -81,6 +80,54 @@ namespace movtech.MVC.Services.Interface
 
         #endregion
 
+
+
+
+
+        #region Insurences
+        Task<IEnumerable<Insurence>> GetAllInsurences();
+
+
+        Task<bool> CreateInsurence(CreateInsurenceRequest request);
+        Task<Insurence> GetInsurence(int id);
+
+        #endregion
+
+
+        #region Broker
+        Task<IEnumerable<Broker>> GetAllBrokers();
+        Task<bool> CreateBroker(CreateBrokerViewModel viewModel);
+        Task<Broker> GetBroker(int id);
+        Task<bool> AtualizarCorretora(int id, UpdateBrokerViewModel viewModel);
+        #endregion
+
+        #region Insurer
+
+        Task<bool> CreateInsurer(CreateInsurerViewModel viewModel);
+        Task<IEnumerable<Insurer>> GetAllInsurers();
+        Task<Insurer> GetInsurer(int id);
+        Task<bool> AtualizarSeguradora(int id, UpdateInsurerViewModel viewModel);
+
+        #endregion
+
+
+        #region InsurenceClaim
+        Task<bool> CreateInsurenceClaim(CreateInsurenceClaimRequest request);
+        Task<InsurenceClaim> GetInsurenceClaim(int id);
+        Task<IEnumerable<InsurenceClaim>> GetAllInsurenceClaims();
+
+
+
+
+        #endregion
+
+        #region Users
+
+        Task<User> Login(UserLoginRequest request);
+
+        #endregion
+
+
         #region Refuel and GasStations
 
         Task<bool> CreateGasStation(CreateGasStationRequest gs);
@@ -90,5 +137,6 @@ namespace movtech.MVC.Services.Interface
         Task<bool> RegisterRefuel(RegisterRefuelRequest request);
 
         #endregion
+
     }
 }

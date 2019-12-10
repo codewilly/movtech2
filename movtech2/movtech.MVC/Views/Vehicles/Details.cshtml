@@ -177,6 +177,19 @@
                                     <span class="text-success">Veiculo disponível!</span>
                                 }
                             </dd>
+                            <dt>
+                                Seguro:
+                            </dt>
+                            <dd>
+                                @if (Model.Vehicle.Insurence != null)
+                                {
+                                    <span> <a href="@Url.Action("Details", "Insurences", new { id = Model.Vehicle.InsurenceId })">Apólice: @Model.Vehicle.Insurence.PolicyNumber</a></span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger">Veículo Não possúi Seguro</span>
+                                }
+                            </dd>
                         </dl>
                     </div>
 

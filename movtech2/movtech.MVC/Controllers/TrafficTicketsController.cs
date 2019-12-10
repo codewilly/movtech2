@@ -10,6 +10,7 @@ using movtech.MVC.ViewModels.TrafficTicket;
 
 namespace movtech.MVC.Controllers
 {
+
     [Authorize]
     public class TrafficTicketsController : Controller
     {

@@ -57,9 +57,7 @@ namespace movtech.MVC.Controllers
 
                 if (await _movtechAPIService.CadastrarVeiculo(viewModel))
                 {
-                    ViewBag.VeiculoCadastrado = "true";
-                    var vehicles = await _movtechAPIService.GetAllVeiculos();
-                    return View("Index", vehicles);
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -136,9 +134,7 @@ namespace movtech.MVC.Controllers
 
                 if (await _movtechAPIService.AtualizarVeiculo(Id, viewModel))
                 {
-                    ViewBag.VeiculoEditado = "true";
-                    var vehicles = await _movtechAPIService.GetAllVeiculos();
-                    return View("Index", vehicles);
+                    return RedirectToAction("Index");
                 }
                 else
                 {

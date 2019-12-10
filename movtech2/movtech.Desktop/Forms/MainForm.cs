@@ -1,4 +1,5 @@
-﻿using System;
+﻿using movtech.Desktop.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,11 @@ namespace movtech.Desktop.Forms
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(User user)
         {
             InitializeComponent();
             OpenFormInContainer(new HomeForm());
+            labelUser.Text = user.Name.ToUpper();
         }
 
         // funcoes para podermos "arrastar" a janela pelo painel de cima ( onde esta o hamburguer e os botoes de redimensionamento)
@@ -102,5 +104,7 @@ namespace movtech.Desktop.Forms
         {
             OpenFormInContainer(new EntranceAndExitForm());
         }
+
+        
     }
 }

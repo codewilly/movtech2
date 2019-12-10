@@ -7,6 +7,7 @@ namespace movtech.Domain.Entities
 {
     public class Vehicle
     {
+        
         public int Id { get; set; }
 
         public string Brand { get; set; }
@@ -73,6 +74,22 @@ namespace movtech.Domain.Entities
 
         public bool NeedsChangeOil { get; set; }
 
+        public int? InsurenceId { get; set; }
+        public Insurence Insurence { get; set; }
+
+        public string SetInsurence(Insurence _insurence)
+        {
+            if(Insurence is null)
+            {
+                Insurence = _insurence;
+                InsurenceId = _insurence.Id;
+                return "ok";
+            }
+            else
+            {
+                return "Esse veículo ja possúi seguro";
+            }
+        }
 
         #region Contructor
 

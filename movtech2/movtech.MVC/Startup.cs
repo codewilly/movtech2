@@ -27,12 +27,12 @@ namespace MOVTech
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                                         .AddCookie(opt =>
                                         {
                                             opt.LoginPath = "/users/login";
                                         });
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -73,9 +73,7 @@ namespace MOVTech
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
             app.UseAuthentication();
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

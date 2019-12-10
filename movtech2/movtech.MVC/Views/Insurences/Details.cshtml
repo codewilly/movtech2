@@ -1,0 +1,139 @@
+﻿@model movtech.Domain.Entities.Insurence
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Insurences")'><span class="fas fa-user-tie"></span> Seguro</a></li>
+            <li class="breadcrumb-item  text-white">Detalhes</li>
+            <li class="breadcrumb-item  text-white">@Model.Vehicle.LicensePlate</li>
+
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Detalhes do Seguro</h2>
+                <p class="card-subtitle">@Model.Vehicle.Brand - <strong>@Model.Insurer.Name</strong> </p>
+            </div>
+            <div class="card-body">
+                <div class="row ">
+                    <div class="col-md-4">
+                        <h5>Dados Básicos</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Numero da Apólice
+                            </dt>
+                            <dd>
+                                @Model.PolicyNumber
+                            </dd>
+                            <dt>
+                                Numero do C.I
+                            </dt>
+                            <dd>
+                                @Model.CINumber
+                            </dd>
+                            <dt>
+                                Classe de Bônus
+                            </dt>
+                            <dd>
+                                @Model.BonusClass
+                            </dd>
+                            <dt>
+                                Início da Vigência
+                            </dt>
+                            <dd>
+                                @Model.BeginOfVigency.ToString("dd/MM/yyyy")
+                            </dd>
+
+                            <dt>
+                                Término da Vigência
+                            </dt>
+                            <dd>
+                                @Model.EndOfVigency.ToString("dd/MM/yyyy")
+                            </dd>
+                            <dt>
+                                Sinistro ?
+                            </dt>
+                            <dd>
+                                @if (Model.HasInsurenceClaim)
+                                {
+                                    <span class="text-danger">Esse Seguro ja teve sinistro</span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger">Esse Seguro Não teve sinistro</span>
+                                }
+                            </dd>
+
+
+
+
+                        </dl>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Assegurado</h5>
+                        <hr />
+
+                        <dl>
+                            <dt>
+                                Veículo
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details","Vehicles",new { id = Model.VehicleId})">@Model.Vehicle.Brand - @Model.Vehicle.Model</a>
+                            </dd>
+
+
+                        </dl>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Envolvidos</h5>
+                        <hr />
+
+                        <dl>
+                            <dt>
+                                Corretora
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details","Brokers",new { id = Model.BrokerId})">@Model.Broker.Name</a>
+
+                            </dd>
+
+                            <dt>
+                                Seguradora
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details","Insurers",new { id = Model.InsurerId})">@Model.Insurer.Name</a>
+                            </dd>
+
+
+                        </dl>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+
+
+                        <a class="btn breadcrumb-bgcolor float-right text-white" asp-action="Index"> Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

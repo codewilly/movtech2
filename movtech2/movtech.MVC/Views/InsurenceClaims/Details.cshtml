@@ -1,0 +1,145 @@
+﻿@model movtech.Domain.Entities.InsurenceClaim
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="row ">
+    <nav aria-label="breadcrumb" class="w-100">
+        <ul class="breadcrumb breadcrumb-bgcolor">
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "InsurenceClaims")'><span class="fas fa-user-tie"></span> Sinistro</a></li>
+            <li class="breadcrumb-item  text-white">Detalhes</li>
+            <li class="breadcrumb-item  text-white">@Model.Insurence.Vehicle.LicensePlate</li>
+
+        </ul>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="col-12 p-1">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Detalhes do Sinistro</h2>
+                <p class="card-subtitle">@Model.Insurence.Vehicle.Brand - <strong>@Model.Insurence.PolicyNumber</strong> </p>
+            </div>
+            <div class="card-body">
+                <div class="row ">
+                    <div class="col-md-4">
+                        <h5>Dados Básicos</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Tipo de Sinistro
+                            </dt>
+                            <dd>
+                                @Model.InsurenceClaimType
+                            </dd>
+                            <dt>
+                                Numero
+                            </dt>
+                            <dd>
+                                @Model.InsurenceClaimNumber
+                            </dd>
+                            <dt>
+                                Data
+                            </dt>
+                            <dd>
+                                @Model.InsurenceClaimDate
+                            </dd>
+                            <dt>
+                                Dados do Seguro
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details","Insurences", new { id = Model.InsurenceId })">@Model.Insurence.PolicyNumber</a>
+                            </dd>
+
+                            @if (Model.Observation.Length > 0)
+                            {
+                                <dt>
+                                    Observação
+                                </dt>
+                                <dd>
+                                   
+                                    @Model.Observation
+                                </dd>
+                            }
+
+
+
+
+
+                        </dl>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Envolvidos</h5>
+                        <hr />
+                        <dl>
+                            <dt>
+                                Motorista
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details", "Drivers", new { id = Model.DriverId })">@Model.Driver.Name  </a>
+                            </dd>
+                            <dt>
+                                Veículo
+                            </dt>
+                            <dd>
+                                <a href="@Url.Action("Details", "Vehicles", new { id = Model.Insurence.VehicleId })">@Model.Insurence.Vehicle.Brand - @Model.Insurence.Vehicle.LicensePlate</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Endereço</h5>
+                        <hr />
+
+                        <dl>
+                            <dt>
+                                CEP:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CEP)
+                            </dd>
+
+                            <dt>
+                                Rua:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Street), Nº @Html.DisplayFor(model => model.Number)
+                            </dd>
+
+                            <dt>
+                                Bairro:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Neighborhood)
+                            </dd>
+
+                            <dt>
+                                Cidade / Estado:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.City) - @Html.DisplayFor(model => model.UF)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+
+
+                        <a class="btn breadcrumb-bgcolor float-right text-white" asp-action="Index"> Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

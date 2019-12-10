@@ -15,7 +15,7 @@
             var _cep = $("#CEP").val();
 
             if (_cep.length == 9) {
-                Loading(true);
+
                 $.ajax({
                     type: "GET",
                     data: { cep: _cep },
@@ -31,12 +31,10 @@
                         $("#Neighborhood").val(json.bairro);
                         $("#City").val(json.localidade);
                         $("#UF").val(json.uf);
-                        Loading(false);
 
 
                     },
                     error: function () {
-                        Loading(false);
                         alert("Ocorreu um erro ao buscar pelo CEP")
                     }
                 });
@@ -65,7 +63,7 @@
 
             <div class="card-body">
                 <form asp-action="Edit">
-                    <input asp-for="Id" type="hidden" />
+                    <input asp-for="Id" type="hidden"/>
 
                     <div asp-validation-summary="ModelOnly" class="alert alert-danger">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">

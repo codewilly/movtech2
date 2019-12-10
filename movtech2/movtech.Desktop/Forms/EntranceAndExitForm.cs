@@ -148,7 +148,13 @@ namespace movtech.Desktop.Forms
 
         private async void EntranceAndExitForm_Load(object sender, EventArgs e)
         {
-            this.dataGridVehicle.DataSource = await _entranceAndExitsService.GetAll();
+            var lista = await _entranceAndExitsService.GetAll();
+            if(lista.Count < 1 )
+            {
+                SetStyle("Nenhuma Entrada/Saída registrada", Color.Red);
+            }
+            this.dataGridVehicle.DataSource = lista;
+            
         }
 
         private void SetStyle(string message, Color errorColor)

@@ -13,7 +13,6 @@ namespace movtech.MVC.Controllers
         public IActionResult Index()
         {
             var x = User.Identity.Name;
-            //var y = User.Identity.NameIdentifier;
             return View();
         }
     }

@@ -48,7 +48,7 @@ namespace movtech.Desktop.Entities
 
         // Maintenance
 
-        public List<Maintenance> Maintenances { get; set; }
+        
 
         public DateTime LastMaintenanceDate { get; set; }
 

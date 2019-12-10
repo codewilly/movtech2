@@ -21,12 +21,12 @@ namespace movtech.Infra.Repository
 
         public new Vehicle Get(int id)
         {
-            return _context.Vehicles.Where(d => d.Id == id).Include(v => v.Driver).FirstOrDefault();
+            return _context.Vehicles.Where(d => d.Id == id).Include(v => v.Driver).Include(p => p.Insurence).FirstOrDefault();
         }
 
         public new IEnumerable<Vehicle> GetAll()
         {
-            return _context.Vehicles.Include(v => v.Driver);
+            return _context.Vehicles.Include(v => v.Driver).Include(p => p.Insurence);
         }
 
         public Vehicle GetByLicensePlate(string lp)

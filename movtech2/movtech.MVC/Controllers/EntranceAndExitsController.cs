@@ -53,10 +53,7 @@ namespace movtech.MVC.Controllers
                 return View("Index", viewModel);
             }
 
-            ViewBag.SaidaSucesso = "true";
-
-            viewModel.EntradasSaidas = await _movtechAPIService.GetAllEntranceAndExit();
-            return View("Index", viewModel);
+            return RedirectToAction("Index");
         }
         
         public async Task<IActionResult> Entrance(IndexEntranceAndExitViewModel viewModel)
@@ -76,10 +73,7 @@ namespace movtech.MVC.Controllers
                 return View("Index", viewModel);
             }
 
-            ViewBag.EntradaSucesso = "true";
-
-            viewModel.EntradasSaidas = await _movtechAPIService.GetAllEntranceAndExit();
-            return View("Index", viewModel);
+            return RedirectToAction("Index");
         }
     }
 }

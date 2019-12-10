@@ -1,4 +1,7 @@
-﻿using System;
+﻿using movtech.Desktop.Contracts;
+using movtech.Desktop.Entities;
+using movtech.Desktop.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,32 +15,45 @@ namespace movtech.Desktop.Forms
 {
     public partial class AuthenticationForm : Form
     {
+        UserService _userService;
         public AuthenticationForm()
         {
             InitializeComponent();
+
+            _userService = new UserService();
+
         }
 
-        private void ButtonSingIn_Click(object sender, EventArgs e)
+        private async void ButtonSingIn_Click(object sender, EventArgs e)
         {
-            if (textLogin.Text == "teste" && textPassword.Text == "teste")
-            {
-
-
-                this.Visible = false;
-
-                var main = new MainForm();
-                main.Visible = true;
-            }
-            else if (textLogin.Text.Length == 0 || textPassword.Text.Length == 0)
+            if (!maskedTextCPFLogin.MaskCompleted  || textPassword.Text.Length == 0)
             {
                 labelFail.Text = "Digite seu login e senha";
                 labelFail.Visible = true;
             }
-            else
+            UserLoginRequest _request = new UserLoginRequest()
             {
-                labelFail.Text = "Login ou Senha Incorretos";
+                CPF = maskedTextCPFLogin.Text,
+                Password = textPassword.Text
+            };
+            User user = await _userService.Login(_request);
+
+            if(user == null)
+            {
+                labelFail.Text = "Usuário ou Senha incorretos";
                 labelFail.Visible = true;
             }
+            else
+            {
+                Form form = new MainForm(user);
+                this.Hide();
+                form.Visible = true;
+            }
+
+
+           
+           
+           
 
 
 

@@ -19,9 +19,13 @@ namespace movtech.Infra.EntityConfig
             builder.Property(p => p.Renavam).HasMaxLength(11).IsRequired();
             builder.Property(p => p.Brand).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Model).HasMaxLength(256).IsRequired();
-            builder.Property(p => p.InGarage).HasColumnType("bit").HasDefaultValue(true);            
+            builder.Property(p => p.InGarage).HasColumnType("bit").HasDefaultValue(false);            
+
+            
 
             builder.HasOne(p => p.Driver).WithOne(p => p.Vehicle).HasForeignKey<Vehicle>(p => p.DriverId).IsRequired(false);
+
+            builder.HasOne(p => p.Insurence).WithOne(p => p.Vehicle).HasForeignKey<Vehicle>(p => p.InsurenceId).IsRequired(false);
         }
     }
 }
