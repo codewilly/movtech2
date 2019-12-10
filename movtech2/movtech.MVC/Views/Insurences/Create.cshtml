@@ -108,7 +108,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="CINumber" class="control-label">Numero de C.I</label>
-                                <input asp-for="CINumber" class="form-control" placeholder="Ex.: 00.0000.00000" />
+                                <input asp-for="CINumber" class="form-control" type="number" placeholder="Ex.: 00.0000.00000" />
                                 <span asp-validation-for="CINumber" class="text-danger"></span>
                             </div>
 
@@ -116,7 +116,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="PolicyNumber" class="control-label">Numero de Apólice</label>
-                                <input asp-for="PolicyNumber" class="form-control" placeholder="000.000.000-00" />
+                                <input asp-for="PolicyNumber" class="form-control" type="number" placeholder="000.000.000-00" />
                                 <span asp-validation-for="PolicyNumber" class="text-danger"></span>
                             </div>
                         </div>

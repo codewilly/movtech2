@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {}
+    "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
+    "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
         "projectName": "movtech.Domain",
-        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
-        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj",
+        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -68,27 +63,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {
+    "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
         "projectName": "movtech.MVC",
-        "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
-        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.MVC\\obj\\",
+        "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.MVC\\movtech.MVC.csproj",
+        "packagesPath": "C:\\Users\\Marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.MVC\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -100,8 +90,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
-                "projectPath": "C:\\Developer\\Git\\Michael\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj"
+              "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj": {
+                "projectPath": "C:\\Users\\Marco\\Desktop\\MOVTECH New\\movtech2\\movtech2\\movtech.Domain\\movtech.Domain.csproj"
               }
             }
           }
@@ -147,7 +137,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -63,8 +63,12 @@ body {
 a.ancor-color {
     color: #f00f00 !important;
 }
-
-
+.border-custom {
+    border-color: #577399 !important
+}
+.text-custom {
+    color: #577399 !important
+}
 .btn-link {
     margin: 0 4px;
     color: #577399 !important;
