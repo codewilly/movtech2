@@ -25,7 +25,18 @@ $(document).ready(function () {
             }
         };
 
+    var cnpjOptions = {
 
+        onComplete: function (val, e, f, invalid, options) {
+            if (!ValidarCNPJ(val)) {
+                WarningAlert("CNPJ inválido", "");
+                f.val('');
+            }
+        },
+        reverse: true,
+        clearIfNotMatch: true
+
+    };
     var cpfOptions = {
 
         onComplete: function (val, e, f, invalid, options) {
@@ -52,6 +63,7 @@ $(document).ready(function () {
 
     $('.phone').mask(SPMaskBehavior, spOptions);
     $('.cpf').mask('000.000.000-00', cpfOptions);
+    $('.cnpj').mask('00.000.000/0000-00', cnpjOptions);
     $('.cnh_categoria').mask('SSSSS');
     $('.houseNumber').mask('00000');
     $('.date').mask('00/00/0000', dateOptions);
@@ -125,4 +137,56 @@ function WarningAlert(title, text) {
         icon: 'warning',
         confirmButtonText: 'Ok'
     })
+}
+
+function ValidarCNPJ(cnpj) {
+    cnpj = cnpj.replace(/[^\d]+/g, '');
+
+    if (cnpj == '') return false;
+
+    if (cnpj.length != 14)
+        return false;
+
+    // Elimina CNPJs invalidos conhecidos
+    if (cnpj == "00000000000000" ||
+        cnpj == "11111111111111" ||
+        cnpj == "22222222222222" ||
+        cnpj == "33333333333333" ||
+        cnpj == "44444444444444" ||
+        cnpj == "55555555555555" ||
+        cnpj == "66666666666666" ||
+        cnpj == "77777777777777" ||
+        cnpj == "88888888888888" ||
+        cnpj == "99999999999999")
+        return false;
+
+    // Valida DVs
+    tamanho = cnpj.length - 2
+    numeros = cnpj.substring(0, tamanho);
+    digitos = cnpj.substring(tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(0))
+        return false;
+
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0, tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(1))
+        return false;
+
+    return true;
 }

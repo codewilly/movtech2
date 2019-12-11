@@ -33,7 +33,10 @@
                                 Tipo de Sinistro
                             </dt>
                             <dd>
-                                @Model.InsurenceClaimType
+                                @(Model.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.Colision ? "Colisão" :
+                                             Model.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.Theft ? "Roubo" :
+                                             Model.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.DamageToThrirdParties ? "Danos a Terceiros " :
+                                             Model.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.NaturalCause ? "Causas Naturais " : "Outros")
                             </dd>
                             <dt>
                                 Numero
@@ -54,7 +57,7 @@
                                 <a href="@Url.Action("Details","Insurences", new { id = Model.InsurenceId })">@Model.Insurence.PolicyNumber</a>
                             </dd>
 
-                            @if (Model.Observation.Length > 0)
+                            @if (Model.Observation != null)
                             {
                                 <dt>
                                     Observação

@@ -65,9 +65,16 @@
                                         <tr>
                                             <td><a href="@Url.Action("Details", "Vehicles", new { id =  item.Insurence.VehicleId})"> @item.Insurence.Vehicle.Brand - @item.Insurence.Vehicle.LicensePlate </a></td>
                                             <td><a href="@Url.Action("Details", "Drivers", new { id =  item.DriverId})"> @item.Driver.Name </a></td>
-                                            <td>@item.InsurenceClaimDate</td>
+                                            <td>@item.InsurenceClaimDate.ToString("dd/MM/yyyy")</td>
                                             <td><a href="@Url.Action("Details", "Insurences", new { id =  item.InsurenceId})"> @item.Insurence.PolicyNumber </a></td>
-                                            <td>@item.InsurenceClaimType</td>
+                                            <td>
+                                               
+                                              @(item.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.Colision ? "Colisão" :
+                                              item.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.Theft ? "Roubo" :
+                                              item.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.DamageToThrirdParties ? "Danos a Terceiros " :
+                                              item.InsurenceClaimType == movtech.Domain.Enums.InsurenceClaimType.NaturalCause ? "Causas Naturais " : "Outros")
+
+                                            </td>
 
                                             <td><a asp-action="Details" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Detalhes" class="btn-link"><span class="fas fa-search"></span></a> </td>
 

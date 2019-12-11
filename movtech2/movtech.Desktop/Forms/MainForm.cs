@@ -17,7 +17,7 @@ namespace movtech.Desktop.Forms
         public MainForm(User user)
         {
             InitializeComponent();
-            OpenFormInContainer(new HomeForm());
+            OpenFormInContainer(new EntranceAndExitForm());
             labelUser.Text = user.Name.ToUpper();
         }
 
@@ -88,16 +88,15 @@ namespace movtech.Desktop.Forms
 
 
 
-        private void ButtonHome_Click(object sender, EventArgs e)
-        {
-            OpenFormInContainer(new HomeForm());
-        }
+       
 
 
 
         private void ButtonExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Dispose();
+            Form formlogin = new AuthenticationForm();
+            formlogin.Visible = true;
         }
 
         private void ButtonEntranceAndExit_Click(object sender, EventArgs e)

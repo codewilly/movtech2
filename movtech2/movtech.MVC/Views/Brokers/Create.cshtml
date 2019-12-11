@@ -49,7 +49,7 @@
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
             <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Insurences")'><span class="fas fa-user-tie"></span> Seguros</a></li>
-            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Brokers")'><span class="fas fa-user-tie"></span> Corretoras</a></li>
+            <li class="breadcrumb-item  text-white"><a href='@Url.Action("Index", "Brokers")'><span class="fas fa-store-alt"></span> Corretoras</a></li>
             <li class="breadcrumb-item  text-white">Cadastrar</li>
         </ul>
     </nav>
@@ -79,7 +79,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="CNPJ" class="control-label">CNPJ</label>
-                                <input asp-for="CNPJ" class="form-control" placeholder="Ex.: 00.000.000/0000-00" />
+                                <input asp-for="CNPJ" class="form-control cnpj" placeholder="Ex.: 00.000.000/0000-00" />
                                 <span asp-validation-for="CNPJ" class="text-danger"></span>
                             </div>
 

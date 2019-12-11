@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelFail = new System.Windows.Forms.Label();
             this.maskedTextCPFLogin = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -42,7 +43,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
-            this.label1.Location = new System.Drawing.Point(42, 138);
+            this.label1.Location = new System.Drawing.Point(42, 207);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 29);
             this.label1.TabIndex = 0;
@@ -53,7 +54,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
-            this.label2.Location = new System.Drawing.Point(42, 210);
+            this.label2.Location = new System.Drawing.Point(33, 269);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 29);
             this.label2.TabIndex = 2;
@@ -64,7 +65,7 @@
             this.textPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPassword.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textPassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textPassword.Location = new System.Drawing.Point(159, 215);
+            this.textPassword.Location = new System.Drawing.Point(155, 269);
             this.textPassword.Name = "textPassword";
             this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(215, 29);
@@ -76,7 +77,7 @@
             this.buttonSingIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSingIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSingIn.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSingIn.Location = new System.Drawing.Point(117, 298);
+            this.buttonSingIn.Location = new System.Drawing.Point(117, 350);
             this.buttonSingIn.Name = "buttonSingIn";
             this.buttonSingIn.Size = new System.Drawing.Size(215, 58);
             this.buttonSingIn.TabIndex = 4;
@@ -89,17 +90,17 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
-            this.label3.Location = new System.Drawing.Point(129, 68);
+            this.label3.Location = new System.Drawing.Point(100, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 29);
+            this.label3.Size = new System.Drawing.Size(279, 29);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Autentique - se";
+            this.label3.Text = "Bem Vindo ao MOVTech";
             // 
             // labelFail
             // 
             this.labelFail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFail.ForeColor = System.Drawing.Color.Red;
-            this.labelFail.Location = new System.Drawing.Point(47, 264);
+            this.labelFail.Location = new System.Drawing.Point(32, 316);
             this.labelFail.Name = "labelFail";
             this.labelFail.Size = new System.Drawing.Size(369, 31);
             this.labelFail.TabIndex = 6;
@@ -112,17 +113,28 @@
             this.maskedTextCPFLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.maskedTextCPFLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.maskedTextCPFLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
-            this.maskedTextCPFLogin.Location = new System.Drawing.Point(155, 140);
+            this.maskedTextCPFLogin.Location = new System.Drawing.Point(151, 209);
             this.maskedTextCPFLogin.Mask = "000,000,000-00";
             this.maskedTextCPFLogin.Name = "maskedTextCPFLogin";
             this.maskedTextCPFLogin.Size = new System.Drawing.Size(219, 29);
             this.maskedTextCPFLogin.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(55)))), ((int)(((byte)(77)))));
+            this.label4.Image = global::movtech.Desktop.Properties.Resources.mov;
+            this.label4.Location = new System.Drawing.Point(59, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(342, 114);
+            this.label4.TabIndex = 10;
             // 
             // AuthenticationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 436);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.maskedTextCPFLogin);
             this.Controls.Add(this.labelFail);
             this.Controls.Add(this.label3);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelFail;
         private System.Windows.Forms.MaskedTextBox maskedTextCPFLogin;
+        private System.Windows.Forms.Label label4;
     }
 }

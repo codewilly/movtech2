@@ -6,7 +6,7 @@
 <div class="row ">
     <nav aria-label="breadcrumb" class="w-100">
         <ul class="breadcrumb breadcrumb-bgcolor">
-            <li class="breadcrumb-item  text-white"><span class="fas fa-car-side"></span> Seguros</li>
+            <li class="breadcrumb-item  text-white"><span class="fas fa-file-contract"></span> Seguros</li>
         </ul>
     </nav>
 </div>
@@ -23,14 +23,31 @@
             <div class="card-body">
 
                 <div class="row text-center">
-                    <div class="col-4">
-                        <a href='@Url.Action("Index", "Insurers")' class="btn breadcrumb-bgcolor btn-sm  text-white"><span class="fas fa-plus"></span> Seguradoras</a>
+                    <div class="col-md-6">
+                        <div class="card text-center  border-0">
+
+                            <div class="card-body  p-0">
+                                <h5 class="card-title">Seguradoras</h5>
+                                <p class="card-text">Visualize e Gerencie as Seguradoas</p>
+                                <a href='@Url.Action("Index", "Insurers")' class=" btn btnlink-outline"><span class="fas fa-arrow-circle-right"></span> Acesse</a>
+                            </div>
+
+                        </div>
+                        
                     </div>
-                    <div class="col-4">
-                        <a href='@Url.Action("Index", "Brokers")' class="btn breadcrumb-bgcolor btn-sm text-center text-white"><span class="fas fa-plus"></span> Corretoras</a>
+                    <div class="col-md-6">
+                        <div class="card text-center border-0">
+                            <div class="card-body  p-0 ">
+                                <h5 class="card-title">Corretoras</h5>
+                                <p class="card-text">Visualize e Gerencie as Corretoras</p>
+                                <a href='@Url.Action("Index", "Brokers")' class=" btn btnlink-outline"><span class="fas fa-arrow-circle-right"></span> Acesse</a>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="col-4">
-                        <a href='@Url.Action("Create", "Insurences")' class="btn breadcrumb-bgcolor btn-sm  text-white"><span class="fas fa-plus"></span> Cadastrar Seguro</a>
+                    <hr class="border border-info border-custom w-100 " />
+                    <div class="col-12">
+                        <a href='@Url.Action("Create", "Insurences")' class="btn breadcrumb-bgcolor btn-sm  text-white float-right"><span class="fas fa-plus"></span> Cadastrar Seguro</a>
                     </div>
 
 
@@ -67,9 +84,9 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td><a href="@Url.Action("Details", "Vehicles", new { id =  item.VehicleId})"> @item.Vehicle.Brand - @item.Vehicle.LicensePlate </a></td>
-                                            <td>@item.BeginOfVigency</td>
-                                            <td>@item.EndOfVigency</td>
+                                            <td><a href="@Url.Action("Details", "Vehicles", new { id = item.VehicleId })"> @item.Vehicle.Brand - @item.Vehicle.LicensePlate </a></td>
+                                            <td>@item.BeginOfVigency.ToString("dd/MM/yyyy")</td>
+                                            <td><span class=" @(item.EndOfVigency > DateTime.Now? "text-success fas fa-arrow-up" :  "text-danger fas fa-arrow-down")"></span>   @item.EndOfVigency.ToString("dd/MM/yyyy")</td>
                                             <td>@item.PolicyNumber</td>
                                             <td><a href="@Url.Action("Details", "Insurers", new { id =  item.InsurerId})"> @item.Insurer.Name</td>
 
