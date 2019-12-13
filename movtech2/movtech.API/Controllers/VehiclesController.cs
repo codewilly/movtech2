@@ -166,7 +166,10 @@ namespace movtech.API.Controllers
                         LastMaintenanceDate = DateTime.Now,
                         LastMaintenanceKms = vehicleModel.Quilometers,
                         LastOilChangeKms = vehicleModel.Quilometers,
-                        LastTireChangeKms = vehicleModel.Quilometers,                        
+                        LastTireChangeKms = vehicleModel.Quilometers,
+
+                        Latitude = -23.2244076,
+                        Longitude = -45.902704,
 
                     };
 

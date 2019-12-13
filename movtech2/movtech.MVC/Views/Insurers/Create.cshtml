@@ -17,7 +17,7 @@
             var _cep = $("#CEP").val();
 
             if (_cep.length == 9) {
-
+                Loading(true);
                 $.ajax({
                     type: "GET",
                     data: { cep: _cep },
@@ -33,10 +33,11 @@
                         $("#Neighborhood").val(json.bairro);
                         $("#City").val(json.localidade);
                         $("#UF").val(json.uf);
-
+                        Loading(false);
 
                     },
                     error: function () {
+                        Loading(false);
                         alert("Ocorreu um erro ao buscar pelo CEP")
                     }
                 });
@@ -79,7 +80,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="CNPJ" class="control-label">CNPJ</label>
-                                <input asp-for="CNPJ" class="form-control cnpj" placeholder="Ex.: 00.000.000/0000-00" />
+                                <input asp-for="CNPJ" class="form-control cnpj" placeholder="Ex.: 00.000.000/0000-00" required/>
                                 <span asp-validation-for="CNPJ" class="text-danger"></span>
                             </div>
 
@@ -87,7 +88,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="Name" class="control-label">Nome da Seguradora</label>
-                                <input asp-for="Name" class="form-control" placeholder="Porto Seguro" />
+                                <input asp-for="Name" class="form-control" placeholder="Ex.: Porto Seguro" required/>
                                 <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
                         </div>
@@ -100,14 +101,14 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label asp-for="Email" class="control-label">E-Mail</label>
-                                <input asp-for="Email" class="form-control" placeholder="Ex.: mereceum10@mail.com" />
+                                <input asp-for="Email" type="email" class="form-control" placeholder="Ex.: mereceum10@mail.com" required/>
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label asp-for="Phone" class="control-label">Telefone</label>
-                                <input asp-for="Phone" class="form-control phone" placeholder="(00) 00000-0000" />
+                                <input asp-for="Phone" class="form-control phone" placeholder="(00) 00000-0000" required />
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
                         </div>
@@ -206,7 +207,7 @@
 
 
                             <button class="btn btnlink-outline" type="reset">Limpar</button>
-                            <button class="btn breadcrumb-bgcolor   text-white" type="submit">Cadastrar Seguro</button>
+                            <button class="btn breadcrumb-bgcolor   text-white" type="submit">Cadastrar Seguradora</button>
                         </div>
                     </div>
 

@@ -129,7 +129,6 @@ C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\bin\Debug\System.Runt
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csprojAssemblyReference.cache
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.AuthenticationForm.resources
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.EntranceAndExitForm.resources
-C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.HomeForm.resources
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Forms.MainForm.resources
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.Properties.Resources.resources
 C:\Developer\Git\Michael\movtech2\movtech2\movtech.Desktop\obj\Debug\movtech.Desktop.csproj.GenerateResource.cache

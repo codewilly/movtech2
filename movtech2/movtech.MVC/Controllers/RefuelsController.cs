@@ -105,14 +105,26 @@ namespace movtech.MVC.Controllers
             var listaPostos = new List<SelectListItem>();
             var postos = await _movtechAPIService.GetGasStations();
 
-            postos.ToList().ForEach(p =>
+            if (postos != null)
+            {
+                postos.ToList().ForEach(p =>
+                {
+                    listaPostos.Add(new SelectListItem()
+                    {
+                        Text = p.Name,
+                        Value = p.CNPJ
+                    });
+                });
+            }
+            else
             {
                 listaPostos.Add(new SelectListItem()
                 {
-                    Text = p.Name,
-                    Value = p.CNPJ
+                    Text = "Não há postos cadastrados!",
+                    Value = "",
+                    Disabled = true
                 });
-            });
+            }        
 
             return listaPostos;
         }

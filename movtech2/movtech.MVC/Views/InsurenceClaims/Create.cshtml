@@ -18,7 +18,7 @@
             var _cep = $("#CEP").val();
 
             if (_cep.length == 9) {
-
+                Loading(true);
                 $.ajax({
                     type: "GET",
                     data: { cep: _cep },
@@ -34,10 +34,11 @@
                         $("#Neighborhood").val(json.bairro);
                         $("#City").val(json.localidade);
                         $("#UF").val(json.uf);
-
+                        Loading(false);
 
                     },
                     error: function () {
+                        Loading(false);
                         alert("Ocorreu um erro ao buscar pelo CEP")
                     }
                 });

@@ -22,7 +22,7 @@
             <div class="card-body">
                 <form asp-action="PerformMaintenance">
 
-                    <input type="text" asp-for="VehicleId" />
+                    <input type="hidden" asp-for="VehicleId" />
 
                     <div class="row">
 
@@ -49,7 +49,7 @@
                             <hr />
                             <div class="form-group">
                                 <label asp-for="Cost">Custo Total:</label>
-                                <input type="tel" class="form-control" asp-for="Cost" placeholder="R$ 0,00">
+                                <input type="tel" class="form-control" asp-for="Cost" placeholder="R$ 0,00" required>
                             </div>
 
 
@@ -57,7 +57,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label asp-for="OperationDescription">Descrição da Operação</label>
-                                <textarea class="form-control" asp-for="OperationDescription" rows="7" placeholder="Ex.: Troca do carburador e troca de óleo."></textarea>
+                                <textarea required class="form-control" asp-for="OperationDescription" rows="7" placeholder="Ex.: Troca do carburador e troca de óleo."></textarea>
                             </div>
                         </div>
                     </div>

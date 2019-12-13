@@ -208,7 +208,7 @@ namespace movtech.Infra.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    MaintenanceDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 12, 9, 22, 33, 12, 826, DateTimeKind.Local)),
+                    MaintenanceDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 12, 12, 18, 55, 43, 609, DateTimeKind.Local)),
                     VehicleId = table.Column<int>(nullable: false),
                     Cost = table.Column<decimal>(type: "decimal(10, 2)", nullable: false),
                     PreventivaOrCorretiva = table.Column<bool>(nullable: false),
@@ -233,7 +233,7 @@ namespace movtech.Infra.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 12, 9, 22, 33, 12, 812, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2019, 12, 12, 18, 55, 43, 592, DateTimeKind.Local)),
                     VehicleId = table.Column<int>(nullable: false),
                     DriverId = table.Column<int>(nullable: false),
                     VehicleKms = table.Column<float>(nullable: false),
